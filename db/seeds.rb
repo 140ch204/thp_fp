@@ -86,3 +86,15 @@ projects.each do |project|
 	end
 end
 puts "#{counterpart_count} counterparts created."
+
+Donation.destroy_all
+donation_count = 0
+100.times do
+	Donation.create(
+		counterpart_id: Counterpart.all.sample.id,
+		organization_id: Organization.all.sample.id,
+		donation_amount: rand(5..10000),
+		)
+	donation_count += 1
+end
+puts "#{donation_count} donations created."
