@@ -13,5 +13,32 @@ user_array = []
 	user_array << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
   user_count += 1
 end
-puts "#{user_count} users created"
+puts "#{user_count} users created."
 
+Organization.destroy_all
+company_count = 0
+association_count = 0
+10.times do
+	Organization.create(
+		name: Faker::Company.name,
+		description: Faker::Company.catch_phrase,
+		category: Faker::Company.type,
+		logo_url: Faker::Company.logo,
+		siret: Faker::Company.french_siret_number,
+		is_association: false,
+		is_company: true)
+	company_count += 1
+end
+10.times do
+	Organization.create(
+		name: Faker::Company.name,
+		description: Faker::Company.catch_phrase,
+		category: Faker::Company.type,
+		logo_url: "https://assoangels.com/wp-content/uploads/elementor/thumbs/logo-assoangels-300-124-1-1-o4hpxy1esx73pjdbtvjlqvntt8itx1j1w5k3edklq8.png",
+		siret: Faker::Company.french_siret_number,
+		is_association: true,
+		is_company: false)
+	association_count += 1
+end
+puts "#{company_count} companies created."
+puts "#{association_count} associations created."
