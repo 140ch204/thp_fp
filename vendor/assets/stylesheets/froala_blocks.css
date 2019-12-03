@@ -1244,9 +1244,11 @@ p {
     width: 100%; }
 
 footer {
+  position: absolute;
+  bottom: 70px;
   padding: 1.875rem 0 !important; }
   footer.footer-large {
-    padding: 6.25rem 0 !important; }
+    padding: 2.25rem 0 !important; }
   footer .flex-column .nav-link {
     padding-left: 0; }
   footer.bg-dark {
@@ -1260,9 +1262,9 @@ footer {
 header {
   background-color: #FFFFFF; }
   header .navbar-nav a.nav-link {
-    color: #777; }
+    color: #329ef7; }
     header .navbar-nav a.nav-link:hover {
-      color: #329ef7; }
+      color: #dc3545; }
   header .navbar-nav .active a.nav-link {
     color: #444444; }
   header .navbar-toggler-icon {
@@ -1288,3 +1290,9 @@ header + header {
 .bg-gray {
   background-color: #f4f7fe;
   color: #444444; }
+
+  footer.footer-small{
+    position: fixed;
+    bottom: 0cm;
+    width: 100%;
+  }
