@@ -5,7 +5,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :category
       t.string :logo_url
-      t.integer :siret
+      t.string :siret
       t.boolean :is_association
       t.boolean :is_company
 

@@ -35,7 +35,7 @@ end
 		description: Faker::Company.catch_phrase,
 		category: Faker::Company.type,
 		logo_url: "https://assoangels.com/wp-content/uploads/elementor/thumbs/logo-assoangels-300-124-1-1-o4hpxy1esx73pjdbtvjlqvntt8itx1j1w5k3edklq8.png",
-		siret: Faker::Company.french_siret_number,
+		RNA: Faker::Company.french_siret_number,
 		is_association: true,
 		is_company: false)
 	association_count += 1
