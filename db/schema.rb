@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_133310) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.bigint "city_id"
     t.string "name"
     t.text "description"
     t.string "category"
@@ -79,12 +78,10 @@ ActiveRecord::Schema.define(version: 2019_12_03_133310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "RNA"
-    t.index ["city_id"], name: "index_organizations_on_city_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.bigint "organization_id"
-    t.bigint "city_id"
     t.string "name"
     t.text "description"
     t.string "logo_url"
@@ -94,7 +91,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_133310) do
     t.datetime "updated_at", null: false
     t.datetime "donation_start"
     t.datetime "donation_end"
-    t.index ["city_id"], name: "index_projects_on_city_id"
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end
 

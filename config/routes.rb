@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/design', to: 'static_pages#show'
   resources :static_pages
   resources :charges
+  resources :users, only: [:show]
 end
