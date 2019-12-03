@@ -45,10 +45,10 @@ puts "#{association_count} associations created."
 Admin.destroy_all
 organizations = Organization.all
 admin_count = 0
-20.times do
+organizations.each do |org|
 	Admin.create(
 		user_id: User.all.sample.id,
-		organization_id: organizations[admin_count])
+		organization_id: org.id)
 	admin_count += 1
 end
 20.times do
@@ -58,3 +58,17 @@ end
 	admin_count += 1
 end
 puts "#{admin_count} admins created."
+
+Project.destroy_all
+project_count = 0
+25.times do
+	Project.create(
+		organization_id: Organization.all.sample.id,
+		name: Faker::Company.buzzword,
+		description: Faker::Company.catch_phrase,
+		logo_url: Faker::Avatar.image,
+		starting_date: Faker::Date.forward(days: 500),
+		donation_targeted: rand(100..100000))
+	project_count += 1
+end
+puts "#{project_count} projects created."
