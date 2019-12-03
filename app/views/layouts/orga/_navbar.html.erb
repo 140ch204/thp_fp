@@ -25,11 +25,11 @@
           </li>
 
           <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: root_path() , color: "primary"} %> <br/>
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
           </li>
 
           <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: root_path() , color: "outline-primary"} %><br/>
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-primary"} %><br/>
           </li>
 
           <li class="nav-item">
@@ -37,7 +37,7 @@
           </li>
 
           <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: root_path() , color: "outline-primary"} %><br/>
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-primary", methods: "delete"} %><br/>
           </li>
 
         </ul>
