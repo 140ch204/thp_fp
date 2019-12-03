@@ -8,10 +8,9 @@
 
 User.destroy_all
 user_count = 0
-user_array = []
 10.times do
-	user_array << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
-  user_count += 1
+	User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
+	user_count += 1
 end
 puts "#{user_count} users created."
 
@@ -42,3 +41,20 @@ end
 end
 puts "#{company_count} companies created."
 puts "#{association_count} associations created."
+
+Admin.destroy_all
+organizations = Organization.all
+admin_count = 0
+20.times do
+	Admin.create(
+		user_id: User.all.sample.id,
+		organization_id: organizations[admin_count])
+	admin_count += 1
+end
+20.times do
+	Admin.create(
+		user_id: User.all.sample.id,
+		organization_id: Organization.all.sample.id)
+	admin_count += 1
+end
+puts "#{admin_count} admins created."
