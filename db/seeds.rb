@@ -6,10 +6,41 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Country.destroy_all
+Country.create(country_name: "France")
+puts "1 country created."
+
+Department.destroy_all
+department_count = 0
+20.times do
+	Department.create(
+		country_id: "1",
+		department_name: Faker::Address.community,
+		zip_code: Faker::Address.zip_code,
+		region: Faker::Address.state)
+	department_count += 1
+end
+puts "#{department_count} departments created."
+
+City.destroy_all
+city_count = 0
+30.times do
+	City.create(
+		department_id: Department.all.sample.id,
+		city_name: Faker::Address.city)
+	city_count += 1
+end
+puts "#{city_count} cities created."
+
 User.destroy_all
 user_count = 0
 10.times do
-	User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
+	User.create(
+		city_id: City.all.sample.id,
+		first_name: Faker::Name.first_name,
+		last_name: Faker::Name.last_name,
+		email: Faker::Internet.email,
+		password: Faker::Internet.password)
 	user_count += 1
 end
 puts "#{user_count} users created."
@@ -19,6 +50,7 @@ company_count = 0
 association_count = 0
 10.times do
 	Organization.create(
+		city_id: City.all.sample.id,
 		name: Faker::Company.name,
 		description: Faker::Company.catch_phrase,
 		category: Faker::Company.type,
@@ -30,6 +62,7 @@ association_count = 0
 end
 10.times do
 	Organization.create(
+		city_id: City.all.sample.id,		
 		name: Faker::Company.name,
 		description: Faker::Company.catch_phrase,
 		category: Faker::Company.type,
@@ -63,6 +96,7 @@ Project.destroy_all
 project_count = 0
 25.times do
 	Project.create(
+		city_id: City.all.sample.id,
 		organization_id: Organization.all.sample.id,
 		name: Faker::Company.buzzword,
 		description: Faker::Company.catch_phrase,

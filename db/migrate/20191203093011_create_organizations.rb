@@ -1,6 +1,7 @@
 class CreateOrganizations < ActiveRecord::Migration[5.2]
   def change
     create_table :organizations do |t|
+      t.belongs_to :city, index: true
       t.string :name
       t.text :description
       t.string :category

@@ -34,7 +34,8 @@
 
 </div>
 
-<h1>Hello, Angels</h1>
+        
+        <h1>Hello, Angels</h1>
         <br>
         <h2>Navbar</h2>
         <header>
@@ -128,7 +129,23 @@
                     </nav>
                 </div>
                 <br>
-
+<section>
+                    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <h1>Hello, world!</h1>
+            <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+        <div class="col-xs-2">
+            <img class="img-responsive" src="https://cdn.pixabay.com/photo/2017/10/01/18/47/trimaran-2806616_1280.jpg" alt="">
+        </div>
+        </div>
+    </div>
+    </div>
+</section>
             <!-- Buttons -->
             <section>
             <div class="mt-4">
@@ -449,75 +466,120 @@
 
         <br>
             <h2>Forms</h2>
-            <div class="row align-items-center">
-                        <div class="col mt-4">
-                        <input type="text" class="form-control" placeholder="Company Name">
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col">
-                        <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="row align-items-center mt-4">
-                        <div class="col">
-                        <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="col">
-                        <input type="password" class="form-control" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    </div>
-                        <button class="btn btn-primary mt-4">Submit</button>
-                    </div>
-                    <br>
-                    <br>
+
                     <h3>Forms examples</h3>
-                <section class="fdb-block">
+                    <section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/49/rdd0.png);">
                         <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
-                            <div class="row">
-                                <div class="col text-center">
-                                <h1>Register</h1>
-                                <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia. </p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col mt-4">
-                                <input type="text" class="form-control" placeholder="Company Name">
-                                </div>
-                            </div>
-                            <div class="row align-items-center mt-4">
+                            <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+                            <div class="fdb-box">
+                                <div class="row">
                                 <div class="col">
-                                <input type="email" class="form-control" placeholder="Email">
+                                    <h1>Forgot your Password</h1>
                                 </div>
-                            </div>
-                            <div class="row align-items-center mt-4">
+                                </div>
+                                <div class="row mt-4">
                                 <div class="col">
-                                <input type="password" class="form-control" placeholder="Password">
+                                    <input type="text" class="form-control" placeholder="Email">
                                 </div>
+                                </div>
+                                <div class="row mt-4">
                                 <div class="col">
-                                <input type="password" class="form-control" placeholder="Confirm Password">
+                                <%= link_to "Login", new_user_session_path%>
+                              </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-start mt-4">
+                                <div class="row mt-4">
                                 <div class="col">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input">
-                                        I Read and Accept <a href="">Terms and Conditions</a>
-                                    </label>
+                                <%= link_to "Signup", new_user_registration_path%> 
+                              </div>
                                 </div>
-                                <button class="btn btn-primary mt-4">Submit</button>
+                                <div class="row mt-4">
+                                <div class="col">
+                                    <button class="btn btn-secondary" type="button">Submit</button>
+                                </div>
                                 </div>
                             </div>
                             </div>
                         </div>
                         </div>
                     </section>
+                    <br>
+                    <section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/49/rdd0.png);">
+                            <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+                                <div class="fdb-box">
+                                    <div class="row">
+                                    <div class="col">
+                                        <h1>Edit account</h1>
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="password" class="form-control mb-1" placeholder="New Password">
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="password" class="form-control mb-1" placeholder="Confirm New Password">
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <button class="btn btn-secondary" type="button">Submit</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </section>
+<br>
+                    <section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/49/rdd0.png);">
+                            <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+                                <div class="fdb-box">
+                                    <div class="row">
+                                    <div class="col">
+                                        <h1>Register</h1>
+                                        <p class="lead">Here is the place to register your account.</p>
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="password" class="form-control mb-1" placeholder="Password">
+                                    </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <input type="password" class="form-control mb-1" placeholder="Confirm Password">
+                                    </div>
+                                    </div>
+                                    <%= link_to "Login", new_user_session_path%>
+                                    <div class="row mt-4">
+                                    <div class="col">
+                                        <button class="btn btn-secondary" type="button">Submit</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </section>
 
-                    <section class="fdb-block" style="background-image: url(imgs/hero/red.svg);">
+<br>
+                    <section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/49/rdd0.png);">
                         <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
@@ -535,12 +597,12 @@
                                 <div class="row mt-4">
                                 <div class="col">
                                     <input type="password" class="form-control mb-1" placeholder="Password">
-                                    <p class="text-right"><a href="https://www.froala.com">Recover Password</a></p>
+                                    <%= link_to "Recover Password", new_user_password_path%>
                                 </div>
                                 </div>
                                 <div class="row mt-4">
                                 <div class="col">
-                                    <button class="btn btn-outline-secondary" type="button">Submit</button>
+                                    <button class="btn btn-secondary" type="button">Submit</button>
                                 </div>
                                 </div>
                             </div>
@@ -676,8 +738,12 @@
                 </div>
             </div>
             </section>
-            <section>
-                    <footer class="fdb-block footer-small">
+
+
+
+
+
+        <footer class="fdb-block footer-small">
             <div class="container">
             <div class="row text-center align-items-center">
                 <div class="col-12 col-sm-6 col-md-4 text-sm-left">
@@ -698,4 +764,3 @@
             </div>
             </div>
         </footer>
-        </section>
