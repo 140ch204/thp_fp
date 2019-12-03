@@ -10,12 +10,96 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_082952) do
+ActiveRecord::Schema.define(version: 2019_12_03_133310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_admins_on_organization_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.bigint "department_id"
+    t.string "city_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_cities_on_department_id"
+  end
+
+  create_table "counterparts", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_counterparts_on_project_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "country_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.bigint "country_id"
+    t.string "department_name"
+    t.string "zip_code"
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_departments_on_country_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "counterpart_id"
+    t.bigint "organization_id"
+    t.integer "donation_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["counterpart_id"], name: "index_donations_on_counterpart_id"
+    t.index ["organization_id"], name: "index_donations_on_organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.bigint "city_id"
+    t.string "name"
+    t.text "description"
+    t.string "category"
+    t.string "logo_url"
+    t.string "siret"
+    t.boolean "is_association"
+    t.boolean "is_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "RNA"
+    t.index ["city_id"], name: "index_organizations_on_city_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "organization_id"
+    t.bigint "city_id"
+    t.string "name"
+    t.text "description"
+    t.string "logo_url"
+    t.datetime "starting_date"
+    t.integer "donation_targeted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "donation_start"
+    t.datetime "donation_end"
+    t.index ["city_id"], name: "index_projects_on_city_id"
+    t.index ["organization_id"], name: "index_projects_on_organization_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.bigint "city_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -26,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_082952) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false, null: false
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
