@@ -24,6 +24,7 @@
             <a class="nav-link" href=""></a>
           </li>
 
+          <% if user_signed_in? == false %>
           <li class="nav-item">
             <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
           </li>
@@ -32,13 +33,15 @@
             <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-primary"} %><br/>
           </li>
 
+          <% else %>
           <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: root_path() , color: "outline-primary"} %><br/>
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "outline-primary"} %><br/>
           </li>
-
+          
           <li class="nav-item">
             <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-primary", methods: "delete"} %><br/>
           </li>
+          <% end %>
 
         </ul>
 
