@@ -14,3 +14,4 @@ user_array = []
   user_count += 1
 end
 puts "#{user_count} users created"
+
