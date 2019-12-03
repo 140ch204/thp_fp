@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_132509) do
+ActiveRecord::Schema.define(version: 2019_12_03_133310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2019_12_03_132509) do
     t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.bigint "department_id"
+    t.string "city_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_cities_on_department_id"
+  end
+
   create_table "counterparts", force: :cascade do |t|
     t.bigint "project_id"
     t.string "name"
@@ -31,6 +39,22 @@ ActiveRecord::Schema.define(version: 2019_12_03_132509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_counterparts_on_project_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "country_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.bigint "country_id"
+    t.string "department_name"
+    t.string "zip_code"
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_departments_on_country_id"
   end
 
   create_table "donations", force: :cascade do |t|
