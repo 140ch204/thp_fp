@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
   get '/design', to: 'static_pages#show'
   resources :static_pages
+  resources :charges
 end
