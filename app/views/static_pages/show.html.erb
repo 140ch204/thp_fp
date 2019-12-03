@@ -1,32 +1,38 @@
 
-<h1> Ceci est la page design </h1>
+<div class="container">
+  <h1> Ceci est la page design </h1>
 
-<h2> Organisms </h2>
+  <h2> Organisms </h2>
 
-<%= render partial:'layouts/orga/footer' %> <br/>
-<%= render partial:'layouts/orga/jumbotron' %> <br/>
-<%= render partial:'layouts/orga/navbar' %> <br/>
+  <%= render partial:'layouts/orga/footer' %> <br/>
+  <%= render partial:'layouts/orga/jumbotron' %> <br/>
+  <%= render partial:'layouts/orga/navbar' %> <br/>
 
+  <h2> Molécules </h2>
 
+  <h2> Atomes </h2>
 
-<h2> Molécules </h2>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "primary", path: root_path() , color: "primary"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "secondary", path: root_path() , color: "secondary"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "success", path: root_path() , color: "success"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "info", path: root_path() , color: "info"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "warning", path: root_path() , color: "warning"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "danger", path: root_path() , color: "danger"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "light", path: root_path() , color: "light"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "dark", path: root_path() , color: "dark"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "link", path: root_path() , color: "link"} %> <br/><br/>
 
-<h2> Atomes </h2>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "primary", path: root_path() , color: "outline-primary"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "secondary", path: root_path() , color: "outline-secondary"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "success", path: root_path() , color: "outline-success"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "info", path: root_path() , color: "outline-info"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "warning", path: root_path() , color: "outline-warning"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "danger", path: root_path() , color: "outline-danger"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "light", path: root_path() , color: "outline-light"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "dark", path: root_path() , color: "outline-dark"} %> <a> </a>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "link", path: root_path() , color: "outline-link"} %> <br/>
 
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "primary", path: root_path() , color: "primary"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "secondary", path: root_path() , color: "secondary"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "success", path: root_path() , color: "success"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "info", path: root_path() , color: "info"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "warning", path: root_path() , color: "warning"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "danger", path: root_path() , color: "danger"} %> <br/><br/>
-
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "primary", path: root_path() , color: "outline-primary"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "secondary", path: root_path() , color: "outline-secondary"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "success", path: root_path() , color: "outline-success"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "info", path: root_path() , color: "outline-info"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "warning", path: root_path() , color: "outline-warning"} %> <a> </a>
-<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "danger", path: root_path() , color: "outline-danger"} %> <br/>
-
+</div>
 
 <h1>Hello, Angels</h1>
         <br>
