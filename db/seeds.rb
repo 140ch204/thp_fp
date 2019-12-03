@@ -72,3 +72,17 @@ project_count = 0
 	project_count += 1
 end
 puts "#{project_count} projects created."
+
+Counterpart.destroy_all
+counterpart_count = 0
+projects = Project.all
+projects.each do |project|
+	10.times do
+		Counterpart.create(
+			project_id: project.id,
+			name: Faker::Beer.name,
+			price: rand(5..10000))
+		counterpart_count += 1
+	end
+end
+puts "#{counterpart_count} counterparts created."
