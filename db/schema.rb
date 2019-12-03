@@ -10,10 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_082952) do
+ActiveRecord::Schema.define(version: 2019_12_03_113800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_admins_on_organization_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
+
+  create_table "counterparts", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_counterparts_on_project_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "counterpart_id"
+    t.bigint "organization_id"
+    t.integer "donation_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["counterpart_id"], name: "index_donations_on_counterpart_id"
+    t.index ["organization_id"], name: "index_donations_on_organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "category"
+    t.string "logo_url"
+    t.string "siret"
+    t.boolean "is_association"
+    t.boolean "is_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "RNA"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "organization_id"
+    t.string "name"
+    t.text "description"
+    t.string "logo_url"
+    t.datetime "starting_date"
+    t.integer "donation_targeted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_projects_on_organization_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

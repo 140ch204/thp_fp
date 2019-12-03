@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  donation_amount: 
+  date: 2019-12-03 10:43:53
+
+two:
+  donation_amount: 
+  date: 2019-12-03 10:43:53
