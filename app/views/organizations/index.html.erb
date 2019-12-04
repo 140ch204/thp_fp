@@ -12,7 +12,13 @@
       <li class="list-group-item">Vestibulum at eros</li>
     </ul>
     <div class="card-body">
+
+    <!-- Links to : Association page, Association projects -->
       <%= link_to "Page de l'association", organization_path(asso.id)%>
+    <% asso.projects.each do |project|%>
+      <%= link_to project.name, project_path(project.id)%>
+    <% end %>
+    
     </div>
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">25%
