@@ -10,3 +10,19 @@
 <%= @current_project.city.city_name%>
 <%= @current_project.city.department.department_name%>
 <%= @current_project.city.department.country.country_name%>
+
+</br></br>
+Statut: </br>
+<%= @current_project.in_progress_statut? %>
+
+</br></br>
+Montant récolté: </br>
+<%= @current_project.in_progress_amount? %> €
+
+</br></br>
+Objectif: </br>
+<%= @current_project.donation_targeted %> €
+
+</br></br>
+Pourcentage: </br>
+<%= @current_project.in_progress_percentages? %> %

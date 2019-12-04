@@ -25,5 +25,14 @@ class UsersController < ApplicationController
 
 	def destroy
 	end
+
+	private
+
+	def check_user
+		if current_user.id != User.find(params[:id]).id
+			flash[:notice] = "You can't see that."
+			redirect_to root_path
+		end
+	end
 	
 end
