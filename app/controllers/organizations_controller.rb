@@ -37,17 +37,6 @@ class OrganizationsController < ApplicationController
       flash[:danger] = "Erreur"
       render 'new'
     end
-    puts "=" * 50
-    puts params[:department][:department_name]
-    puts department_params
-    puts country_params
-    puts city_params
-    puts @city.errors.messages
-    puts @department.errors.messages
-    puts @country.errors.messages
-    puts @organization
-    puts @organization.errors.messages
-    puts "=" * 50
   end
 
 
