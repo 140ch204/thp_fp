@@ -60,11 +60,13 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
   create_table "donations", force: :cascade do |t|
     t.bigint "counterpart_id"
     t.bigint "organization_id"
+    t.bigint "project_id"
     t.integer "donation_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["counterpart_id"], name: "index_donations_on_counterpart_id"
     t.index ["organization_id"], name: "index_donations_on_organization_id"
+    t.index ["project_id"], name: "index_donations_on_project_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -99,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "city_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
