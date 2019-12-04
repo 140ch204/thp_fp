@@ -1,8 +1,11 @@
 <!-- Private part -->
 <% if user_signed_in? %>
   <%= "Private Infos" %>
+
+  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
+  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
 <% end %>
-  
+
 
 <!-- Public part -->
 <% if user_signed_in? == false %>
