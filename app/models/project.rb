@@ -3,11 +3,27 @@ class Project < ApplicationRecord
 	belongs_to :city
 	has_many :counterparts
 	has_many :donations
-	# has_many :donations, through: :organizations
-	# has_many :donations, through: :counterparts
 	has_many :admins, through: :organizations
 
-	def in_progress?
+	def in_progress_statut?
+		if self.donation_targeted > 0
+			"En cours de financement"
+		else
+			"Objectif atteint!"
+		end
+	end
+
+	def in_progress_amount?
+		amount = 0
+		self.donations.each do |donation|
+			amount += donation.donation_amount
+		end
+		return amount
+	end
+
+	def in_progress_percentages?
+		percent = ( self.in_progress_amount?.to_f / self.donation_targeted.to_f ) * 100
+		return percent.to_i
 	end
 
 end
