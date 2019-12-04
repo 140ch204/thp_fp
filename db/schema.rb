@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_133310) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "city_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -110,7 +109,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_133310) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false, null: false
-    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
