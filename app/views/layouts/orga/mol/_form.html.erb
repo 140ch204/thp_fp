@@ -1,0 +1,13 @@
+<%# Ressources : https://m.patrikonrails.com/rails-5-1s-form-with-vs-old-form-helpers-3a5f72a8c78a %>
+
+
+<%= form_with url: root_path do |form| %>
+
+  <h1>Formulaire</h1>
+  <p class="lead">Description</p>
+  <%= form.text_field :first_name, class:"form-control", placeholder:"Prénom"  %><br>
+  <%= form.text_field :last_name, class:"form-control", placeholder:"Nom"  %><br>
+  <%= form.submit "Submit", class: "btn btn-primary", type:"button" %><br>
+
+<% end %>
+
