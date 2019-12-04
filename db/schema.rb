@@ -109,11 +109,8 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false, null: false
-<<<<<<< HEAD
-=======
     t.boolean "master", default: false
     t.index ["city_id"], name: "index_users_on_city_id"
->>>>>>> dev
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
