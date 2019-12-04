@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
   end
 
   create_table "organizations", force: :cascade do |t|
+    t.bigint "city_id"
     t.string "name"
     t.text "description"
     t.string "category"
@@ -78,10 +79,12 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "RNA"
+    t.index ["city_id"], name: "index_organizations_on_city_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.bigint "organization_id"
+    t.bigint "city_id"
     t.string "name"
     t.text "description"
     t.string "logo_url"
@@ -91,10 +94,12 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
     t.datetime "updated_at", null: false
     t.datetime "donation_start"
     t.datetime "donation_end"
+    t.index ["city_id"], name: "index_projects_on_city_id"
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "city_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -106,6 +111,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_103305) do
     t.string "last_name"
     t.boolean "is_admin", default: false, null: false
     t.boolean "master", default: false
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
