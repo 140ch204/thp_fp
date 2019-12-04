@@ -18,7 +18,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
 body {
-  margin: 10px
+  margin: 10px;
   font-family: Lato, Helvetica, Arial;
   font-size: 1em;
   font-weight: 400;

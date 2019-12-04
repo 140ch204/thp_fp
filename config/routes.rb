@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :static_pages
   resources :charges
   resources :users, only: [:show]
+  resources :organizations
 end
