@@ -1,26 +1,23 @@
 <header>
   <div class="container">
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="https://www.froala.com">
-        <img src="https://zupimages.net/up/19/49/aj39.png" height="50" alt="image">
-      </a>
-
+        <%= link_to image_tag('https://zupimages.net/up/19/49/aj39.png'), root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav5" aria-controls="navbarNav5" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav12">
             <ul class="navbar-nav justify-content-center">
               <li class="nav-item active">
-                <a class="nav-link" href="https://www.froala.com">Accueil <span class="sr-only">(current)</span></a>
+                <%= link_to "Accueil", root_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Projets</a>
+                <%= link_to "Projets", root_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Partenaires</a>
+                <%= link_to "Partenaires", root_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.froala.com">Contact</a>
+                <%= link_to "Contact", root_path, class: "nav-link"%>
               </li>
             </ul>
           </div>
