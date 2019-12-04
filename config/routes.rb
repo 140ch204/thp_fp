@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :charges
   resources :users, only: [:show]
   resources :organizations
+  resources :projects
 end
