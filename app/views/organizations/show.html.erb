@@ -1,23 +1,10 @@
-<div class="card" >
-  <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
-  <div class="card-body bg-primary">
-    <h4 class="card-title"><%= @current_organization.name %></h4>
-    <p class="card-text"></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @current_organization.description %></li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">25%
-    </div>
-  </div>
-  <div class="card-footer ">
-    <a> En cours de financement</a>
-  </div>
-</div> <br/>
+
+<div class="container">
+  <%= @current_organization.name %><br/>
+  <%= @current_organization.description %><br/><br/>
+</div>
+
+<%= render partial:'layouts/orga/cardsprofil' %>
+
+<br/>
+<br/>

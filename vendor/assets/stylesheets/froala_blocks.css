@@ -18,7 +18,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
 body {
-  margin: 10px;
+  margin: 0;
   font-family: Lato, Helvetica, Arial;
   font-size: 1em;
   font-weight: 400;
@@ -1245,6 +1245,7 @@ p {
 
 footer {
   position: absolute;
+  width: 100%;
   bottom: 70px;
   padding: 1.875rem 0 !important; }
   footer.footer-large {

@@ -80,3 +80,5 @@ gem 'dotenv-rails', '~> 2.7'
 gem 'devise'
 
 gem 'stripe'
+
+gem 'administrate'
