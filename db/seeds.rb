@@ -127,6 +127,7 @@ donation_count = 0
 	Donation.create(
 		counterpart_id: Counterpart.all.sample.id,
 		organization_id: Organization.all.sample.id,
+		project_id: Project.all.sample.id,
 		donation_amount: rand(5..10000),
 		)
 	donation_count += 1
