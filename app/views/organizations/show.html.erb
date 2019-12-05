@@ -3,13 +3,13 @@
 <% description = "c'est la description !" %>
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_organization.name, description: @current_organization.description } %>
       <br/>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
@@ -17,13 +17,9 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <%= @current_organization.name %><br/>
-  <%= @current_organization.description %><br/>
-  <br/>
-</div>
+
 <% if @current_organization.is_creating_project_permitted(@user) %>
-  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Initier un nouveau projet", path: new_project_path(organization_id: @current_organization.id) , color: "primary"} %>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Initier un nouveau projet", path: new_project_path(organization_id: @current_organization.id) , color: "outline-secondary"} %>
 <% end %>
 <br/>
 <br/>
