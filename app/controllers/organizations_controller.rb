@@ -32,6 +32,7 @@ class OrganizationsController < ApplicationController
 
     if @organization.save
       Admin.create(user: current_user, organization: @organization)
+      current_user.update(is_admin: true)
       if @organization.is_association == true
         flash[:success] = "Votre association a bien été enregistrée"
       else

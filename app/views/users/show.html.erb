@@ -1,15 +1,29 @@
-<%= render partial:'layouts/orga/cardsprofil' %>
-
 <!-- Private part -->
-<% if user_signed_in? %>
-  <%= "Private Infos" %>
-
+<% if current_user.is_admin? == true %>
+  <%= "Private Infos" %><br />
+  <% @admin_collection.each do |element| %>
+    <div class="container" style="border-style: solid; border-width: 2px;">
+    <% if element.organization.is_association == true %>
+      <p> Asso : </p>
+    <% else %>
+      <p> Entreprise : </p>
+    <% end %> 
+    <%= link_to element.organization.name, organization_path(element.organization.id)%><br /><hr />
+      <p> Projects : </p>
+      <% element.organization.projects.each do |project|%>
+        <%= link_to project.name, project_path(project.id) %><br />
+      <% end %>
+    </div>
+  <% end %>  
   <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
   <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
 <% end %>
 
-
 <!-- Public part -->
-<% if user_signed_in? == false %>
-  <%= "Public Infos"%>
+<% if current_user.is_admin? == false %>
+  <%= "Public Infos"%><br />
+  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
+  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
 <% end %>
+
+<%= render partial:'layouts/orga/cardsprofil' %>
