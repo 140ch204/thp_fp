@@ -1,65 +1,150 @@
-<% if @is_association == "true" %>
-  <%= form_with model: @organization do |organization_form|%>
-    <%= fields_for :city, @organization.city do |city_form| %>
-      <%= city_form.label :ville%><br />
-      <%= city_form.text_field :city_name%><br />
-    <% end %>
-    <%= fields_for :department, @city.department do |department_form|%>
-      <%= department_form.label :département %><br />
-      <%= department_form.text_field :department_name %><br />
-      <%= department_form.label :région %><br />
-      <%= department_form.text_field :region %><br />
-      <%= department_form.label "Code postal" %><br />
-      <%= department_form.text_field :zip_code %><br />
 
-    <% end %>
-    <%= fields_for :country, @department.country do |country_form|%>
-      <%= country_form.label :pays %><br />
-      <%= country_form.text_field :country_name %><br />
-    <% end %>
-    <%= organization_form.label :nom %><br />
-    <%= organization_form.text_field :name %><br />
-    <%= organization_form.label :description %><br />
-    <%= organization_form.text_area :description %><br />
-    <%= organization_form.label :catégorie %><br />
-    <%= organization_form.text_field :category %><br />
-    <%= organization_form.label :logo %><br />
-    <%= organization_form.text_field :logo_url%><br />
-    <%= organization_form.label :RNA %><br />
-    <%= organization_form.text_field :RNA %><br />
-    <%= organization_form.hidden_field :is_association, :value => true %><br />
-    <%= organization_form.submit :value => "Créer l'association"%>
-  <% end %>
-<% else %>
-  <%= form_with model: @organization do |organization_form|%>
-    <%= fields_for :city, @organization.city do |city_form| %>
-      <%= city_form.label :ville%><br />
-      <%= city_form.text_field :city_name%><br />
-    <% end %>
-    <%= fields_for :department, @city.department do |department_form|%>
-      <%= department_form.label :département %><br />
-      <%= department_form.text_field :department_name %><br />
-      <%= department_form.label :région %><br />
-      <%= department_form.text_field :region %><br />
-      <%= department_form.label "Code postal" %><br />
-      <%= department_form.text_field :zip_code %><br />
 
-    <% end %>
-    <%= fields_for :country, @department.country do |country_form|%>
-      <%= country_form.label :pays %><br />
-      <%= country_form.text_field :country_name %><br />
-    <% end %>
-    <%= organization_form.label :nom %><br />
-    <%= organization_form.text_field :name %><br />
-    <%= organization_form.label :description %><br />
-    <%= organization_form.text_area :description %><br />
-    <%= organization_form.label :catégorie %><br />
-    <%= organization_form.text_field :category %><br />
-    <%= organization_form.label :logo %><br />
-    <%= organization_form.text_field :logo_url%><br />
-    <%= organization_form.label :siret %><br />
-    <%= organization_form.text_field :siret %><br />
-    <%= organization_form.hidden_field :is_company, :value => true %><br />
-    <%= organization_form.submit :value => "Créer l'entreprise"%>
-  <% end %>
-<% end %>
+
+
+<section class="fdb-block" >
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-12 col-lg-6 col-xl-5">
+        <h1>Créer une association</h1>
+        <p class="lead mb-5">Ici vous aurez le privilège de créer une association, veuillez bien faire attention à renseigner chaque élément.</p>
+
+          <% if @is_association == "true" %>
+            <%= form_with model: @organization do |organization_form|%>
+              <%= fields_for :city, @organization.city do |city_form| %>
+                <%= city_form.label :ville%><br />
+                <%= city_form.text_field :city_name%><br />
+              <% end %>
+              <%= fields_for :department, @city.department do |department_form|%>
+                <%= department_form.label :département %><br />
+                <%= department_form.text_field :department_name %><br />
+                <%= department_form.label :région %><br />
+                <%= department_form.text_field :region %><br />
+                <%= department_form.label "Code postal" %><br />
+                <%= department_form.text_field :zip_code %><br />
+
+              <% end %>
+              <%= fields_for :country, @department.country do |country_form|%>
+                <%= country_form.label :pays %><br />
+                <%= country_form.text_field :country_name %><br />
+              <% end %>
+              <%= organization_form.label :nom %><br />
+              <%= organization_form.text_field :name %><br />
+              <%= organization_form.label :description %><br />
+              <%= organization_form.text_area :description %><br />
+              <%= organization_form.label :catégorie %><br />
+              <%= organization_form.text_field :category %><br />
+              <%= organization_form.label :logo %><br />
+              <%= organization_form.text_field :logo_url%><br />
+              <%= organization_form.label :RNA %><br />
+              <%= organization_form.text_field :RNA %><br />
+              <%= organization_form.hidden_field :is_association, :value => true %><br />
+              <%= organization_form.submit :value => "Créer l'association"%>
+            <% end %>
+          <% else %>
+            <%= form_with model: @organization do |organization_form|%>
+              <%= fields_for :city, @organization.city do |city_form| %>
+                <%= city_form.label :ville%><br />
+                <%= city_form.text_field :city_name%><br />
+              <% end %>
+              <%= fields_for :department, @city.department do |department_form|%>
+                <%= department_form.label :département %><br />
+                <%= department_form.text_field :department_name %><br />
+                <%= department_form.label :région %><br />
+                <%= department_form.text_field :region %><br />
+                <%= department_form.label "Code postal" %><br />
+                <%= department_form.text_field :zip_code %><br />
+
+              <% end %>
+              <%= fields_for :country, @department.country do |country_form|%>
+                <%= country_form.label :pays %><br />
+                <%= country_form.text_field :country_name %><br />
+              <% end %>
+              <%= organization_form.label :nom %><br />
+              <%= organization_form.text_field :name %><br />
+              <%= organization_form.label :description %><br />
+              <%= organization_form.text_area :description %><br />
+              <%= organization_form.label :catégorie %><br />
+              <%= organization_form.text_field :category %><br />
+              <%= organization_form.label :logo %><br />
+              <%= organization_form.text_field :logo_url%><br />
+              <%= organization_form.label :siret %><br />
+              <%= organization_form.text_field :siret %><br />
+              <%= organization_form.hidden_field :is_company, :value => true %><br />
+              <%= organization_form.submit :value => "Créer l'entreprise"%>
+            <% end %>
+          <% end %>
+
+      </div>
+      <div class="col-12 col-md-8 m-auto ml-lg-auto mr-lg-0 col-lg-6 pt-5 pt-lg-0">
+        <img alt="image" class="img-fluid" src="https://zupimages.net/up/19/49/a626.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+          <% if @is_association == "true" %>
+            <%= form_with model: @organization do |organization_form|%>
+              <%= fields_for :city, @organization.city do |city_form| %>
+                <%= city_form.label :ville%><br />
+                <%= city_form.text_field :city_name%><br />
+              <% end %>
+              <%= fields_for :department, @city.department do |department_form|%>
+                <%= department_form.label :département %><br />
+                <%= department_form.text_field :department_name %><br />
+                <%= department_form.label :région %><br />
+                <%= department_form.text_field :region %><br />
+                <%= department_form.label "Code postal" %><br />
+                <%= department_form.text_field :zip_code %><br />
+
+              <% end %>
+              <%= fields_for :country, @department.country do |country_form|%>
+                <%= country_form.label :pays %><br />
+                <%= country_form.text_field :country_name %><br />
+              <% end %>
+              <%= organization_form.label :nom %><br />
+              <%= organization_form.text_field :name %><br />
+              <%= organization_form.label :description %><br />
+              <%= organization_form.text_area :description %><br />
+              <%= organization_form.label :catégorie %><br />
+              <%= organization_form.text_field :category %><br />
+              <%= organization_form.label :logo %><br />
+              <%= organization_form.text_field :logo_url%><br />
+              <%= organization_form.label :RNA %><br />
+              <%= organization_form.text_field :RNA %><br />
+              <%= organization_form.hidden_field :is_association, :value => true %><br />
+              <%= organization_form.submit :value => "Créer l'association"%>
+            <% end %>
+          <% else %>
+            <%= form_with model: @organization do |organization_form|%>
+              <%= fields_for :city, @organization.city do |city_form| %>
+                <%= city_form.label :ville%><br />
+                <%= city_form.text_field :city_name%><br />
+              <% end %>
+              <%= fields_for :department, @city.department do |department_form|%>
+                <%= department_form.label :département %><br />
+                <%= department_form.text_field :department_name %><br />
+                <%= department_form.label :région %><br />
+                <%= department_form.text_field :region %><br />
+                <%= department_form.label "Code postal" %><br />
+                <%= department_form.text_field :zip_code %><br />
+
+              <% end %>
+              <%= fields_for :country, @department.country do |country_form|%>
+                <%= country_form.label :pays %><br />
+                <%= country_form.text_field :country_name %><br />
+              <% end %>
+              <%= organization_form.label :nom %><br />
+              <%= organization_form.text_field :name %><br />
+              <%= organization_form.label :description %><br />
+              <%= organization_form.text_area :description %><br />
+              <%= organization_form.label :catégorie %><br />
+              <%= organization_form.text_field :category %><br />
+              <%= organization_form.label :logo %><br />
+              <%= organization_form.text_field :logo_url%><br />
+              <%= organization_form.label :siret %><br />
+              <%= organization_form.text_field :siret %><br />
+              <%= organization_form.hidden_field :is_company, :value => true %><br />
+              <%= organization_form.submit :value => "Créer l'entreprise"%>
+            <% end %>
+          <% end %>

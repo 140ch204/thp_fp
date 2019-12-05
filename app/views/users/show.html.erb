@@ -26,16 +26,24 @@
   </div>
 </div>
 
-
-
-<!-- Private part -->
-<% if user_signed_in? %>
-  <%= "Private Infos" %>
-
-  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
-  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
-<% end %>
-
+<section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card" >
+        <% if user_signed_in? %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-justify">
+              <%= link_to "Créer une association", new_organization_path(:association => true ), class: "btn btn-outline-secondary btn-lg btn-block"%><br>
+              <%= link_to "Créer une entreprise", new_organization_path(:association => false ), class: "btn btn-outline-secondary btn-lg btn-block"%>  
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> <br/>
+</section>
 
 <!-- Public part -->
 <% if user_signed_in? == false %>
