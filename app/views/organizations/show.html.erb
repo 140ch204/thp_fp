@@ -31,6 +31,9 @@
   <%= @current_organization.description %><br/><br/>
 </div>
 
+<% if @current_organization.is_creating_project_permitted(@user) %>
+	<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Initier un nouveau projet", path: new_project_path() , color: "primary"} %>
+<% end %>
 
 
 <br/>
