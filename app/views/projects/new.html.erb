@@ -1,0 +1,28 @@
+  <%= form_with model: @project do |project_form|%>
+  <%= fields_for :city, @project.city do |city_form| %>
+    <%= city_form.label :ville%><br />
+    <%= city_form.text_field :city_name%><br />
+  <% end %>
+  <%= fields_for :department, @city.department do |department_form|%>
+    <%= department_form.label :département %><br />
+    <%= department_form.text_field :department_name %><br />
+    <%= department_form.label :région %><br />
+    <%= department_form.text_field :region %><br />
+    <%= department_form.label "Code postal" %><br />
+    <%= department_form.text_field :zip_code %><br />
+  <% end %>
+  <%= fields_for :country, @department.country do |country_form|%>
+    <%= country_form.label :pays %><br />
+    <%= country_form.text_field :country_name %><br />
+  <% end %>
+  <%= project_form.label :nom %><br />
+  <%= project_form.text_field :name %><br />
+  <%= project_form.label :description %><br />
+  <%= project_form.text_area :description %><br />
+  <%= project_form.label :Objectif %><br />
+  <%= project_form.text_field :donation_targeted %><br />
+  <%= project_form.label :logo %><br />
+  <%= project_form.text_field :logo_url%><br />
+  <%= project_form.hidden_field :organization_id, :value => @organization.id %><br />
+  <%= project_form.submit :value => "Lancer votre projet"%>
+<% end %>

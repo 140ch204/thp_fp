@@ -1,36 +1,35 @@
 <section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/49/bwvc.png);">
-    <div class="container">
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+      <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
         <div class="fdb-box">
-            <div class="row">
+          <div class="row">
             <div class="col">
-                <h1>Se connecter</h1>
+              <h1>Se connecter</h1>
             </div>
-            </div>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="row mt-4">
-            <div class="col">
+              <div class="col">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Email", type:"text" %>
-            </div>
+              </div>
             </div>
             <div class="row mt-4">
-            <div class="col">
+              <div class="col">
                 <%= f.password_field :password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
                 <%= render "devise/shared/links" %>
-            </div>
+              </div>
             </div>
             <div class="row mt-4">
-            <div class="col">
-            <div class="actions">
-                <%= f.submit "Se connecter", class:"btn btn-secondary"%>
+              <div class="col">
+                <div class="actions">
+                  <%= f.submit "Se connecter", class:"btn btn-secondary"%>
+                </div>
+              <% end %>
             </div>
-            <% end %>
-            </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    </div>
+  </div>
 </section>
-
