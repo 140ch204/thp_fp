@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @donation = Donation.new
   end
 
   def new

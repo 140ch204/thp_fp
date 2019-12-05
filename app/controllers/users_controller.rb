@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = current_user 
+    @user = current_user
+    @admin_collection = Admin.where(user: current_user)
 	end
 
 	def new

@@ -4,6 +4,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <br/>
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
@@ -17,6 +19,38 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Private part -->
+<% if current_user.is_admin? == true %>
+  <%= "Private Infos" %><br />
+  <% @admin_collection.each do |element| %>
+    <div class="container" style="border-style: solid; border-width: 2px;">
+    <% if element.organization.is_association == true %>
+      <p> Asso : </p>
+    <% else %>
+      <p> Entreprise : </p>
+    <% end %> 
+    <%= link_to element.organization.name, organization_path(element.organization.id)%><br /><hr />
+      <p> Projects : </p>
+      <% element.organization.projects.each do |project|%>
+        <%= link_to project.name, project_path(project.id) %><br />
+      <% end %>
+    </div>
+  <% end %>  
+  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
+  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
+<% end %>
+
+<!-- Public part -->
+<% if current_user.is_admin? == false %>
+  <%= "Public Infos"%><br />
+  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
+  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
+<% end %>
+
+<%= render partial:'layouts/orga/cardsprofil' %>
 <section>
   <div class="container">
     <div class="row">

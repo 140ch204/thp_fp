@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :organizations
   resources :projects
+  resources :donations
 end
