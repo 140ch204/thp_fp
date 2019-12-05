@@ -4,9 +4,7 @@
 
 <div class="container">
   <div class="row">
-
     <div class="col-md-8">
-    
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
@@ -17,44 +15,36 @@
       <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", project: @project} %>
       <br/>  
     </div>
-
     <div class="col-md-4">
       <%= render partial:'layouts/orga/mol/card_raising', layout: "layouts/orga/mol/card_mini_without_title_layout", locals: {  project: @project} %>
-      <br/>
+
       <%= render partial:'layouts/orga/mol/card_organization', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Porteur", project: @project} %>
       <br/>     
     </div>
-
   </div>
 </div>
-
-
-
-<% @project.name %><br/>
-<% @project.description %><br/>
-<% @project.starting_date %><br/>
-
-<% @project.donation_targeted %><br/>
-<% @project.donation_start %><br/>
-<% @project.donation_end %><br/>
-
-<% @project.organization.name %><br/>
-<% @project.city.city_name%><br/>
-<% @project.city.department.department_name%><br/>
-<% @project.city.department.country.country_name%><br/>
-
+<%= @project.name %><br/>
+<%= @project.description %><br/>
+<%= @project.starting_date %><br/>
+<%= @project.donation_targeted %><br/>
+<%= @project.donation_start %><br/>
+<%= @project.donation_end %><br/>
+<%= @project.organization.name %><br/>
+<%= @project.city.city_name%><br/>
+<%= @project.city.department.department_name%><br/>
+<%= @project.city.department.country.country_name%><br/>
 <br/>
 Statut: <br/>
-<% @project.in_progress_statut? %>
-
-<br/><br/>
+<%= @project.in_progress_statut? %>
+<br/>
+<br/>
 Montant récolté: <br/>
-<% @project.in_progress_amount? %> €
-
-<br/><br/>
+<%= @project.in_progress_amount? %> €
+<br/>
+<br/>
 Objectif: <br/>
-<% @project.donation_targeted %> €
-
-<br/><br/>
+<%= @project.donation_targeted %> €
+<br/>
+<br/>
 Pourcentage: <br/>
-<% @project.in_progress_percentages? %> %
+<%= @project.in_progress_percentages? %> %
