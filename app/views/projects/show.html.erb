@@ -2,7 +2,6 @@
 <% title = "c'est le titre !" %>
 <% description = "c'est la description !" %>
 
-
 <div class="container">
   <div class="row">
 
@@ -10,19 +9,20 @@
     
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
-      <br/>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
+      
       <% if user_signed_in? %>
-        <%= render partial:'layouts/orga/mol/create_orga', layout: "layouts/orga/mol/card_mini_without_title_layout" %>
       <% end %>
-      <br/>
+
+      <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", project: @project} %>
+      <br/>  
     </div>
 
     <div class="col-md-4">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <%= render partial:'layouts/orga/mol/card_raising', layout: "layouts/orga/mol/card_mini_without_title_layout", locals: {  project: @project} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
-      <br/>
+      <%= render partial:'layouts/orga/mol/card_organization', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Porteur", project: @project} %>
+      <br/>     
     </div>
 
   </div>
@@ -30,31 +30,31 @@
 
 
 
-<%= @project.name %><br/>
-<%= @project.description %><br/>
-<%= @project.starting_date %><br/>
+<% @project.name %><br/>
+<% @project.description %><br/>
+<% @project.starting_date %><br/>
 
-<%= @project.donation_targeted %><br/>
-<%= @project.donation_start %><br/>
-<%= @project.donation_end %><br/>
+<% @project.donation_targeted %><br/>
+<% @project.donation_start %><br/>
+<% @project.donation_end %><br/>
 
-<%= @project.organization.name %><br/>
-<%= @project.city.city_name%><br/>
-<%= @project.city.department.department_name%><br/>
-<%= @project.city.department.country.country_name%><br/>
+<% @project.organization.name %><br/>
+<% @project.city.city_name%><br/>
+<% @project.city.department.department_name%><br/>
+<% @project.city.department.country.country_name%><br/>
 
 <br/>
 Statut: <br/>
-<%= @project.in_progress_statut? %>
+<% @project.in_progress_statut? %>
 
 <br/><br/>
 Montant récolté: <br/>
-<%= @project.in_progress_amount? %> €
+<% @project.in_progress_amount? %> €
 
 <br/><br/>
 Objectif: <br/>
-<%= @project.donation_targeted %> €
+<% @project.donation_targeted %> €
 
 <br/><br/>
 Pourcentage: <br/>
-<%= @project.in_progress_percentages? %> %
+<% @project.in_progress_percentages? %> %
