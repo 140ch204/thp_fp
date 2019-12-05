@@ -1,30 +1,57 @@
-<%= render partial:'layouts/orga/cardsprofil' %>
+<% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
+<% title = "c'est le titre !" %>
+<% description = "c'est la description !" %>
 
-<%= @project.name %>
-<%= @project.description %>
-<%= @project.starting_date %>
 
-<%= @project.donation_targeted %>
-<%= @project.donation_start %>
-<%= @project.donation_end %>
+<div class="container">
+  <div class="row">
 
-<%= @project.organization.name %>
-<%= @project.city.city_name%>
-<%= @project.city.department.department_name%>
-<%= @project.city.department.country.country_name%>
+    <div class="col-md-8">
+    
+      <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
+      <br/>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
+      <br/>
+    </div>
 
-</br></br>
-Statut: </br>
+    <div class="col-md-4">
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <br/>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <br/>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<%= @project.name %><br/>
+<%= @project.description %><br/>
+<%= @project.starting_date %><br/>
+
+<%= @project.donation_targeted %><br/>
+<%= @project.donation_start %><br/>
+<%= @project.donation_end %><br/>
+
+<%= @project.organization.name %><br/>
+<%= @project.city.city_name%><br/>
+<%= @project.city.department.department_name%><br/>
+<%= @project.city.department.country.country_name%><br/>
+
+<br/>
+Statut: <br/>
 <%= @project.in_progress_statut? %>
 
-</br></br>
-Montant récolté: </br>
+<br/><br/>
+Montant récolté: <br/>
 <%= @project.in_progress_amount? %> €
 
-</br></br>
-Objectif: </br>
+<br/><br/>
+Objectif: <br/>
 <%= @project.donation_targeted %> €
 
-</br></br>
-Pourcentage: </br>
+<br/><br/>
+Pourcentage: <br/>
 <%= @project.in_progress_percentages? %> %

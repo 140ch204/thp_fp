@@ -1,4 +1,6 @@
 
+<%= "OBSOLETE : Le render 'card' n'a pas une démonination assez précise et sera migré prochainement vers 'card_project'" %>
+
 <%# project card %>
 <% project_name = @project.name %>
 <% organization_name = @project.organization.name%>
@@ -23,17 +25,6 @@
 <% @project.city.city_name%>
 <% @project.city.department.department_name%>
 <% @project.city.department.country.country_name%>
-
-
-<!-- >      t.belongs_to :organization, index: true
-      t.belongs_to :city, index: true
-
-      t.string :name
-      t.text :description
-      t.string :logo_url
-      t.datetime :starting_date
-      t.integer :donation_targeted
-<-->
 
   
 <div class="card" >
