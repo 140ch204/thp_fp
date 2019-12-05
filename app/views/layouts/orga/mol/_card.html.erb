@@ -1,32 +1,48 @@
 
+<%# project card %>
 <% title = "Sculpture en Hommage à Saint-Vidian" %>
-<% title = "Titre !"%>
-<% title = "Titre !"%>
-<% title = "Titre !"%>
-<% title = "Titre !"%>
-<% title = "Titre !"%>
+<% organization = "Commune de Martres-Tolosane"%>
+<% city = "31220 Martres-Tolosane"%>
+<% description = "Cité artiste et faïencière, Martres-Tolosane souhaite mobiliser les citoyens et les entreprises pour aménager son nouveau rond-point d'entrée en rendant hommage aux savoir-faire des artisans d'art et au Saint-Patron du v ..."%>
+<% raise_objective = 1000 %>
+<% raise_current = 300 %>
+<% in_progress_percentages = 30 %>
+<% project_id = 1 %>
+<% organization_id = 1 %>
+<% days_left = 1 %>
 
+  
 <div class="card" >
-  <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
-  <div class="card-body bg-primary">
-    <h4 class="card-title"><%= title %></h4>
-    <p class="card-text"></p>
-  </div>
+  <img  src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
+
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+
+    <li class="list-group-item bg-light">
+      <h4 class="card-title"><%= link_to title, project_path(project_id)%></h4>
+      <p><small><%= link_to organization, organization_path(organization_id)%></small></p>
+      <p><small><%= city %></small></p>
+    </li>
+
+    <li class="list-group-item">
+      <p> <%= description %>  </p>
+    </li>
+
+    <li class="list-group-item">
+      <a> <%= raise_current %> € / <%= raise_objective %> €</a>
+      <div class="progress">
+        <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="<%= in_progress_percentages%>"  aria-valuemin="0" aria-valuemax="100" style="width:<%= in_progress_percentages%>%">
+          <%= in_progress_percentages%>%
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item bg-light">
+      <%= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
+      <% days_left_str = "J-" + days_left.to_s  %>
+      <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
+    </li>
+
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width:  in_progress_percentages? %;" aria-valuenow=" in_progress_percentages? " aria-valuemin="0" aria-valuemax="100"> in_progress_percentages? %
-    </div>
-  </div>
-  <div class="card-footer ">
-    <a> in_progress_statut? </a>
-  </div>
+  
 </div> <br/>
 
