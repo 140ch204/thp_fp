@@ -1,30 +1,30 @@
 <%= render partial:'layouts/orga/cardsprofil' %>
 
-<%= @current_project.name %>
-<%= @current_project.description %>
-<%= @current_project.starting_date %>
+<%= @project.name %>
+<%= @project.description %>
+<%= @project.starting_date %>
 
-<%= @current_project.donation_targeted %>
-<%= @current_project.donation_start %>
-<%= @current_project.donation_end %>
+<%= @project.donation_targeted %>
+<%= @project.donation_start %>
+<%= @project.donation_end %>
 
-<%= @current_project.organization.name %>
-<%= @current_project.city.city_name%>
-<%= @current_project.city.department.department_name%>
-<%= @current_project.city.department.country.country_name%>
+<%= @project.organization.name %>
+<%= @project.city.city_name%>
+<%= @project.city.department.department_name%>
+<%= @project.city.department.country.country_name%>
 
 </br></br>
 Statut: </br>
-<%= @current_project.in_progress_statut? %>
+<%= @project.in_progress_statut? %>
 
 </br></br>
 Montant récolté: </br>
-<%= @current_project.in_progress_amount? %> €
+<%= @project.in_progress_amount? %> €
 
 </br></br>
 Objectif: </br>
-<%= @current_project.donation_targeted %> €
+<%= @project.donation_targeted %> €
 
 </br></br>
 Pourcentage: </br>
-<%= @current_project.in_progress_percentages? %> %
+<%= @project.in_progress_percentages? %> %
