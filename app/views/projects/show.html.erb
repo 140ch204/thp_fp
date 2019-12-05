@@ -12,6 +12,10 @@
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
       <br/>
+      <% if user_signed_in? %>
+        <%= render partial:'layouts/orga/mol/create_orga', layout: "layouts/orga/mol/card_mini_without_title_layout" %>
+      <% end %>
+      <br/>
     </div>
 
     <div class="col-md-4">
@@ -23,7 +27,6 @@
 
   </div>
 </div>
-
 
 
 
