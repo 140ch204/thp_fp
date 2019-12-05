@@ -1,0 +1,13 @@
+
+
+<h3> Projet financé à : </h3>
+<h2> <%= @project.in_progress_percentages? %> % </h2> 
+<p> sur un objectif de <%= @project.donation_targeted %> € </p>
+
+<h2> J- 10 </h2>
+
+<% @project.in_progress_statut? %>
+<% @project.in_progress_amount? %>
+<% @project.donation_targeted %>
+
+<%= link_to "Contribuer", root_path() , class: "btn btn-secondary", method: "get" %>

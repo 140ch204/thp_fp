@@ -4,6 +4,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <br/>
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
