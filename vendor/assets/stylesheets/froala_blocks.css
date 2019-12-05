@@ -1244,9 +1244,10 @@ p {
     width: 100%; }
 
 footer {
+  margin: 0;
   position: absolute;
   width: 100%;
-  bottom: 70px;
+  bottom: 0;
   padding: 1.875rem 0 !important; }
   footer.footer-large {
     padding: 2.25rem 0 !important; }
@@ -1293,7 +1294,8 @@ header + header {
   color: #444444; }
 
   footer.footer-small{
-    position: fixed;
+    position: relative;
+    margin: 0;
     bottom: 0cm;
     width: 100%;
   }
