@@ -31,8 +31,13 @@ class OrganizationsController < ApplicationController
     @organization.update(city_id: @city.id)
 
     if @organization.save
-      flash[:success] = "Votre association a bien été enregistrée"
-      redirect_to organization_path(@organization.id)
+      Admin.create(user: current_user, organization: @organization)
+      if @organization.is_association == true
+        flash[:success] = "Votre association a bien été enregistrée"
+      else
+        flash[:success] = "Votre entreprise a bien été enregistrée"
+      end
+        redirect_to organization_path(@organization.id)
     else
       flash[:danger] = "Erreur"
       render 'new'
