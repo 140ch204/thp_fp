@@ -1,15 +1,30 @@
 
+<%= "OBSOLETE : Le render 'card' n'a pas une démonination assez précise et sera migré prochainement vers 'card_project'" %>
+
 <%# project card %>
-<% title = "Sculpture en Hommage à Saint-Vidian" %>
-<% organization = "Commune de Martres-Tolosane"%>
-<% city = "31220 Martres-Tolosane"%>
-<% description = "Cité artiste et faïencière, Martres-Tolosane souhaite mobiliser les citoyens et les entreprises pour aménager son nouveau rond-point d'entrée en rendant hommage aux savoir-faire des artisans d'art et au Saint-Patron du v ..."%>
+<% project_name = @project.name %>
+<% organization_name = @project.organization.name%>
+<% city_name = @project.city.city_name %>
+<% description = @project.description%>
 <% raise_objective = 1000 %>
 <% raise_current = 300 %>
 <% in_progress_percentages = 30 %>
-<% project_id = 1 %>
-<% organization_id = 1 %>
+<% project_id = @project.id %>
+<% organization_id = @project.organization.id %>
 <% days_left = 1 %>
+
+
+<% @project.name %>
+<% @project.starting_date %>
+
+<% @project.donation_targeted %>
+<% @project.donation_start %>
+<% @project.donation_end %>
+
+<% @project.organization.name %>
+<% @project.city.city_name%>
+<% @project.city.department.department_name%>
+<% @project.city.department.country.country_name%>
 
   
 <div class="card" >
@@ -18,9 +33,9 @@
   <ul class="list-group list-group-flush">
 
     <li class="list-group-item bg-light">
-      <h4 class="card-title"><%= link_to title, project_path(project_id)%></h4>
-      <p><small><%= link_to organization, organization_path(organization_id)%></small></p>
-      <p><small><%= city %></small></p>
+      <h4 class="card-title"><%= link_to project_name, project_path(project_id)%></h4>
+      <p><small><%= link_to organization_name, organization_path(organization_id)%></small></p>
+      <p><small><%= city_name %></small></p>
     </li>
 
     <li class="list-group-item">
