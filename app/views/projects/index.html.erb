@@ -1,17 +1,17 @@
 <section>
-<div class="container-fluid">
-  <div class="container">
-    <div class="row">
-      Zone pour les Filtres
-    </div>
-    <div class="row">
-    <% @projects.each do |project|%>
-    <% @project = project %>  
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= render partial:'layouts/orga/mol/card', locals: {project: @project} %> <a> </a>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        Zone pour les Filtres
       </div>
-    <% end %>
+      <div class="row">
+        <% @projects.each do |project|%>
+          <% @project = project %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= render partial:'layouts/orga/mol/card', locals: {project: @project} %> <a> </a>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-<div>
-</section>
+    <div>
+    </section>

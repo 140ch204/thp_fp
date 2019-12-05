@@ -1,50 +1,41 @@
-
-
 <% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
 <% title = "c'est le titre !" %>
 <% description = "c'est la description !" %>
-
-
 <div class="container">
   <div class="row">
-
     <div class="col-md-8">
-    
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
       <br/>
     </div>
-
     <div class="col-md-4">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
       <br/>
     </div>
-
   </div>
 </div>
-
 <section>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card" >
-        <% if user_signed_in? %>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item text-justify">
-              <%= link_to "Créer une association", new_organization_path(:association => true ), class: "btn btn-outline-secondary btn-lg btn-block"%><br>
-              <%= link_to "Créer une entreprise", new_organization_path(:association => false ), class: "btn btn-outline-secondary btn-lg btn-block"%>  
-            </li>
-          </ul>
-        <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card" >
+          <% if user_signed_in? %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-justify">
+                <%= link_to "Créer une association", new_organization_path(:association => true ), class: "btn btn-outline-secondary btn-lg btn-block"%><br>
+                <%= link_to "Créer une entreprise", new_organization_path(:association => false ), class: "btn btn-outline-secondary btn-lg btn-block"%>
+              </li>
+            </ul>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div> <br/>
+   <br/>
 </section>
-
 <!-- Public part -->
 <% if user_signed_in? == false %>
   <%= "Public Infos"%>
