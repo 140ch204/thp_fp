@@ -5,7 +5,7 @@
 </div>
 
 <% if @current_organization.is_creating_project_permitted(@user) %>
-	<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Initier un nouveau projet", path: new_project_path() , color: "primary"} %>
+	<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Initier un nouveau projet", path: new_project_path(organization_id: @current_organization.id) , color: "primary"} %>
 <% end %>
 
 
