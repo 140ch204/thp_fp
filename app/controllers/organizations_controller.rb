@@ -23,12 +23,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    @country = Country.find_or_create_by(country_params)
-    @department = Department.find_or_create_by(country: @country, 
-      department_name: params[:department][:department_name], 
-      zip_code: params[:department][:zip_code],
-      region: params[:department][:region] )
-    @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
+    location_params
     @organization.update(city_id: @city.id)
 
     if @organization.save
@@ -55,11 +50,8 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
-    @city = City.find(@organization.city_id)
-    # @department = Department.find(@city.department_id)
-    @city.update!(city_params)
-    # @department.update!(department_params)
-    # @country.update!(country_params)
+    location_params
+    @organization.update!(city_id: @city.id)
 
     if @organization.update!(organization_params)
 
@@ -89,4 +81,14 @@ class OrganizationsController < ApplicationController
   def country_params
     params.require(:country).permit(:country_name)
   end
+
+  def location_params
+    @country = Country.find_or_create_by(country_params)
+    @department = Department.find_or_create_by(country: @country, 
+      department_name: params[:department][:department_name], 
+      zip_code: params[:department][:zip_code],
+      region: params[:department][:region] )
+    @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
+  end
+
 end
