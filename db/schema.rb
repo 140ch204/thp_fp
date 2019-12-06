@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_102910) do
+ActiveRecord::Schema.define(version: 2019_12_06_105403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,14 @@ ActiveRecord::Schema.define(version: 2019_12_06_102910) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "organization_links", force: :cascade do |t|
+    t.string "url_organization"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_organization_links_on_organization_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -102,6 +110,14 @@ ActiveRecord::Schema.define(version: 2019_12_06_102910) do
     t.string "RNA"
     t.bigint "city_id"
     t.index ["city_id"], name: "index_organizations_on_city_id"
+  end
+
+  create_table "project_links", force: :cascade do |t|
+    t.string "url_project"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_links_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|

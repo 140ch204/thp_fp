@@ -195,3 +195,25 @@ tag_count = 0
 	tag_count += 1
 end
 puts "#{tag_count} tag_lists created."
+
+ProjectLink.destroy_all
+project_link_count = 0
+50.times do
+	ProjectLink.create(
+		url_project: "https://assoangels.com/",
+		project_id: Project.all.sample.id
+		)
+	project_link_count += 1
+end
+puts "#{project_link_count} project_links created."
+
+OrganizationLink.destroy_all
+organization_link_count = 0
+50.times do
+	OrganizationLink.create(
+		url_organization: "https://assoangels.com/",
+		organization_id: Organization.all.sample.id
+		)
+	organization_link_count += 1
+end
+puts "#{organization_link_count} organization_links created."
