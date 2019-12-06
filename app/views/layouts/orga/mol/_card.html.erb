@@ -37,7 +37,7 @@
       <% @admin_collection.each do |element| %>
         <% element.organization.projects.each do |project|%>
           <h4 class="card-title"><%= link_to project.name, project_path(project.id) %></h4><br />
-          <p><small><%= project.city_name %></small></p>
+          <p><small><%= project.city.city_name %></small></p>
         <% end %>
         <% if element.organization.is_association == true %>
           <p> Asso : </p>
