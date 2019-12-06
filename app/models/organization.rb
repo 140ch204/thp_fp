@@ -4,6 +4,8 @@ class Organization < ApplicationRecord
 	has_many :donations
 	has_many :follows
 	has_many :tag_lists
+	has_many :alerts
+	has_many :organization_links
 	has_many :tags, through: :tag_lists
 	has_many :users, through: :admins
 	has_many :counterparts, through: :donations
