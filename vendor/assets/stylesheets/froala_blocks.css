@@ -1299,3 +1299,8 @@ header + header {
     bottom: 0cm;
     width: 100%;
   }
+
+  .lead-2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: white; }
