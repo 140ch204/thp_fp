@@ -6,12 +6,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-<<<<<<< HEAD
     @current_organization = Organization.find(@project.organization_id)
     @user = current_user
-=======
     @donation = Donation.new
->>>>>>> dev
   end
 
   def new
