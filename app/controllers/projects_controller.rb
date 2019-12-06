@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
   end
 
   def department_params
-    params.require(:department).permit(:department_name :zip_code, :region)
+    params.require(:department).permit(:department_name, :zip_code, :region)
   end
 
 end
