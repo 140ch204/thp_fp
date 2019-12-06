@@ -8,7 +8,7 @@
       <br/>
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.email, description: @current_user.city } %>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.email, description: @current_user.city.city_name } %>
       <br/>
     </div>
     <div class="col-md-4">
