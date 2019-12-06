@@ -177,3 +177,21 @@ follow_count = 0
 	follow_count += 1
 end
 puts "#{follow_count} follows created."
+
+buzzword = ["environnement", "sociétal", "jeunesse", "troisième âge", "parc", "nature", "éducation"]
+Tag.destroy_all
+buzzword.length.times do |n|
+	Tag.create(tag_name: buzzword[n])
+end
+puts "#{buzzword.length} tags created."
+
+TagList.destroy_all
+tag_count = 0
+20.times do
+	TagList.create(
+		tag_id: Tag.all.sample.id,
+		organization_id: Organization.all.sample.id
+		)
+	tag_count += 1
+end
+puts "#{tag_count} tag_lists created."
