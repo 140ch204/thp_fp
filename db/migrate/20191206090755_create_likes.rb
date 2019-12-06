@@ -5,7 +5,7 @@ class CreateLikes < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_belongs_to :likes, :user, index: true
+    add_belongs_to :likes, :organization, index: true    
   end
-  add_belongs_to :users, :like, index: true
-  add_belongs_to :projects, :like, index: true
 end

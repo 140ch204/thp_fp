@@ -5,7 +5,7 @@ class CreateFollows < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_belongs_to :users, :like, index: true
-    add_belongs_to :organizations, :like, index: true
+    add_belongs_to :follows, :user, index: true
+    add_belongs_to :follows, :organization, index: true
   end
 end
