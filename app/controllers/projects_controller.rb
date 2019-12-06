@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @current_organization = Organization.find(@project.organization_id)
+    @user = current_user
     @donation = Donation.new
   end
 
@@ -35,7 +37,28 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:id])
+    @city = City.find(@project.city_id)
+    @department = Department.find(@city.department_id)
+    @organization = Organization.find(@project.organization_id)
+  end
+
   def update
+    @project = Project.find(params[:id])
+    @city = City.find(@project.city_id)
+    # @department = Department.find(@city.department_id)
+    @city.update!(city_params)
+    # @department.update!(department_params)
+    # @country.update!(country_params)
+
+    if @project.update!(project_params)
+      flash[:success] = "Votre projet a bien été mis à jour"
+      redirect_to project_path(@project.id)
+    else
+      flash[:danger] = "Erreur"
+      render 'edit'
+    end
   end
 
   def destroy

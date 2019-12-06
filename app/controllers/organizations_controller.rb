@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
     @associations = Organization.where(is_association: true)
     @companies = Organization.where(is_company: true)
     @user = current_user
+    @is_association = params[:association]
   end
 
   def show
@@ -24,9 +25,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @country = Country.find_or_create_by(country_params)
     @department = Department.find_or_create_by(country: @country, 
-                                              department_name: params[:department][:department_name], 
-                                              zip_code: params[:department][:zip_code],
-                                              region: params[:department][:region] )
+      department_name: params[:department][:department_name], 
+      zip_code: params[:department][:zip_code],
+      region: params[:department][:region] )
     @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
     @organization.update(city_id: @city.id)
 
@@ -38,10 +39,35 @@ class OrganizationsController < ApplicationController
       else
         flash[:success] = "Votre entreprise a bien été enregistrée"
       end
-        redirect_to organization_path(@organization.id)
+      redirect_to organization_path(@organization.id)
     else
       flash[:danger] = "Erreur"
       render 'new'
+    end
+  end
+
+  def edit
+    @organization = Organization.find(params[:id])
+    @city = City.find(@organization.city_id)
+    @department = Department.find(@city.department_id)
+    @country = Country.find(@department.country_id)
+  end
+
+  def update
+    @organization = Organization.find(params[:id])
+    @city = City.find(@organization.city_id)
+    # @department = Department.find(@city.department_id)
+    @city.update!(city_params)
+    # @department.update!(department_params)
+    # @country.update!(country_params)
+
+    if @organization.update!(organization_params)
+
+      flash[:success] = "La page de votre organisation a bien été mise à jour"
+      redirect_to organization_path(@organization.id)
+    else
+      flash[:danger] = "Erreur"
+      render 'edit'
     end
   end
 

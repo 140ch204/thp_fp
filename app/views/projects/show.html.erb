@@ -24,12 +24,18 @@
   </div>
 </div>
 
+<% if @current_organization.is_creating_project_permitted(@user) %>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %>
+<% end %>
+
+
 
 <%= form_with model: @donation do |donation_form|%>
   <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY %><br />
   <%= donation_form.hidden_field :project_id, :value => params[:id] %>
   <%= donation_form.submit %>
 <% end %>
+
 
 <%= @project.name %><br/>
 <%= @project.description %><br/>
