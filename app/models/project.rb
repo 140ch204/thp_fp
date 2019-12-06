@@ -4,6 +4,7 @@ class Project < ApplicationRecord
 	has_many :counterparts
 	has_many :donations
 	has_many :likes
+	has_many :project_links
 	has_many :admins, through: :organizations
 
 	def in_progress_statut?
