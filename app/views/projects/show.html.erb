@@ -1,29 +1,42 @@
 <% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
 <% title = "c'est le titre !" %>
 <% description = "c'est la description !" %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8">
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
       <br/>
       <% if user_signed_in? %>
-        <%= render partial:'layouts/orga/mol/create_orga', layout: "layouts/orga/mol/card_mini_without_title_layout" %>
       <% end %>
-      <br/>
+
+      <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", project: @project} %>
+      <br/>  
     </div>
     <div class="col-md-4">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
+      <%= render partial:'layouts/orga/mol/card_raising', layout: "layouts/orga/mol/card_mini_without_title_layout", locals: {  project: @project} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
-      <br/>
+      <%= render partial:'layouts/orga/mol/card_organization', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Porteur", project: @project} %>
+      <br/>     
     </div>
   </div>
 </div>
+
 <% if @current_organization.is_creating_project_permitted(@user) %>
   <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %>
 <% end %>
+
+
+
+<%= form_with model: @donation do |donation_form|%>
+  <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY %><br />
+  <%= donation_form.hidden_field :project_id, :value => params[:id] %>
+  <%= donation_form.submit %>
+<% end %>
+
+
 <%= @project.name %><br/>
 <%= @project.description %><br/>
 <%= @project.starting_date %><br/>

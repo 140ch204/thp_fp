@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = current_user 
+    @user = current_user
+    @admin_collection = Admin.where(user: current_user)
+    @is_admin = Admin.find_by(user: current_user)
+    @organization = @is_admin.organization rescue nil
+    @project = @organization.projects[0]  rescue nil
 	end
 
 	def new

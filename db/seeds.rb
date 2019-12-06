@@ -14,7 +14,7 @@ Department.destroy_all
 department_count = 0
 20.times do
 	Department.create(
-		country_id: "1",
+		country_id: Country.all.sample.id,
 		department_name: Faker::Address.community,
 		zip_code: Faker::Address.zip_code,
 		region: Faker::Address.state)
@@ -34,22 +34,42 @@ puts "#{city_count} cities created."
 
 User.destroy_all
 user_count = 0
+my_master = 0
+my_admin_asso = 0
+my_admin_firm = 0
 10.times do
-	User.create(
+  case user_count
+  when 0 # Master 
+    master = true
+  else
+    master = false
+  end
+
+	my_user = User.create(
 		city_id: City.all.sample.id,
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
-		email: Faker::Internet.email,
-		password: Faker::Internet.password)
-	user_count += 1
+		email: (Faker::Name.first_name + "." + Faker::Name.last_name + "@yopmail.com"),
+    password: "aaaaaa",
+    master: master)
+    
+  (user_count == 0)? (my_master = my_user) : ""
+  (user_count == 1)? (my_admin_asso = my_user) : ""
+  (user_count == 2)? (my_admin_firm = my_user) : ""
+  user_count += 1
+  
 end
 puts "#{user_count} users created."
+puts "master | email : #{my_master.email} | pwd = aaaaaa | id = #{my_master.id}"
+puts "admin asso | email : #{my_admin_asso.email} | pwd = aaaaaa | id = #{my_admin_asso.id}"
+puts "admin firm | email : #{my_admin_firm.email} | pwd = aaaaaa | id = #{my_admin_firm.id}"
+
 
 Organization.destroy_all
 company_count = 0
 association_count = 0
 10.times do
-	Organization.create(
+	one_company = Organization.create(
 		city_id: City.all.sample.id,
 		name: Faker::Company.name,
 		description: Faker::Company.catch_phrase,
@@ -61,7 +81,7 @@ association_count = 0
 	company_count += 1
 end
 10.times do
-	Organization.create(
+	one_asso = Organization.create(
 		city_id: City.all.sample.id,		
 		name: Faker::Company.name,
 		description: Faker::Company.catch_phrase,
@@ -133,3 +153,81 @@ donation_count = 0
 	donation_count += 1
 end
 puts "#{donation_count} donations created."
+
+Like.destroy_all
+like_count = 0
+10.times do
+	Like.create(
+		is_liking: true,
+		user_id: User.all.sample.id,
+		project_id: Project.all.sample.id
+		)
+	like_count += 1
+end
+puts "#{like_count} likes created."
+
+Follow.destroy_all
+follow_count = 0
+10.times do
+	Follow.create(
+		is_following: true,
+		user_id: User.all.sample.id,
+		organization_id: Organization.all.sample.id
+		)
+	follow_count += 1
+end
+puts "#{follow_count} follows created."
+
+buzzword = ["environnement", "sociétal", "jeunesse", "troisième âge", "parc", "nature", "éducation"]
+Tag.destroy_all
+buzzword.length.times do |n|
+	Tag.create(tag_name: buzzword[n])
+end
+puts "#{buzzword.length} tags created."
+
+TagList.destroy_all
+tag_count = 0
+20.times do
+	TagList.create(
+		tag_id: Tag.all.sample.id,
+		organization_id: Organization.all.sample.id
+		)
+	tag_count += 1
+end
+puts "#{tag_count} tag_lists created."
+
+ProjectLink.destroy_all
+project_link_count = 0
+50.times do
+	ProjectLink.create(
+		url_project: "https://assoangels.com/",
+		project_id: Project.all.sample.id
+		)
+	project_link_count += 1
+end
+puts "#{project_link_count} project_links created."
+
+OrganizationLink.destroy_all
+organization_link_count = 0
+50.times do
+	OrganizationLink.create(
+		url_organization: "https://assoangels.com/",
+		organization_id: Organization.all.sample.id
+		)
+	organization_link_count += 1
+end
+puts "#{organization_link_count} organization_links created."
+
+Alert.destroy_all
+alert_count = 0
+50.times do
+	Alert.create(
+		organization_id: Organization.all.sample.id,
+		user_id: User.all.sample.id,
+		city_id: City.all.sample.id,
+		project_id: Project.all.sample.id,
+		alert_name: "Alerte Rouge"
+		)
+	alert_count += 1
+end
+puts "#{alert_count} alerts created."

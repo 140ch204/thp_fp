@@ -1,18 +1,17 @@
 
 <%= "OBSOLETE : Le render 'card' n'a pas une démonination assez précise et sera migré prochainement vers 'card_project'" %>
-
-<%# project card %>
-<% project_name = @project.name %>
-<% organization_name = @project.organization.name%>
-<% city_name = @project.city.city_name %>
-<% description = @project.description%>
-<% raise_objective = 1000 %>
-<% raise_current = 300 %>
-<% in_progress_percentages = 30 %>
-<% project_id = @project.id %>
-<% organization_id = @project.organization.id %>
-<% days_left = 1 %>
-
+<% if current_user.is_admin? == true %>
+  <%# project card %>
+  <% project_name = @project.name %>
+  <% organization_name = @project.organization.name%>
+  <% city_name = @project.city.city_name %>
+  <% description = @project.description%>
+  <% raise_objective = 1000 %>
+  <% raise_current = 300 %>
+  <% in_progress_percentages = 30 %>
+  <% project_id = @project.id %>
+  <% organization_id = @project.organization.id %>
+  <% days_left = 1 %>
 
 <% @project.name %>
 <% @project.starting_date %>
@@ -25,19 +24,31 @@
 <% @project.city.city_name%>
 <% @project.city.department.department_name%>
 <% @project.city.department.country.country_name%>
+<% end %>
 
   
 <div class="card" >
   <img  src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
 
   <ul class="list-group list-group-flush">
-
+  
+  <% if current_user.is_admin? == true %>
     <li class="list-group-item bg-light">
-      <h4 class="card-title"><%= link_to project_name, project_path(project_id)%></h4>
-      <p><small><%= link_to organization_name, organization_path(organization_id)%></small></p>
-      <p><small><%= city_name %></small></p>
+      <% @admin_collection.each do |element| %>
+        <% element.organization.projects.each do |project|%>
+          <h4 class="card-title"><%= link_to project.name, project_path(project.id) %></h4><br />
+          <p><small><%= project.city.city_name %></small></p>
+        <% end %>
+        <% if element.organization.is_association == true %>
+          <p> Asso : </p>
+          <p><small><%= link_to element.organization.name, organization_path(element.organization.id)%><br /><hr /></small></p>
+        <% else %>
+          <p> Entreprise : </p>
+          <p><small><%= link_to element.organization.name, organization_path(element.organization.id)%><br /></small></p>
+        <% end %>
+      <% end %>  
     </li>
-
+  <% end %>
     <li class="list-group-item">
       <p> <%= description %>  </p>
     </li>
@@ -50,13 +61,17 @@
         </div>
       </div>
     </li>
-
-    <li class="list-group-item bg-light">
-      <%= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
-      <% days_left_str = "J-" + days_left.to_s  %>
-      <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
-    </li>
-
+  <% if current_user.is_admin? == true %>  
+    <% @admin_collection.each do |element| %>
+      <% element.organization.projects.each do |project|%>
+        <li class="list-group-item bg-light">
+          <%= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
+          <% days_left_str = "J-" + days_left.to_s  %>
+          <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
+        </li>
+      <% end %>
+    <% end %>  
+  <% end %>
   </ul>
   
 </div> <br/>
