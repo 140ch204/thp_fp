@@ -1,2 +1,4 @@
-RENDER OBSOLETE !!!!!!!!!
-<%= link_to @project.organization.name, organization_path(@project.organization.id)%>
+<%= link_to @project.organization.name, organization_path(@project.organization.id)%><br />
+<small><%=@project.organization.city.city_name%>
+<%= @project.organization.city.department.department_name%><br/>
+<%= @project.organization.city.department.country.country_name%></small><br/>

@@ -30,14 +30,7 @@
 <% end %>
 
 
-
-<%= form_with model: @donation do |donation_form|%>
-  <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY %><br />
-  <%= donation_form.hidden_field :project_id, :value => params[:id] %>
-  <%= donation_form.submit %>
-<% end %>
-
-
+<!-- 
 <%= @project.name %><br/>
 <%= @project.description %><br/>
 <%= @project.starting_date %><br/>
@@ -45,9 +38,7 @@
 <%= @project.donation_start %><br/>
 <%= @project.donation_end %><br/>
 <%= @project.organization.name %><br/>
-<%= @project.city.city_name%><br/>
-<%= @project.city.department.department_name%><br/>
-<%= @project.city.department.country.country_name%><br/>
+
 <br/>
 Statut: <br/>
 <%= @project.in_progress_statut? %>
@@ -63,3 +54,5 @@ Objectif: <br/>
 <br/>
 Pourcentage: <br/>
 <%= @project.in_progress_percentages? %> %
+
+-->

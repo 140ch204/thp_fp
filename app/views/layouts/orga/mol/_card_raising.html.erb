@@ -4,7 +4,7 @@
 <h2> <%= @project.in_progress_percentages? %> % </h2> 
 <p> sur un objectif de <%= @project.donation_targeted %> € </p>
 
-<h2> J- 10 </h2>
+<h2> <%="J- " + "#{@project.remaining_time}" %></h2>
 
 <% @project.in_progress_statut? %>
 <% @project.in_progress_amount? %>

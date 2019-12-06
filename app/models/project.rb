@@ -29,4 +29,7 @@ class Project < ApplicationRecord
 		return (percent.to_f.is_a?(Float) && percent.to_f.nan?) ? 0 : percent.to_f.round(0)
 	end
 
+  def remaining_time
+    ((60*60*24*30) - (Time.now - self.created_at)).round(0) /60 /60 /24
+  end
 end
