@@ -4,11 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %> 
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.first_name, description: @current_user.last_name } %> 
       <br/>
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
+      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.email, description: description } %>
       <br/>
     </div>
     <div class="col-md-4">
@@ -43,12 +43,6 @@
   <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
 <% end %>
 
-<!-- Public part -->
-<% if current_user.is_admin? == false %>
-  <%= "Public Infos"%><br />
-  <%= link_to "Créer une association", new_organization_path(:association => true )%><br>
-  <%= link_to "Créer une entreprise", new_organization_path(:association => false )%>
-<% end %>
 
 <%= render partial:'layouts/orga/cardsprofil' %>
 <section>
@@ -70,8 +64,5 @@
   </div>
    <br/>
 </section>
-<!-- Public part -->
-<% if user_signed_in? == false %>
-  <%= "Public Infos"%>
-<% end %>
+
 
