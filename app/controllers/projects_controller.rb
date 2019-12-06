@@ -23,13 +23,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @country = Country.find_or_create_by(country_params)
-    @department = Department.find_or_create_by(country: @country, 
-      department_name: params[:department][:department_name], 
-      zip_code: params[:department][:zip_code],
-      region: params[:department][:region] )
-    @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
-    @project.city_id = @city.id
+    location_params
+    @project.update!(city_id: @city.id)
 
     if @project.save
       flash[:success] = "Votre projet a bien été enregistré"
@@ -49,11 +44,8 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @city = City.find(@project.city_id)
-    # @department = Department.find(@city.department_id)
-    @city.update!(city_params)
-    # @department.update!(department_params)
-    # @country.update!(country_params)
+    location_params
+    @project.update!(city_id: @city.id)
 
     if @project.update!(project_params)
       flash[:success] = "Votre projet a bien été mis à jour"
@@ -84,6 +76,15 @@ class ProjectsController < ApplicationController
 
   def department_params
     params.require(:department).permit(:department_name, :zip_code, :region)
+  end
+
+  def location_params
+    @country = Country.find_or_create_by(country_params)
+    @department = Department.find_or_create_by(country: @country, 
+      department_name: params[:department][:department_name], 
+      zip_code: params[:department][:zip_code],
+      region: params[:department][:region] )
+    @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
   end
 
 end
