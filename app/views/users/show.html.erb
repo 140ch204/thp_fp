@@ -1,22 +1,17 @@
 <% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
 <% title = "c'est le titre !" %>
 <% description = "c'est la description !" %>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.first_name, description: @current_user.last_name } %> 
+    <div class="col-md-12">
+      <%= render partial:'layouts/orga/mol/card_user_show'%>
       <br/>
-      <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
+      <%= render partial:'layouts/orga/mol/card_asso'%>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @current_user.email, description: @current_user.city } %>
-      <br/>
+      <%= render partial:'layouts/orga/mol/card_firm'%>
     </div>
-    <div class="col-md-4">
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
-      <br/>
-      <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: title, description: description } %>
-      <br/>
-    </div>
+
   </div>
 </div>
 
@@ -48,8 +43,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        
+      <div class="col">
           <% if user_signed_in? %>
             <ul class="list-group list-group-flush">
               <li class="list-group-item text-justify">
@@ -57,7 +51,6 @@
               </li>
             </ul>
           <% end %>
-        
       </div>
     </div>
   </div>
@@ -68,7 +61,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col">
         <div class="card" >
           <% if user_signed_in? %>
             <ul class="list-group list-group-flush">

@@ -2,7 +2,10 @@
   <div class="container-fluid">
     <div class="container">
       <div class="row">
-        Zone pour les Filtres
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Projets en cours"} %>
+          <br>
+        </div>
       </div>
       <div class="row">
         <% @projects.each do |project|%>
@@ -13,5 +16,5 @@
         <% end %>
       </div>
     </div>
-    <div>
-    </section>
+  <div>
+</section>

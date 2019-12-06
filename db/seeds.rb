@@ -217,3 +217,17 @@ organization_link_count = 0
 	organization_link_count += 1
 end
 puts "#{organization_link_count} organization_links created."
+
+Alert.destroy_all
+alert_count = 0
+50.times do
+	Alert.create(
+		organization_id: Organization.all.sample.id,
+		user_id: User.all.sample.id,
+		city_id: City.all.sample.id,
+		project_id: Project.all.sample.id,
+		alert_name: "Alerte Rouge"
+		)
+	alert_count += 1
+end
+puts "#{alert_count} alerts created."

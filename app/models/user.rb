@@ -5,6 +5,7 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :likes
   has_many :follows
+  has_many :alerts
 
   after_create :welcome_send
 
