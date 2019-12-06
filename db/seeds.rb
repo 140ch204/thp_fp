@@ -153,3 +153,27 @@ donation_count = 0
 	donation_count += 1
 end
 puts "#{donation_count} donations created."
+
+Like.destroy_all
+like_count = 0
+10.times do
+	Like.create(
+		is_liking: true,
+		user_id: User.all.sample.id,
+		project_id: Project.all.sample.id
+		)
+	like_count += 1
+end
+puts "#{like_count} likes created."
+
+Follow.destroy_all
+follow_count = 0
+10.times do
+	Follow.create(
+		is_following: true,
+		user_id: User.all.sample.id,
+		organization_id: Organization.all.sample.id
+		)
+	follow_count += 1
+end
+puts "#{follow_count} follows created."
