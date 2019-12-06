@@ -10,7 +10,9 @@
         <h3><p class="card-text">Prénom : <%= @current_user.last_name %></p></h3>
         <br>
         <h3><p class="card-text">Email : <%= @current_user.email %></p></h3>
-        <h3><p class="card-text">Ville : <%= @current_user.city.city_name %></p></h3>
+        <% if @current_user.city != nil%>
+          <h3><p class="card-text">Ville : <%= @current_user.city.city_name %></p></h3>
+        <% end %>
       </div>
     </div>
   </div>
