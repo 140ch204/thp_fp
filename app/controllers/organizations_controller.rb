@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
     @associations = Organization.where(is_association: true)
     @companies = Organization.where(is_company: true)
     @user = current_user
+    @is_association = params[:association]
   end
 
   def show

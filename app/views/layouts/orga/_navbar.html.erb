@@ -11,6 +11,12 @@
             <%= link_to "Accueil", root_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
+            <%= link_to "Voir nos entreprises partenaires", organizations_path(association: false), class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Voir nos associations partenaires", organizations_path(association: true), class: "nav-link"%>
+          </li>
+          <li class="nav-item">
             <%= link_to "Projets", projects_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
@@ -31,19 +37,19 @@
             <a class="nav-link" href=""></a>
           </li>
           <% if user_signed_in? == false %>
-            <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
-            </li>
-            <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %><br/>
-            </li>
+          <li class="nav-item">
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
+          </li>
+          <li class="nav-item">
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %><br/>
+          </li>
           <% else %>
-            <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %><br/>
-            </li>
-            <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %><br/>
-            </li>
+          <li class="nav-item">
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %><br/>
+          </li>
+          <li class="nav-item">
+            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %><br/>
+          </li>
           <% end %>
         </ul>
       </div>
