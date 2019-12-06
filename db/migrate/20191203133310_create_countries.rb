@@ -6,5 +6,6 @@ class CreateCountries < ActiveRecord::Migration[5.2]
 
 			t.timestamps
 		end
+		add_belongs_to :departments, :country, index: true
 	end
 end
