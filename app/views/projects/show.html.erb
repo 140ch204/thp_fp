@@ -8,7 +8,7 @@
       <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
-      
+      <br/>
       <% if user_signed_in? %>
       <% end %>
 
@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-4">
       <%= render partial:'layouts/orga/mol/card_raising', layout: "layouts/orga/mol/card_mini_without_title_layout", locals: {  project: @project} %>
-
+      <br/>
       <%= render partial:'layouts/orga/mol/card_organization', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Porteur", project: @project} %>
       <br/>     
     </div>
