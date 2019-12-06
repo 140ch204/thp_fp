@@ -1,0 +1,26 @@
+
+
+
+<div class="card" >
+  <img  src= <%= @organization.logo_url %> alt="...">
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item bg-light">
+      <h4 class="card-title"><%= link_to @organization.name, organization_path(@organization.id)%></h4>
+      <p><small><%# link_to organization_name, organization_path(organization_id)%></small></p>
+      <p><small><%#= city_name %></small></p>
+    </li>
+
+    <li class="list-group-item">
+
+    </li>
+
+    <li class="list-group-item bg-light">
+      <%#= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
+      <%# days_left_str = "J-" + days_left.to_s  %>
+      <%#= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
+    </li>
+
+  </ul>
+  
+</div> <br/>

@@ -1,3 +1,35 @@
+
+<% @organizations = @associations %>
+<section>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Association"} %>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <% @organizations.each do |organization|%>
+          <% @organization = organization %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= render partial:'layouts/orga/card_organization', locals: {organization: @organization} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div>
+</section>
+
+
+
+
+
+
+
+
+
+
 <!-- Associations -->
 <% if @is_association == "true" %>
   <% @associations.each_with_index do |association, i| %>
