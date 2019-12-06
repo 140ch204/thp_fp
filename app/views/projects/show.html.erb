@@ -24,13 +24,6 @@
   </div>
 </div>
 
-
-<%= form_with model: @donation do |donation_form|%>
-  <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY %><br />
-  <%= donation_form.hidden_field :project_id, :value => params[:id] %>
-  <%= donation_form.submit %>
-<% end %>
-
 <%= @project.name %><br/>
 <%= @project.description %><br/>
 <%= @project.starting_date %><br/>

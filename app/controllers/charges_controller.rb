@@ -1,13 +1,17 @@
 class ChargesController < ApplicationController
+  after_action :generate_donation, only: [:create]
+  
   def new
     @user = current_user
-    @organization = Organization.find(params[:organization_id].to_i)
+    @admin = Admin.find_by(user: current_user)
+    @organization = @admin.organization
     @donation_amount = params[:donation_amount]
     
   end
   
   def create
     # Amount in cents
+    
     @amount = params[:amount]
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -21,10 +25,25 @@ class ChargesController < ApplicationController
       currency: 'eur',
     })
     
-    redirect_to root_path
+    redirect_to project_path(params[:project_id])
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+  end
+
+  private
+
+  def generate_donation
+    @project = params[:project_id]
+    @admin = Admin.find_by(user: current_user)
+    @organization = @admin.organization
+    @donation_amount = params[:amount]
+    @donation = Donation.new(donation_amount: @donation_amount, project_id: @project, organization: @organization)
+    if @donation.save
+      flash[:success] = "Votre don à bien été pris en compte"
+    else 
+      flash[:danger] = "Erreur"
+    end
   end
 end

@@ -1,0 +1,5 @@
+<%= form_with model: @donation do |donation_form|%>
+  <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY, class: "form-control" %><br />
+  <%= donation_form.hidden_field :project_id, :value => params[:project_id] %>
+  <%= donation_form.submit :value => "Faire un don", class:"btn btn-outline-primary" %>
+<% end %>

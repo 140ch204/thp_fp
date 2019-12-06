@@ -10,4 +10,4 @@
 <% @project.in_progress_amount? %>
 <% @project.donation_targeted %>
 
-<%= link_to "Contribuer", root_path() , class: "btn btn-secondary", method: "get" %>
+<%= link_to "Contribuer", new_donation_path(project_id: params[:id]) , class: "btn btn-secondary", method: "get" %>
