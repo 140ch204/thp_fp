@@ -73,12 +73,20 @@ ActiveRecord::Schema.define(version: 2019_12_06_091057) do
     t.boolean "is_following"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_follows_on_organization_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.boolean "is_liking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_likes_on_project_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -93,9 +101,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_091057) do
     t.datetime "updated_at", null: false
     t.string "RNA"
     t.bigint "city_id"
-    t.bigint "follow_id"
     t.index ["city_id"], name: "index_organizations_on_city_id"
-    t.index ["follow_id"], name: "index_organizations_on_follow_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -110,9 +116,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_091057) do
     t.datetime "donation_start"
     t.datetime "donation_end"
     t.bigint "city_id"
-    t.bigint "like_id"
     t.index ["city_id"], name: "index_projects_on_city_id"
-    t.index ["like_id"], name: "index_projects_on_like_id"
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end
 
@@ -129,12 +133,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_091057) do
     t.boolean "is_admin", default: false, null: false
     t.bigint "city_id"
     t.boolean "master", default: false
-    t.bigint "like_id"
-    t.bigint "follow_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["follow_id"], name: "index_users_on_follow_id"
-    t.index ["like_id"], name: "index_users_on_like_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
