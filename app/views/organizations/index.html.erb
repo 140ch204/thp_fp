@@ -1,6 +1,6 @@
+<!-- C'est le <% if @is_association == "true" %> <% end %> qui permet de sélectionner le reste -->
 
-<% @organizations = @associations %>
-<section>
+<!-- <section>
   <div class="container-fluid">
     <div class="container">
       <div class="row">
@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="row">
-        <% @organizations.each do |organization|%>
+        <% @associations.each do |organization|%>
           <% @organization = organization %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <%= render partial:'layouts/orga/card_organization', locals: {organization: @organization} %>
@@ -20,7 +20,7 @@
     </div>
   <div>
 </section>
-
+-->
 
 
 
@@ -32,57 +32,66 @@
 
 <!-- Associations -->
 <% if @is_association == "true" %>
-  <% @associations.each_with_index do |association, i| %>
-  <div class="card" >
-    <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
-    <div class="card-body bg-primary">
-      <h4 class="card-title"><%= association.name %></h4>
-      <p class="card-text"></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= association.description %></li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <!-- Links to : Association page, Association projects -->
-      <%= link_to "En savoir plus sur l'association", organization_path(association.id)%>
-      <% association.projects.each do |project|%>
-      <%= link_to project.name, project_path(project.id)%>
-      <% end %>
-    </div>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">25%
+<section>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <% @associations.each_with_index do |association, i| %>
+          <div class="card" >
+            <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
+            <div class="card-body bg-ligth">
+              <h4 class="card-title"><%= association.name %></h4>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= association.description %></li>
+              <li class="list-group-item"><%= association.category %></li>
+              <li class="list-group-item"><%= association.city.city_name %></li>
+            </ul>
+            <div class="card-body">
+              <!-- Links to : Association page, Association projects -->
+              <%= link_to "En savoir plus sur l'association", organization_path(association.id)%>
+              <% association.projects.each do |project|%>
+              <%= link_to project.name, project_path(project.id)%>
+              <% end %>
+            </div>
+          </div>
+          <br/>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="card-footer ">
-      <a> En cours de financement</a>
-    </div>
   </div>
-  <br/>
-  <% end %>
+</section>
 <% else %>
 <!-- Companies -->
-  <% @companies.each_with_index do |company, i| %>
-  <div class="card" >
-    <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
-    <div class="card-body bg-primary">
-      <h4 class="card-title"><%= company.name %></h4>
-      <p class="card-text"></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= company.description %></li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <%= link_to "En savoir plus sur l'entreprise", organization_path(company.id)%>
-    </div>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">25%
+<section>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <% @companies.each_with_index do |company, i| %>
+          <div class="card" >
+            <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
+            <div class="card-body bg-ligth">
+              <h4 class="card-title"><%= company.name %></h4>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= company.description %></li>
+              <li class="list-group-item">D<%= company.category %></li>
+              <li class="list-group-item"><%= company.city.city_name %></li>
+            </ul>
+            <div class="card-body">
+              <%= link_to "En savoir plus sur l'entreprise", organization_path(company.id)%>
+            </div>
+          </div>
+          <br/>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-  <br/>
-  <% end %>
+</section>
 <% end %>
