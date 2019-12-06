@@ -5,7 +5,12 @@
         <h1>AssoAngels un lien entre les entreprises et les associations.</h1>
         <p class="lead-2">Face à la nécessité d'innover, de donner du sens au travail, d'ouvrir des nouvelles pistes de business et de cultiver leur capital image, les sociétés tissent des partenariats gagnant-gagnant avec le monde associatif.</p>
         <p class="mt-5">
-          <%= link_to "Inscrivez-vous", new_user_registration_path(),class:"btn btn-light"%>
+          <% if user_signed_in? %>
+            <%= link_to "Inscrire votre association", new_organization_path(:association => true ), class: "btn btn-lg btn-block bg-light"%><br>
+            <%= link_to "Inscrire vore entreprise", new_organization_path(:association => false ), class: "btn btn-lg btn-block bg-light"%>
+          <% else %>
+            <%= link_to "Nous rejoindre", new_user_registration_path(),class:"btn btn-lg btn-block bg-light"%>
+          <% end %>
         </p>
       </div>
     </div>
