@@ -1,7 +1,4 @@
-<% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
-<% title = "c'est le titre !" %>
-<% description = "c'est la description !" %>
-
+<section>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -9,29 +6,37 @@
       <br/>
       <%= render partial:'layouts/orga/mol/card_asso'%>
       <br/>
-      <%= render partial:'layouts/orga/mol/card_firm'%>
     </div>
-
   </div>
 </div>
+</section>
+
+<section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial:'layouts/orga/mol/card_firm'%>
+    </div>
+  </div>
+</div>
+</section>
 
 <section>
   <div class="container">
     <div class="row">
       <div class="col">
-          <% if user_signed_in? %>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item text-justify">
-                <%= link_to "Modifier mon compte", edit_user_registration_path , class: "btn btn-primary btn-lg btn-block"%>
-              </li>
-            </ul>
-          <% end %>
+        <% if user_signed_in? %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-justify">
+              <%= link_to "Modifier mon compte", edit_user_registration_path , class: "btn btn-primary btn-lg btn-block"%>
+            </li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>
-   <br/>
+  <br/>
 </section>
-
 <section>
   <div class="container">
     <div class="row">
@@ -49,7 +54,5 @@
       </div>
     </div>
   </div>
-   <br/>
+  <br/>
 </section>
-
-
