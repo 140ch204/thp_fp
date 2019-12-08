@@ -9,7 +9,7 @@
 <% in_progress_percentages = @project.in_progress_percentages? %>
 <% project_id = @project.id %>
 <% organization_id = @project.organization.id %>
-<% days_left = 8 %>
+<% remaining_time = @project.remaining_time %>
 
 <%# @project.in_progress_statut? %>
 <%# @project.name %>
@@ -50,7 +50,7 @@
 
     <li class="list-group-item bg-light">
       <%= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
-      <% days_left_str = "J-" + days_left.to_s  %>
+      <% days_left_str = "J-" + remaining_time.to_s  %>
       <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
     </li>
 
