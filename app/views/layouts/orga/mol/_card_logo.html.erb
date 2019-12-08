@@ -1,32 +1,25 @@
-<% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
 
 
 <div class="container-fluid">
   <div class="container">
-
     <div class="row">
 
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <img  src= <%= pic_url %> class="card-img-top" alt="...">
-        <br/><br/>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <img  src= <%= pic_url %> class="card-img-top" alt="...">
-        <br/><br/>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <img  src= <%= pic_url %> class="card-img-top" alt="...">
-        <br/><br/>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <img  src= <%= pic_url %> class="card-img-top" alt="...">
-        <br/><br/>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <img  src= <%= pic_url %> class="card-img-top" alt="...">
-        <br/><br/>
-      </div>
-
+      <%organizations.each do |organization|%>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-light">
+                <img  src= <%= organization.logo_url %> <% link_to "voir" , organization_path(organization.id) %> class="card-img-top" alt="...">
+              </li>
+              <li class="list-group-item">
+                <%= link_to "voir" , organization_path(organization.id), class:"btn btn-primary" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br/>
+      <%end%>
     </div>
   </div>
 <div>
+

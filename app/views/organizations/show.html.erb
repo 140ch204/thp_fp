@@ -1,34 +1,24 @@
 
-
 <% title = "c'est le titre !" %>
 <% description = "c'est la description !" %>
 
 <% @organization = @current_organization%>
 
-
 <div class="container">
 
   <div class="row">
-
     <div class="col-xs-12 col-sm-12 col-md-12">
-
       <% if @organization.is_association %>
         <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Association "} %>
       <%end%>
-
       <% if @organization.is_company %>
         <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Entreprise "} %>
       <%end%>
-
       <br/>
-
     <div>
-
   </div>
 
 </div>
-
-
 
 <div class="container">
 
@@ -65,7 +55,6 @@
           </li>
           <li class="list-group-item text-justify">
             <p> <%=@organization.city.department.zip_code %> <%=@organization.city.city_name %> </p>
-            
             <p> <%=@organization.city.department.region %> </p>
             <p> <%=@organization.city.department.department_name %> </p>
             <p> <%=@organization.city.department.country.country_name %> </p>
@@ -73,78 +62,56 @@
         </ul>
       </div>
       <br/>
+
     </div>
   </div>
 </div>
 
 <% if @organization.is_association %>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: "Mes projets en cours : ", description: "Cartes projets associations" } %>
-
-      </div>
-    </div>
-    <br/>
-  </div>
 
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: "Tous mes projets", description: "Cartes projets" } %>
-
+        <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Projets en cours"} %>
+        <br>
       </div>
     </div>
-    <br/>
-
-    
   </div>
+
+
 
 <%end%>
 
-
-<%=@organization.name %>
-<%=@organization.description %>
-<%=@organization.category %>
-<%=@organization.siret %>
-<%=@organization.is_association %>
-<%=@organization.is_company %>
-<%=@organization.RNA %>
-<%=@organization.city_id %>
-<%=@organization.name %>
-
-<br/>
-<br/>
-<%=@organization.city.city_name %>
-<%=@organization.city.department.zip_code %>
-<%=@organization.city.department.region %>
-<%=@organization.city.department.department_name %>
-<%=@organization.city.department.country.country_name %>
+  <div class="container">
+    <div class="row">
+      <% @projects.each do |project|%>
+        <% @project = project %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render partial:'layouts/orga/card_project', locals: {project: @project} %> <a> </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
 
+<!--Poubelle-->
 
-
-
-
-
-
-
-<section>
+<!--section>
   <% pic_url = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" %>
   <% title = "c'est le titre !" %>
   <% description = "c'est la description !" %>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <%= render partial:'layouts/orga/mol/card_asso'%>
+        Erreur partial
+        <%#= render partial:'layouts/orga/mol/card_asso'%>
         <br/>
       </div>
     </div>
   </div>
-</section>
+</section-->
+
 <section>
   <div class="container">
     <div class="row">
@@ -164,3 +131,22 @@
   </div>
   <br/>
 </section>
+
+
+<%=@organization.name %>
+<%=@organization.description %>
+<%=@organization.category %>
+<%=@organization.siret %>
+<%=@organization.is_association %>
+<%=@organization.is_company %>
+<%=@organization.RNA %>
+<%=@organization.city_id %>
+<%=@organization.name %>
+
+<br/>
+<br/>
+<%=@organization.city.city_name %>
+<%=@organization.city.department.zip_code %>
+<%=@organization.city.department.region %>
+<%=@organization.city.department.department_name %>
+<%=@organization.city.department.country.country_name %>

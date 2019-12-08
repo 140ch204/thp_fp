@@ -9,6 +9,13 @@ class ProjectsController < ApplicationController
     @current_organization = Organization.find(@project.organization_id)
     @user = current_user
     @donation = Donation.new
+
+    @organizations = Organization.all # Need to be corrected !
+    
+
+    @donators = @organizations # Need to be corrected !
+
+
   end
 
   def new

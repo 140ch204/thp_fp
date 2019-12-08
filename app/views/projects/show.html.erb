@@ -13,7 +13,7 @@
       <% if user_signed_in? %>
       <% end %>
 
-      <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", project: @project} %>
+      <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", organizations: @donators} %>
       <br/>  
     </div>
     <div class="col-md-4">

@@ -12,6 +12,8 @@ class OrganizationsController < ApplicationController
     @associations = Organization.where(is_association: true)
     @companies = Organization.where(is_company: true)
     @user = current_user
+    @projects = Project.where(organization_id:@current_organization.id).all
+
   end
 
   def new
