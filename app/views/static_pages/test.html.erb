@@ -1,14 +1,16 @@
+<div>
+
 <% p = Project.find_by(id: 14) %>
 <% o = Organization.find_by(id: 14) %>
 
 <p>Test des likes sur les projets / id du projet test : <%= p.id %>.</p>
 <span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
 <% unless current_user.nil? %>
-	<% if !is_liking?(p) %>
-		<%= link_to "Like?", likes_path(project_id: p.id), method: :post %>
-	<% else %>
-		<%= link_to "Dislike?", like_path(p.id), method: :delete %>
-	<% end %>                      
+<% if !is_liking?(p) %>
+<%= link_to "Like?", likes_path(project_id: p.id), method: :post %>
+<% else %>
+<%= link_to "Dislike?", like_path(p.id), method: :delete %>
+<% end %>                      
 <% end %>
 
 </br></br>
@@ -16,9 +18,92 @@
 <p>Test des follows sur les organisations / id de l'oganisation test : <%= o.id %>.</p>
 <span class="badge badge-pill badge-primary">Followers: <%= o.follows.count %></span>
 <% unless current_user.nil? %>
-	<% if !is_following?(o) %>
-		<%= link_to "Follow?", follows_path(organization_id: o.id), method: :post %>
-	<% else %>
-		<%= link_to "Disfollow?", follow_path(o.id), method: :delete %>
-	<% end %>                      
+<% if !is_following?(o) %>
+<%= link_to "Follow?", follows_path(organization_id: o.id), method: :post %>
+<% else %>
+<%= link_to "Disfollow?", follow_path(o.id), method: :delete %>
+<% end %>                      
 <% end %>
+
+</br></br>
+
+<p>Test des liens sur les organisations / id de l'oganisation test : <%= o.id %>.</p>
+<p>Liens existants:</p>
+
+<ol>
+	<% o.organization_links.each do |link| %>
+	<li>
+		<%= link_to "Lien vers ", link.url_organization, :target => "_blank" %> <%= link.url_organization %>_ <%= link_to "Supprimer ce lien", organization_link_path(id: link.id), method: :delete %>
+	</li>
+	<% end %>
+</ol>
+
+</br>
+
+<p>Ajouter un lien:</p>
+<%= form_tag organization_links_path(organization_id: o.id), method: :post  do %>
+  <input type="text" name="url_organization" />
+  <input type="submit" value="Ajouter le lien" />
+<% end %>
+
+</br></br>
+
+<p>Test des liens sur les projets / id du projet test : <%= p.id %>.</p>
+<p>Liens existants:</p>
+
+<ol>
+	<% p.project_links.each do |link| %>
+	<li>
+		<%= link_to "Lien vers ", link.url_project, :target => "_blank" %> <%= link.url_project%>_ <%= link_to "Supprimer ce lien", project_link_path(id: link.id), method: :delete %>
+	</li>
+	<% end %>
+</ol>
+
+</br>
+
+<p>Ajouter un lien:</p>
+<%= form_tag project_links_path(project_id: p.id), method: :post  do %>
+  <input type="text" name="url_project" />
+  <input type="submit" value="Ajouter le lien" />
+<% end %>
+
+</br>
+
+
+
+<p>Test des tag_lists sur les organisations / id de l'organization test : <%= o.id %>.</p>
+<p>Tag existants:</p>
+<ol>
+	<% list = o.tag_lists %>
+	<% n = 0 %>
+	<% o.tag_lists.each do |tag| %>	
+	<li>
+		<%= Tag.find_by(id: tag.tag_id).tag_name %>_ <%= link_to "Supprimer ce tag", tag_list_path(id: list[n].id), method: :delete %>
+		<% n += 1 %>
+	</li>
+
+	<% end %>
+</ol>
+
+</br></br>
+
+<p>Ajout d'un tag:</p>
+
+<%= form_with(url: tag_lists_path(organization_id: o.id), method: :post) do |form|%>
+	<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
+	<%= form.submit "Ajouter ce mot-clé" %>
+<% end %>
+
+
+</br></br>
+
+<p>Créer un nouveau tag:</p>
+<%= form_tag tags_path, method: :post  do %>
+  <input type="text" name="tag_name" />
+  <input type="submit" value="Ajouter le tag" />
+<% end %>
+
+</br></br>
+
+
+</div>
