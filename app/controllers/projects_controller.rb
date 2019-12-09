@@ -9,13 +9,7 @@ class ProjectsController < ApplicationController
     @current_organization = Organization.find(@project.organization_id)
     @user = current_user
     @donation = Donation.new
-
-    @organizations = Organization.all # Need to be corrected !
-    
-
-    @donators = @organizations # Need to be corrected !
-
-
+    @donators = Organization.find(donator_id)
   end
 
   def new
@@ -89,6 +83,15 @@ class ProjectsController < ApplicationController
       zip_code: params[:department][:zip_code],
       region: params[:department][:region] )
     @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
+  end
+
+  def donator_id
+    who_donated = []
+    @project.donations.each do |donation|
+      id = donation.organization_id
+      who_donated << id
+    end
+    return who_donated
   end
 
 end

@@ -28,31 +28,3 @@
 <% if @current_organization.is_creating_project_permitted(@user) %>
   <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %>
 <% end %>
-
-
-<!-- 
-<%= @project.name %><br/>
-<%= @project.description %><br/>
-<%= @project.starting_date %><br/>
-<%= @project.donation_targeted %><br/>
-<%= @project.donation_start %><br/>
-<%= @project.donation_end %><br/>
-<%= @project.organization.name %><br/>
-
-<br/>
-Statut: <br/>
-<%= @project.in_progress_statut? %>
-<br/>
-<br/>
-Montant récolté: <br/>
-<%= @project.in_progress_amount? %> €
-<br/>
-<br/>
-Objectif: <br/>
-<%= @project.donation_targeted %> €
-<br/>
-<br/>
-Pourcentage: <br/>
-<%= @project.in_progress_percentages? %> %
-
--->

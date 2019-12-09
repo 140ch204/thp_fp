@@ -10,6 +10,31 @@ class Organization < ApplicationRecord
 	has_many :users, through: :admins
 	has_many :counterparts, through: :donations
 	belongs_to :city
+  validates :description, :category,
+    presence: true
+  validates :name,
+    presence: true,
+    uniqueness: true
+  validates :siret, 
+    presence: {message: "doit être fourni"}, if: :company?,
+    uniqueness: true,
+    format: { with: /\A\d{14}\z/}
+  validates :RNA,
+    presence: {message: "doit être fourni"}, if: :association?,
+    uniqueness: true,
+    format: { with: /\A[w]\d{9}\z/i}
+
+
+
+
+    
+  def association?
+    return true if self.is_association == true
+  end
+
+  def company?
+    return true if self.is_company == true
+  end
 
 	def is_creating_project_permitted(user)
 		if self.is_association = true && self.is_association_admin(user) && !user.nil?

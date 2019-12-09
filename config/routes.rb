@@ -26,5 +26,9 @@ Rails.application.routes.draw do
   resources :donations
   resources :likes, only: [:create, :destroy]
   resources :follows, only: [:create, :destroy]
+  resources :organization_links, only: [:create, :destroy]
+  resources :project_links, only: [:create, :destroy]
+  resources :tags, only: [:create]
+  resources :tag_lists, only: [:create, :destroy]
 
 end
