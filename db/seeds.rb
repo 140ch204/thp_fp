@@ -121,8 +121,10 @@ project_count = 0
 		name: Faker::Company.buzzword,
 		description: Faker::Company.catch_phrase,
 		logo_url: Faker::Avatar.image,
-		starting_date: Faker::Date.forward(days: 500),
-		donation_targeted: rand(100..100000))
+		starting_date: date = Faker::Date.forward(days: 50),
+		donation_targeted: rand(100..100000),
+		donation_start: date,
+		donation_end: date.advance(days: 30))
 	project_count += 1
 end
 puts "#{project_count} projects created."
