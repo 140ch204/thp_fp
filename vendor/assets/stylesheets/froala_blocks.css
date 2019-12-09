@@ -1304,3 +1304,8 @@ header + header {
     font-size: 1.4rem;
     font-weight: 400;
     color: white; }
+
+    .card-img-top {
+      height: 11vw;
+      object-fit: contain;
+  } 
