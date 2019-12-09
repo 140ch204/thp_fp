@@ -4,8 +4,14 @@
       <h4 class="card-title"><%= title %></h4>
     </li>
     <li class="list-group-item">
-      <p> <%= description %>  </p>
+      <p> Categorie : <%=@current_organization.category %> </p>
+      <% if @current_organization.is_association %>
+        <p> RNA : <%=@current_organization.RNA %> </p>
+      <%end%>
+      <% if @current_organization.is_company %>
+        <p> Siret : <%=@current_organization.siret %> </p>
+      <%end%><br>
+      <p> Description : <%= description %>  </p>
     </li>
   </ul>
 </div>
- 

@@ -60,9 +60,7 @@
               <div class="card-body">
                 <!-- Links to : Association page, Association projects -->
                 <%= link_to "En savoir plus sur l'association", organization_path(association.id)%>
-                <% association.projects.each do |project|%>
-                <%= link_to project.name, project_path(project.id)%>
-                <% end %>
+
               </div>
             </div>
             <br/>

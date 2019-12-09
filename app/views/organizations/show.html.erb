@@ -31,8 +31,8 @@
               <div class="card" >
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-justify">
-                    <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-                    <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                    <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-secondary btn-lg btn-block"%>
+                    <%= link_to "Editer les informations", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
                   </li>
                 </ul>
               </div>
@@ -41,13 +41,14 @@
             <div class="card" >
               <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-light">
-                  <p>Localisation </p>
+                  <h4 class="card-title">Localisation</h4>
                 </li>
                 <li class="list-group-item text-justify">
-                  <p> <%=@organization.city.department.zip_code %> <%=@organization.city.city_name %> </p>
-                  <p> <%=@organization.city.department.region %> </p>
-                  <p> <%=@organization.city.department.department_name %> </p>
-                  <p> <%=@organization.city.department.country.country_name %> </p>
+                  <p> Code postal : <%=@organization.city.department.zip_code %></p>
+                  <p>  Ville : <%=@organization.city.city_name %> </p>
+                  <p> Région : <%=@organization.city.department.region %> </p>
+                  <p> Département : <%=@organization.city.department.department_name %> </p>
+                  <p> Pays : <%=@organization.city.department.country.country_name %> </p>
                 </li>
               </ul>
             </div>
@@ -90,41 +91,4 @@
     </div>
   </div>
 </section-->
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card" >
-              <% if @current_organization.is_creating_project_permitted(@user) %>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item text-justify">
-                    <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-                    <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-                  </li>
-                </ul>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br/>
-    </section>
-    <section>
-      <%=@organization.name %>
-      <%=@organization.description %>
-      <%=@organization.category %>
-      <%=@organization.siret %>
-      <%=@organization.is_association %>
-      <%=@organization.is_company %>
-      <%=@organization.RNA %>
-      <%=@organization.city_id %>
-      <%=@organization.name %>
-      <br/>
-      <br/>
-      <%=@organization.city.city_name %>
-      <%=@organization.city.department.zip_code %>
-      <%=@organization.city.department.region %>
-      <%=@organization.city.department.department_name %>
-      <%=@organization.city.department.country.country_name %>
     </section>
