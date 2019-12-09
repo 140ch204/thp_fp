@@ -1,0 +1,2 @@
+module OrganizationLinksHelper
+end
