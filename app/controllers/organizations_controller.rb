@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
   def new
     @city = City.new
     @department = Department.new
-    @organization = Organization.new
+    @organization = Organization.new(organization_params)
     @is_association = params[:association]
   end
 
@@ -27,20 +27,19 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     location_params
     @organization.update(city_id: @city.id)
-
-    if @organization.save
-      Admin.create(user: current_user, organization: @organization)
-      current_user.update(is_admin: true)
-      if @organization.is_association == true
-        flash[:success] = "Votre association a bien été enregistrée"
-      else
-        flash[:success] = "Votre entreprise a bien été enregistrée"
-      end
-      redirect_to organization_path(@organization.id)
-    else
-      flash[:danger] = "Erreur"
-      render 'new'
-    end
+        if @organization.save
+          Admin.create(user: current_user, organization: @organization)
+          current_user.update(is_admin: true)
+          if @organization.is_association == true
+            flash[:success] = "Votre association a bien été enregistrée"
+          else
+            flash[:success] = "Votre entreprise a bien été enregistrée"
+          end
+          redirect_to organization_path(@organization.id)
+        else
+          flash[:danger] = "#{@organization.errors.full_messages}"
+          redirect_to new_organization_path
+        end
   end
 
   def edit
@@ -69,7 +68,7 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organization).permit(:name, :description, :category, :logo_url, :RNA, :is_association, :is_company, :siret)
+    params.require(:organization).permit(:name, :description, :category, :logo_url, :RNA, :is_association, :is_company, :siret) rescue nil
   end
 
   def city_params
