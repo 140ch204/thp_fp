@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :projects
   resources :donations
+  resources :likes, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
+
 end
