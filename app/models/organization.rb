@@ -10,6 +10,11 @@ class Organization < ApplicationRecord
 	has_many :users, through: :admins
 	has_many :counterparts, through: :donations
 	belongs_to :city
+  validates :description, :category,
+    presence: true
+  validates :name,
+    presence: true,
+    uniqueness: true
 
 	def is_creating_project_permitted(user)
 		if self.is_association = true && self.is_association_admin(user) && !user.nil?
