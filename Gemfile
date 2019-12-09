@@ -82,3 +82,5 @@ gem 'devise'
 gem 'stripe'
 
 gem 'administrate'
+
+gem 'mailjet'
