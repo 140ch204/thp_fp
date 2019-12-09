@@ -69,4 +69,41 @@
 
 </br>
 
+
+
+<p>Test des tag_lists sur les organisations / id de l'organization test : <%= o.id %>.</p>
+<p>Tag existants:</p>
+<ol>
+	<% list = o.tag_lists %>
+	<% n = 0 %>
+	<% o.tag_lists.each do |tag| %>	
+	<li>
+		<%= Tag.find_by(id: tag.tag_id).tag_name %>_ <%= link_to "Supprimer ce tag", tag_list_path(id: list[n].id), method: :delete %>
+		<% n += 1 %>
+	</li>
+
+	<% end %>
+</ol>
+
+</br></br>
+
+<p>Ajout d'un tag:</p>
+
+<%= form_with(url: tag_lists_path(organization_id: o.id), method: :post) do |form|%>
+	<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
+	<%= form.submit "Ajouter ce mot-clé" %>
+<% end %>
+
+
+</br></br>
+
+<p>Créer un nouveau tag:</p>
+<%= form_tag tags_path, method: :post  do %>
+  <input type="text" name="tag_name" />
+  <input type="submit" value="Ajouter le tag" />
+<% end %>
+
+</br></br>
+
+
 </div>
