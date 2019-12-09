@@ -1,0 +1,24 @@
+<% p = Project.find_by(id: 14) %>
+<% o = Organization.find_by(id: 14) %>
+
+<p>Test des likes sur les projets / id du projet test : <%= p.id %>.</p>
+<span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
+<% unless current_user.nil? %>
+	<% if !is_liking?(p) %>
+		<%= link_to "Like?", likes_path(project_id: p.id), method: :post %>
+	<% else %>
+		<%= link_to "Dislike?", like_path(p.id), method: :delete %>
+	<% end %>                      
+<% end %>
+
+</br></br>
+
+<p>Test des follows sur les organisations / id de l'oganisation test : <%= o.id %>.</p>
+<span class="badge badge-pill badge-primary">Followers: <%= o.follows.count %></span>
+<% unless current_user.nil? %>
+	<% if !is_following?(o) %>
+		<%= link_to "Follow?", follows_path(organization_id: o.id), method: :post %>
+	<% else %>
+		<%= link_to "Disfollow?", follow_path(o.id), method: :delete %>
+	<% end %>                      
+<% end %>
