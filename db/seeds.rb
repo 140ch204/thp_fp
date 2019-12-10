@@ -97,6 +97,8 @@ Organization.destroy_all
 company_count = 0
 association_count = 0
 
+
+
 company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnostic et en mise en application
   maîtrise d oeuvre d exécution ( travail en partenariat avec un architecte)','category'=>'BTP','logo_url'=>'http://cj2e.asso.fr/um-download/119/logo-company/32/8d52f0f340?t=1575973096','is_company'=>'ent'},{'name'=>'AGIR','description'=>'Administratif, Audit   Gestion, Ressources Humaines
   Assistanat - Gestion','category'=>'Administratif','logo_url'=>'http://cj2e.asso.fr/um-download/119/logo-company/102/a0a4ef2243?t=1575973212','is_company'=>'ent'},{'name'=>'DPG Solutions','description'=>'DPG Solutions accompagne et forme les dirigeants de TPE et PME à taille humaine dans le pilotage quotidien de leur entreprise.
@@ -144,6 +146,7 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
   
   Aujourd’hui plus que jamais, la recherche de ressources complémentaires est devenue une priorité.','category'=>'Solidarité','logo_url'=>'https://www.restosducoeur.org/wp-content/uploads/2016/04/logo.svg','is_company'=>'asso'},{'name'=>'Necker enfant malades','description'=>'Apprendre, rire, jouer, lire : les associations rendent la vie plus facile aux enfants hospitalisés','category'=>'Solidarité','logo_url'=>'http://hopital-necker.aphp.fr/wp-content/blogs.dir/13/files/2017/11/Logo-Necker.png','is_company'=>'asso'}]
 
+  
   company_array.each do |company|
     if company['is_company'] == "ent"
       one_company = Organization.create(
