@@ -10,6 +10,13 @@ class ProjectsController < ApplicationController
     @user = current_user
     @donation = Donation.new
     @donators = Organization.find(donator_id)
+    @admin_collection = Admin.where(user: current_user)
+    @companies = []
+    @admin_collection.each do |admins|
+      if admins.organization.is_company
+        @companies << admins.organization
+      end
+    end
   end
 
   def new

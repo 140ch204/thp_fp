@@ -87,7 +87,7 @@ end
 		description: Faker::Company.catch_phrase,
 		category: Faker::Company.type,
 		logo_url: Faker::Company.logo,
-		RNA: Faker::Company.french_siret_number,
+		RNA: "w" + "#{rand(111111111..999999999)}",
 		is_association: true,
 		is_company: false)
 	association_count += 1
