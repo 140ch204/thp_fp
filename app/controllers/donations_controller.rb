@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :check_user, only: [:new, :create]
+  #before_action :check_user, only: [:new, :create]
 
   def new
     @donation = Donation.new
