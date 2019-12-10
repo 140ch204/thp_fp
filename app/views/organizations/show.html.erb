@@ -56,7 +56,7 @@
             </div>
             <br/>
             <% end %>
-            <% if @organization.company? && @organization.is_association_admin(current_user)%>
+            <% if @organization.company? && @organization.is_organization_admin(current_user)%>
               <div class="card" >
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-justify">
@@ -112,9 +112,4 @@
       <%end%>
     </div>
   </div>
-<<<<<<< HEAD
-</section-->
-    </section>
-=======
 </section>
->>>>>>> dev
