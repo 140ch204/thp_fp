@@ -19,6 +19,7 @@
             <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
             <div class="card-body bg-ligth">
               <h4 class="card-title"><%= association.name %></h4>
+              <%= render partial:'layouts/orga/mol/follow', locals: {organization: association} %>
               <p class="card-text"></p>
             </div>
             <ul class="list-group list-group-flush">
@@ -63,6 +64,7 @@
             <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
             <div class="card-body bg-ligth">
               <h4 class="card-title"><%= company.name %></h4>
+              <%= render partial:'layouts/orga/mol/follow', locals: {organization: company} %>
               <p class="card-text"></p>
             </div>
             <ul class="list-group list-group-flush">
