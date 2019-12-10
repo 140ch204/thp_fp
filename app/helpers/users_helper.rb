@@ -14,14 +14,6 @@ module UsersHelper
 		end
 	end
 
-	def admin_page
-		@admin_collection = Admin.where(user_id: current_user.id)
-		@companies = []
-		@admin_collection.each do |admins|
-			if admins.organization.is_company
-				@companies << admins.organization
-			end
-		end
-	end
+
 
 end

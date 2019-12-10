@@ -1,4 +1,6 @@
 class OrganizationLinksController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :destroy]
+	before_action :check_user, only: [:destroy]
 
 	def create
 		@link = OrganizationLink.new(link_params)    
@@ -26,6 +28,14 @@ class OrganizationLinksController < ApplicationController
 
 	def link_params
 		params.permit(:url_organization, :organization_id)
+	end
+
+	def check_user
+		@organization = Organisation.find(OrganizationLink.find(params[:id]).organization_id)
+		unless @organization.is_organization_admin(current_user) == true
+			flash[:notice] = "Bien essayé petit malin."
+			redirect_to root_path
+		end
 	end
 
 end

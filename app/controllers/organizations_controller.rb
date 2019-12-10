@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :check_user, only: [:edit, :update]
 
   def index
     @associations = Organization.where(is_association: true)
@@ -27,19 +29,19 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     location_params
     @organization.update(city_id: @city.id)
-        if @organization.save
-          Admin.create(user: current_user, organization: @organization)
-          current_user.update(is_admin: true)
-          if @organization.is_association == true
-            flash[:success] = "Votre association a bien été enregistrée"
-          else
-            flash[:success] = "Votre entreprise a bien été enregistrée"
-          end
-          redirect_to organization_path(@organization.id)
-        else
-          flash[:danger] = "#{@organization.errors.full_messages}"
-          redirect_to new_organization_path(:association => params[:organization][:is_association])
-        end
+    if @organization.save
+      Admin.create(user: current_user, organization: @organization)
+      current_user.update(is_admin: true)
+      if @organization.is_association == true
+        flash[:success] = "Votre association a bien été enregistrée"
+      else
+        flash[:success] = "Votre entreprise a bien été enregistrée"
+      end
+      redirect_to organization_path(@organization.id)
+    else
+      flash[:danger] = "#{@organization.errors.full_messages}"
+      redirect_to new_organization_path(:association => params[:organization][:is_association])
+    end
   end
 
   def edit
@@ -90,6 +92,14 @@ class OrganizationsController < ApplicationController
       zip_code: params[:department][:zip_code],
       region: params[:department][:region] )
     @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
+  end
+
+  def check_user
+    @organization = Organization.find(params[:id])
+    unless @organization.is_organization_admin(current_user) == true
+      flash[:notice] = "Bien essayé petit malin."
+      redirect_to root_path
+    end
   end
 
 end

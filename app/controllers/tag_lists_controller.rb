@@ -1,4 +1,6 @@
 class TagListsController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :destroy]
+	before_action :check_user, only: [:destroy]
 
 	def create
 		@tagged = TagList.new(tagged_params)
@@ -27,6 +29,14 @@ class TagListsController < ApplicationController
 
 	def tagged_params
 		params.permit(:id, :tag_id, :organization_id)
+	end
+
+	def check_user
+		@organization = Organization.find(TagList.find(params[:id]).organization_id)
+		unless @organization.is_organization_admin(current_user) == true
+			flash[:notice] = "Bien essayé petit malin."
+			redirect_to root_path
+		end
 	end
 
 end

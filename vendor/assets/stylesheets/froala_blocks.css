@@ -1293,28 +1293,30 @@ header + header {
   background-color: #f4f7fe;
   color: #444444; }
 
-  footer.footer-small{
+footer.footer-small{
     position: relative;
     margin: 0;
     bottom: 0;
     width: 100%;
   }
 
-  .lead-2 {
+.lead-2 {
     font-size: 1.4rem;
     font-weight: 400;
     color: white; }
 
-    .card-img-top {
-      height: 11vw;
-      object-fit: contain;
+.card-img-top {
+      height: 10vw;
+      object-fit: scale-down;
   } 
 
-  .fas.fa-heart{
+.fas.fa-heart{
     color: red;
   }
 
-  .fas.fa-user-plus{
+.fas.fa-user-plus{
     color: green;
   }
-
+.list-group-item{
+  min-height: 5vw;
+}

@@ -1,4 +1,6 @@
 class FollowsController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :destroy]
+
 
 	def create
 		@follow = Follow.new(user_id: current_user.id, organization_id: params[:organization_id], is_following: true )
@@ -21,5 +23,6 @@ class FollowsController < ApplicationController
 			redirect_to test_path
 		end
 	end
+
 
 end
