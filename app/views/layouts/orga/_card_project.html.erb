@@ -10,27 +10,10 @@
 <% project_id = @project.id %>
 <% organization_id = @project.organization.id %>
 <% remaining_time = @project.remaining_time %>
-
-<%# @project.in_progress_statut? %>
-<%# @project.name %>
-<%# @project.starting_date %>
-
-<%# @project.donation_targeted %>
-<%# @project.donation_start %>
-<%# @project.donation_end %>
-
-<%# @project.organization.name %>
-<%# @project.city.city_name %>
-<%# @project.city.department.department_name %>
-<%# @project.city.department.country.country_name %>
-
-<%# @project.in_progress_statut? %>
-<%# @project.in_progress_amount? %>
-<%# @project.donation_targeted %>
-
   
 <div class="card" >
   <img  src=" <%= @project.logo_url %> " class="card-img-top" alt="...">
+  <%= render partial:'layouts/orga/mol/like', locals: {project: @project} %>
   <ul class="list-group list-group-flush">
 
     <li class="list-group-item bg-light">

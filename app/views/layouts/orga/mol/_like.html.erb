@@ -1,14 +1,12 @@
-<% p = Project.find_by(id: 14) %>
-<% o = Organization.find_by(id: 14) %>
-
-<p>Projet : <%= p.id %>.</p>
-<span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
-<% unless current_user.nil? %>
-	<% if !is_liking?(p) %>
-		<%= link_to "", likes_path(project_id: p.id), method: :post, class:"fas fa-heart fa-2x text-muted  p-1 my-1 mr-3" %>
+<div>
+	<span class="badge badge-pill badge-primary">Likes: <%= project.likes.count %></span>
+	<% unless current_user.nil? %>
+	<% if !is_liking?(project) %>
+	<%= link_to "", likes_path(project_id: project.id), method: :post, class:"fas fa-heart text-muted  p-1 my-1 mr-3" %>
 	<% else %>
-		<%= link_to "", like_path(p.id), method: :delete, class:"fas fa-heart fa-2x" %>
+	<%= link_to "", like_path(project.id), method: :delete, class:"fas fa-heart" %>
 	<% end %>                      
-<% end %>
-<%= p.likes.count %>
+	<% end %>
+</div>
+
 

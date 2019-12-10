@@ -25,6 +25,8 @@
             <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @organization.logo_url} %>
             <br/>
             <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
+            <br/>
+            <%= render partial:'layouts/orga/mol/follow', locals: {organization: @organization} %>
             <% if @current_organization.is_organization_admin(@user) %>         
             <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
             <% end %>
