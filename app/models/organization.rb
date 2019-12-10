@@ -37,7 +37,7 @@ class Organization < ApplicationRecord
   end
 
 	def is_creating_project_permitted(user)
-		if self.is_association = true && self.is_association_admin(user) && !user.nil?
+		if self.is_association == true && self.is_association_admin(user) && !user.nil?
 			return true
 		end
 	end
