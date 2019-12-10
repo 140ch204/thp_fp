@@ -72,12 +72,13 @@ my_admin_firm = 0
   else
     master = false
   end
-
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
 	my_user = User.create(
 		city_id: City.all.sample.id,
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		email: (Faker::Name.first_name + "." + Faker::Name.last_name + "@yopmail.com"),
+		first_name: first_name,
+		last_name: last_name,
+		email: (first_name + "." + last_name + "@yopmail.com"),
     password: "aaaaaa",
     master: master)
     
@@ -272,7 +273,7 @@ puts "#{donation_count} donations created."
 
 Like.destroy_all
 like_count = 0
-10.times do
+30.times do
 	Like.create(
 		is_liking: true,
 		user_id: User.all.sample.id,
@@ -284,7 +285,7 @@ puts "#{like_count} likes created."
 
 Follow.destroy_all
 follow_count = 0
-10.times do
+30.times do
 	Follow.create(
 		is_following: true,
 		user_id: User.all.sample.id,
@@ -314,7 +315,7 @@ puts "#{tag_count} tag_lists created."
 
 ProjectLink.destroy_all
 project_link_count = 0
-50.times do
+40.times do
 	ProjectLink.create(
 		url_project: "https://assoangels.com/",
 		project_id: Project.all.sample.id
@@ -325,7 +326,7 @@ puts "#{project_link_count} project_links created."
 
 OrganizationLink.destroy_all
 organization_link_count = 0
-50.times do
+40.times do
 	OrganizationLink.create(
 		url_organization: "https://assoangels.com/",
 		organization_id: Organization.all.sample.id
