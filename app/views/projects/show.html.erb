@@ -1,12 +1,17 @@
-<% pic_url = @project.logo_url %>
-
-<% title = "c'est le titre !" %>
-<% description = "c'est la description !" %>
 
 <div class="container">
+  
+      <% if @current_organization.is_creating_project_permitted(@user) %>
+        <p>Vous êtes administrateur de ce projet.</p>
+      <% end %>
+
   <div class="row">
+
+
     <div class="col-md-8">
-      <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: pic_url} %>
+
+
+      <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @project.logo_url} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
       <br/>
@@ -26,5 +31,5 @@
 </div>
 
 <% if @current_organization.is_creating_project_permitted(@user) %>
-  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %>
+<%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %>
 <% end %>

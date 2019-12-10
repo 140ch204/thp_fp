@@ -1296,7 +1296,7 @@ header + header {
   footer.footer-small{
     position: relative;
     margin: 0;
-    bottom: 0cm;
+    bottom: 0;
     width: 100%;
   }
 
@@ -1309,3 +1309,12 @@ header + header {
       height: 11vw;
       object-fit: contain;
   } 
+
+  .fas.fa-heart{
+    color: red;
+  }
+
+  .fas.fa-user-plus{
+    color: green;
+  }
+
