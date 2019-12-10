@@ -1,5 +1,5 @@
 class City < ApplicationRecord
-	belongs_to :department
+	belongs_to :department, optional: true
 	has_many :users
 	has_many :projects
 	has_many :organizations
