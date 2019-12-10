@@ -38,21 +38,21 @@
           </li>
           <% if user_signed_in? == false %>
             <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %>
             </li>
             <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %><br/>
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %><br/>
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %>
             </li>
             <li class="nav-item">
-              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %><br/>
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %>
             </li>
             <% if current_user.master == true %>
               <li class="nav-item" >
-                <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Espace Administration", path: master_root_path() , color: "danger", } %><br/>
+                <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Administration", path: master_root_path() , color: "danger", } %>
               </li>
             <% end %>
           <% end %>
