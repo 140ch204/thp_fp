@@ -10,5 +10,6 @@
 <% @project.in_progress_amount? %>
 <% @project.donation_targeted %>
 
-<%= link_to "Contribuer", new_donation_path(project_id: params[:id]) , class: "btn btn-secondary", method: "get" %>
-<i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+<% if user_signed_in? && @companies.any?%>
+  <%= link_to "Contribuer", new_donation_path(project_id: params[:id]) , class: "btn btn-secondary", method: "get" %>
+<% end %>
