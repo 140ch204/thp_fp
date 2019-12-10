@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/test', to: 'static_pages#test'
 
   resources :charges
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
   resources :organizations
   resources :projects
   resources :donations
