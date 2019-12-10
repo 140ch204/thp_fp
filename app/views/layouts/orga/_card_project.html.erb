@@ -30,11 +30,11 @@
 
   
 <div class="card" >
-  <img  src= <%= @project.logo_url %> alt="...">
+  <img  src=" <%= @project.logo_url %> " class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
 
     <li class="list-group-item bg-light">
-      <h4 class="card-title"><%= link_to project_name, project_path(project_id)%></h4>
+      <h4 class="card-title"><%= link_to project_name[0 .. 25] + "...", project_path(project_id)%></h4>
       <p><small><%= link_to organization_name, organization_path(organization_id)%></small></p>
       <p><small><%= city_name %></small></p>
     </li>
@@ -49,7 +49,7 @@
     </li>
 
     <li class="list-group-item bg-light">
-      <%= link_to "en savoir plus", project_path(project_id), class:"btn btn-primary"%>
+      <%= link_to "En savoir plus", project_path(project_id), class:"btn btn-primary"%>
       <% days_left_str = "J-" + remaining_time.to_s  %>
       <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
     </li>
