@@ -1,7 +1,7 @@
 <div class="border-ligth">
 	<%= form_with(url: tag_lists_path(organization_id: organization), method: :post) do |form|%>
 		<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
-		<%= form.submit "Ajouter ce mot-clé" %>
+		<%= form.submit "Ajouter" %>
 	<% end %>
 	Créer un nouveau tag:
 	<%= form_tag tags_path, method: :post  do %>
