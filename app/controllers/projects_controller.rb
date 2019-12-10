@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @current_organization = Organization.find(@project.organization_id)
     @user = current_user
-    @donation = Donation.new
     @donators = Organization.find(donator_id)
     @admin_collection = Admin.where(user: current_user)
     @companies = []
