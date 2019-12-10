@@ -97,7 +97,7 @@ Organization.destroy_all
 company_count = 0
 association_count = 0
 
-company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnostic et en mise en application
+company_array= [{'name'=>'ABC CONSEIL','description'=>'Accessibilité en diagnostic et en mise en application
   maîtrise d oeuvre d exécution ( travail en partenariat avec un architecte)','category'=>'BTP','logo_url'=>'http://cj2e.asso.fr/um-download/119/logo-company/32/8d52f0f340?t=1575973096','is_company'=>'ent'},{'name'=>'AGIR','description'=>'Administratif, Audit   Gestion, Ressources Humaines
   Assistanat - Gestion','category'=>'Administratif','logo_url'=>'http://cj2e.asso.fr/um-download/119/logo-company/102/a0a4ef2243?t=1575973212','is_company'=>'ent'},{'name'=>'DPG Solutions','description'=>'DPG Solutions accompagne et forme les dirigeants de TPE et PME à taille humaine dans le pilotage quotidien de leur entreprise.
   Nous intervenons dans les domaines suivants :
@@ -133,7 +133,7 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
   
   L association ENAD a été créée en 2006 pour organiser des cours particuliers à domicile dans le XIVème arrdt et les quartiers adjacents, en matière de pratique instrumentale et de langues. Elle est agréée pour faire bénéficier ses adhérents de la défiscalisation qui permet de déduire de l impôt sur le revenu la moitié des sommes qui lui sont versées.
   
-  ENAD organise des auditions musicales en fin d année. Les adhérents sont invités à y participer et à retrouver leurs images et ou celles de leurs enfants en vitrine du local Enac Enad, sur le matériel de communication, sur le site et les pages facebook, instagram et youtube. Tout refus explicite est respecté par l association.','category'=>'Théatre','logo_url'=>'https://static.wixstatic.com/media/c9ed3e_49571147aa604539b6b618e6dfb74237~mv2.png/v1/fill/w_227,h_82,al_c,q_80,usm_0.66_1.00_0.01/logo_enac__.webp','is_company'=>'asso'},{'name'=>'Reseau entreprendre','description'=>'Nés de la volonté d’un même homme André Mulliez, Réseau Entreprendre et la Fondation Entreprendre s’unissent pour promouvoir l’entrepreneuriat comme l’une des réponses à la création d’emplois et de valeurs.
+  ENAD organise des auditions musicales en fin d année. Les adhérents sont invités à y participer et à retrouver leurs images et ou celles de leurs enfants en vitrine du local Enac Enad, sur le matériel de communication, sur le site et les pages facebook, instagram et youtube. Tout refus explicite est respecté par l association.','category'=>'Théatre','logo_url'=>'https://stockagehelloassoprod.blob.core.windows.net/images/photos/rxnwfa7ymdikq0hvezf6-media-slider.jpg','is_company'=>'asso'},{'name'=>'Reseau entreprendre','description'=>'Nés de la volonté d’un même homme André Mulliez, Réseau Entreprendre et la Fondation Entreprendre s’unissent pour promouvoir l’entrepreneuriat comme l’une des réponses à la création d’emplois et de valeurs.
   
   Depuis sa création, la Fondation Entreprendre accompagne l’ambition nationale de Réseau Entreprendre – accompagner tous ceux qui portent un projet entrepreneurial créateur d’emplois – et soutient également les actions à destination des jeunes pour transmettre l’envie d’entreprendre.
   
