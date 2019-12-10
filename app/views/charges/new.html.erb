@@ -37,7 +37,7 @@
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Don"
-          data-amount="<%= @donation_amount * 100%>"
+          data-amount="<%= @donation_amount.to_i * 100%>"
           data-currency='eur'
           data-locale="auto"></script>
                       <% end %>

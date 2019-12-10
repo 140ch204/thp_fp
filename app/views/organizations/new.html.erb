@@ -10,30 +10,30 @@
               <%= form_with model: @organization do |organization_form|%>
                 <%= fields_for :city, @organization.city do |city_form| %>
                   <%= city_form.label :ville%><br />
-                  <%= city_form.text_field :city_name, class: "form-control"%><br />
+                  <%= city_form.text_field :city_name, class: "form-control", required: true, id: "city_name" %><br />
                 <% end %>
                 <%= fields_for :department, @city.department do |department_form|%>
-                  <%= department_form.label :département %><br />
-                  <%= department_form.text_field :department_name, class: "form-control" %><br />
+                  <%= department_form.label :département, required: true, id: "city" %><br />
+                  <%= department_form.text_field :department_name, class: "form-control", required: true, id: "department" %><br />
                   <%= department_form.label :région %><br />
-                  <%= department_form.text_field :region, class: "form-control" %><br />
+                  <%= department_form.text_field :region, class: "form-control", required: true, id: "region" %><br />
                   <%= department_form.label "Code postal" %><br />
-                  <%= department_form.text_field :zip_code, class: "form-control" %><br />
+                  <%= department_form.text_field :zip_code, class: "form-control", required: true, id: "zip" %><br />
                 <% end %>
                 <%= fields_for :country, @department.country do |country_form|%>
                   <%= country_form.label :pays %><br />
-                  <%= country_form.text_field :country_name, class: "form-control" %><br />
+                  <%= country_form.text_field :country_name, class: "form-control", required: true, id: "country_name" %><br />
                 <% end %>
                 <%= organization_form.label :nom %><br />
-                <%= organization_form.text_field :name, class: "form-control" %><br />
+                <%= organization_form.text_field :name, class: "form-control", required: true, id: "organization_name" %><br />
                 <%= organization_form.label :description %><br />
-                <%= organization_form.text_area :description, class: "form-control" %><br />
+                <%= organization_form.text_area :description, class: "form-control", required: true, id: "description" %><br />
                 <%= organization_form.label :catégorie %><br />
-                <%= organization_form.text_field :category, class: "form-control" %><br />
+                <%= organization_form.text_field :category, class: "form-control", required: true, id: "category" %><br />
                 <%= organization_form.label :logo %><br />
-                <%= organization_form.text_field :logo_url, class: "form-control"%><br />
+                <%= organization_form.text_field :logo_url, class: "form-control", required: true, id: "logo_url" %><br />
                 <%= organization_form.label :RNA %><br />
-                <%= organization_form.text_field :RNA, class: "form-control" %><br />
+                <%= organization_form.text_field :RNA, class: "form-control", required: true, id: "rna", placeholder: "w-xxx-xxx-xxx" %><br />
                 <%= organization_form.hidden_field :is_association, :value => true %><br />
                 <%= organization_form.submit :value => "Créer l'association", class:"btn btn-outline-secondary"%>
               <% end %>
@@ -49,30 +49,30 @@
                           <%= form_with model: @organization do |organization_form|%>
                             <%= fields_for :city, @organization.city do |city_form| %>
                               <%= city_form.label :ville%><br />
-                              <%= city_form.text_field :city_name, class: "form-control"%><br />
+                              <%= city_form.text_field :city_name, class: "form-control", required: true, id: "city_name"%><br />
                             <% end %>
                             <%= fields_for :department, @city.department do |department_form|%>
                               <%= department_form.label :département %><br />
-                              <%= department_form.text_field :department_name, class: "form-control" %><br />
+                              <%= department_form.text_field :department_name, class: "form-control", required: true, id: "department" %><br />
                               <%= department_form.label :région %><br />
-                              <%= department_form.text_field :region, class: "form-control" %><br />
+                              <%= department_form.text_field :region, class: "form-control", required: true, id: "region" %><br />
                               <%= department_form.label "Code postal" %><br />
-                              <%= department_form.text_field :zip_code, class: "form-control" %><br />
+                              <%= department_form.text_field :zip_code, class: "form-control", required: true, id: "zip" %><br />
                             <% end %>
                             <%= fields_for :country, @department.country do |country_form|%>
                               <%= country_form.label :pays %><br />
-                              <%= country_form.text_field :country_name, class: "form-control" %><br />
+                              <%= country_form.text_field :country_name, class: "form-control", required: true, id: "country_name" %><br />
                             <% end %>
                             <%= organization_form.label :nom %><br />
-                            <%= organization_form.text_field :name, class: "form-control" %><br />
+                            <%= organization_form.text_field :name, class: "form-control", required: true, id: "organization_name" %><br />
                             <%= organization_form.label :description %><br />
-                            <%= organization_form.text_area :description, class: "form-control" %><br />
+                            <%= organization_form.text_area :description, class: "form-control", required: true, id: "description" %><br />
                             <%= organization_form.label :catégorie %><br />
-                            <%= organization_form.text_field :category, class: "form-control" %><br />
+                            <%= organization_form.text_field :category, class: "form-control", required: true, id: "category" %><br />
                             <%= organization_form.label :logo %><br />
-                            <%= organization_form.text_field :logo_url, class: "form-control"%><br />
+                            <%= organization_form.text_field :logo_url, class: "form-control", required: true, id: "logo_url" %><br />
                             <%= organization_form.label :siret %><br />
-                            <%= organization_form.text_field :siret, class: "form-control" %><br />
+                            <%= organization_form.text_field :siret, class: "form-control", required: true, id: "siret", placeholder: "xxx-xxx-xxx-xxxxx" %><br />
                             <%= organization_form.hidden_field :is_company, :value => true %><br />
                             <%= organization_form.submit :value => "Créer l'entreprise", class:"btn btn-outline-secondary"%>
                           <% end %>
@@ -86,3 +86,57 @@
                 </div>
               </div>
             </section>
+
+<script>
+hyperform.setMessage(document.getElementById('city_name'),
+  'valueMissing',
+  'Indiquez votre ville');
+
+hyperform.setMessage(document.getElementById('department'),
+  'valueMissing',
+  'Indiquez votre département');
+  
+hyperform.setMessage(document.getElementById('region'),
+  'valueMissing',
+  'Indiquez votre région');
+  
+hyperform.setMessage(document.getElementById('zip'),
+  'valueMissing',
+  'Indiquez votre code postal');
+  
+hyperform.setMessage(document.getElementById('country_name'),
+  'valueMissing',
+  'Indiquez votre pays');
+  
+hyperform.setMessage(document.getElementById('organization_name'),
+  'valueMissing',
+  'Indiquez le nom de votre organisation');
+  
+hyperform.setMessage(document.getElementById('description'),
+  'valueMissing',
+  'Indiquez votre description');
+  
+hyperform.setMessage(document.getElementById('category'),
+  'valueMissing',
+  'Indiquez votre catégorie');
+  
+hyperform.setMessage(document.getElementById('logo_url'),
+  'valueMissing',
+  "Indiquez l'url de votre logo");
+</script>
+<% if params[:association] == "true" %>
+  <script>
+hyperform.setMessage(document.getElementById('rna'),
+  'valueMissing',
+  'Indiquez votre RNA');
+  </script>
+<% elsif params[:association] == "false" %>
+  <script>
+  hyperform.setMessage(document.getElementById('siret'),
+    'valueMissing',
+    'Indiquez votre n° siret');
+  </script>
+<% end %>
+<script>
+  hyperform(window);
+</script>
