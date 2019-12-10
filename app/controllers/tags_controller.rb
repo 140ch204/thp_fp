@@ -4,10 +4,10 @@ class TagsController < ApplicationController
 		@tag = Tag.new(tag_params)
 		if @tag.save
 			flash[:success] = "Vous avez créé un nouveau tag!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 
 	end
