@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -60,9 +62,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def project_params
@@ -98,6 +97,14 @@ class ProjectsController < ApplicationController
       who_donated << id
     end
     return who_donated
+  end
+
+  def check_user
+    @organization = Organisation.find(Project.find(params[:id]).organization_id)
+    unless @organization.is_organization_admin(current_user) == true
+      flash[:notice] = "Bien essayé petit malin."
+      redirect_to root_path
+    end
   end
 
 end

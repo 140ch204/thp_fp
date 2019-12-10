@@ -2,6 +2,9 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item bg-light">
       <h4 class="card-title"><%= title %></h4>
+      <% if !@project.nil? %>
+        <%= render partial:'layouts/orga/mol/like', locals: {project: @project} %>
+      <% end %>
     </li>
     <li class="list-group-item">
       <p> Categorie : <%=@current_organization.category %> </p>

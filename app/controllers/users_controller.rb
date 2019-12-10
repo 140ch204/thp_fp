@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
 	def check_user
 		if current_user.id != User.find(params[:id]).id
-			flash[:notice] = "You can't see that."
+			flash[:notice] = "Bien essayé petit malin."
 			redirect_to root_path
 		end
 	end
