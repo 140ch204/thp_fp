@@ -5,16 +5,16 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav5" aria-controls="navbarNav5" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav12">
-        <ul class="navbar-nav justify-content-center">
+      <div class="collapse navbar-collapse justify-content-center col-md-8" id="navbarNav5">
+        <ul class="navbar-nav justify-content-center ">
           <li class="nav-item active">
             <%= link_to "Accueil", root_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to "Entreprises partenaires", organizations_path(association: false), class: "nav-link"%>
+            <%= link_to "Entreprises", organizations_path(association: false), class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to "Associations partenaires", organizations_path(association: true), class: "nav-link"%>
+            <%= link_to "Associations", organizations_path(association: true), class: "nav-link"%>
           </li>
           <li class="nav-item">
             <%= link_to "Projets", projects_path, class: "nav-link"%>

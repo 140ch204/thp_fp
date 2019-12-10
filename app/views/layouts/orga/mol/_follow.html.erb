@@ -1,0 +1,13 @@
+<% p = Project.find_by(id: 14) %>
+<% o = Organization.find_by(id: 14) %>
+
+<p>Test des follows sur les organisations / id de l'oganisation test : <%= o.id %>.</p>
+<span class="badge badge-pill badge-primary">Followers: <%= o.follows.count %></span>
+<% unless current_user.nil? %>
+	<% if !is_following?(o) %>
+		<%= link_to "", follows_path(organization_id: o.id), method: :post, class:"fas fa-user-plus fa-2x text-muted  p-1 my-1 mr-3" %>
+	<% else %>
+		<%= link_to "", follow_path(o.id), method: :delete, class:"fas fa-user-plus fa-2x" %>
+	<% end %>                      
+<% end %>
+<%= o.follows.count %></span>
