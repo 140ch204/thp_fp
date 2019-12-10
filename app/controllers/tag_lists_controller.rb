@@ -4,10 +4,10 @@ class TagListsController < ApplicationController
 		@tagged = TagList.new(tagged_params)
 		if @tagged.save
 			flash[:success] = "Vous avez ajouté un tag!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 
 	end
@@ -16,10 +16,10 @@ class TagListsController < ApplicationController
 		@tagged = TagList.find(params[:id])
 		if @tagged.destroy
 			flash[:success] = "Ce tag a été retiré!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 	end
 

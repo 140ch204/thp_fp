@@ -44,30 +44,31 @@
 
       <div class="row">
         <% @associations.each_with_index do |association, i| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            
-            <div class="card" >
-              <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
-              <div class="card-body bg-ligth">
-                <h4 class="card-title"><%= association.name %></h4>
-                <p class="card-text"></p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= association.description %></li>
-                <li class="list-group-item"><%= association.category %></li>
-                <li class="list-group-item"><%= association.city.city_name %></li>
-              </ul>
-              <div class="card-body">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+          <div class="card" >
+            <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
+            <div class="card-body bg-ligth">
+              <h4 class="card-title"><%= association.name %></h4>
+              <%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %>
+              <p class="card-text"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= association.description %></li>
+              <li class="list-group-item"><%= association.category %></li>
+              <li class="list-group-item"><%= association.city.city_name %></li>
+            </ul>
+            <div class="card-body">
                 <!-- Links to : Association page, Association projects -->
                 <%= link_to "En savoir plus", organization_path(association.id), class:"btn btn-primary btn-block"%>
                 <%# association.projects.each do |project|%>
-                <%#= link_to project.name, project_path(project.id)%>
+                  <%#= link_to project.name, project_path(project.id)%>
                 <%# end %>
-              </div>
             </div>
-            <br/>
-            
           </div>
+          <br/>
+
+        </div>
         <% end %>
       </div>
     </div>
@@ -86,25 +87,26 @@
       </div>
       <div class="row">
         <% @companies.each_with_index do |company, i| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            
-            <div class="card" >
-              <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
-              <div class="card-body bg-ligth">
-                <h4 class="card-title"><%= company.name %></h4>
-                <p class="card-text"></p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= company.description %></li>
-                <li class="list-group-item">D<%= company.category %></li>
-                <li class="list-group-item"><%= company.city.city_name %></li>
-              </ul>
-              <div class="card-body">
-                <%= link_to "En savoir plus", organization_path(company.id), class:"btn btn-primary btn-block"%>
-              </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+          <div class="card" >
+            <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
+            <div class="card-body bg-ligth">
+              <h4 class="card-title"><%= company.name %></h4>
+              <%= render partial:'layouts/orga/mol/tag', locals: {taglist: company.tag_lists} %>
+              <p class="card-text"></p>
             </div>
-            <br/>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= company.description %></li>
+              <li class="list-group-item"><%= company.category %></li>
+              <li class="list-group-item"><%= company.city.city_name %></li>
+            </ul>
+            <div class="card-body">
+              <%= link_to "En savoir plus", organization_path(company.id), class:"btn btn-primary btn-block"%>
+            </div>
           </div>
+          <br/>
+        </div>
         <% end %>
       </div>
     </div>

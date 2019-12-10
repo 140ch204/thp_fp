@@ -20,10 +20,15 @@
           <div class="col-xs-12 col-sm-12 col-md-8">
             <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @organization.logo_url} %>
             <br/>
+            <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
+            <% if user_signed_in? %>         
+            <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
+            <% end %>
+            <br/>
             <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @organization.name, description: @organization.description } %>
             <br/>
-            <% if user_signed_in? %>
-            <% end %>
+            
+            
             <br/>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4">
@@ -32,6 +37,17 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-justify">
                     <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                    <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                  </li>
+                </ul>
+              </div>
+              <br/>
+            <% end %>
+            <% if @organization.company? && @organization.is_association_admin(current_user)%>
+              <div class="card" >
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-justify">
+                    <%= link_to "Trouver un projet", projects_path , class: "btn btn-primary btn-lg btn-block"%>
                     <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
                   </li>
                 </ul>

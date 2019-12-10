@@ -37,19 +37,24 @@
             <a class="nav-link" href=""></a>
           </li>
           <% if user_signed_in? == false %>
-          <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
-          </li>
-          <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %><br/>
-          </li>
+            <li class="nav-item">
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %> <br/>
+            </li>
+            <li class="nav-item">
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se connecter", path: new_user_session_path() , color: "outline-link", } %><br/>
+            </li>
           <% else %>
-          <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %><br/>
-          </li>
-          <li class="nav-item">
-            <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %><br/>
-          </li>
+            <li class="nav-item">
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Mon profil", path: user_path(current_user.id) , color: "primary"} %><br/>
+            </li>
+            <li class="nav-item">
+              <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Se déconnecter", path: destroy_user_session_path , color: "outline-link", methods: "delete"} %><br/>
+            </li>
+            <% if current_user.master == true %>
+              <li class="nav-item" >
+                <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Espace Administration", path: master_root_path() , color: "danger", } %><br/>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>

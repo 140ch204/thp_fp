@@ -161,7 +161,7 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
         description: company['description'],
         category: company['category'],
         logo_url: company['logo_url'],
-        RNA: ("W" + Faker::Company.french_siret_number[0..8]),
+        RNA: ("w" + "#{rand(111111111..999999999)}),
         is_association: true,
         is_company: false)
       association_count += 1

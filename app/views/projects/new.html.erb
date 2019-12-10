@@ -34,6 +34,10 @@
               <%= project_form.number_field :donation_targeted, class: "form-control" %><br />
               <%= project_form.label :logo %><br />
               <%= project_form.text_field :logo_url, class: "form-control"%><br />
+              <%= project_form.label "Début de la campagne" %><br />
+              <%= project_form.date_field :donation_start, class: "form-control"%>
+              <%= project_form.label "Fin de la campagne" %><br />
+              <%= project_form.date_field :donation_end, class: "form-control"%>
               <%= project_form.hidden_field :organization_id, :value => @organization.id %><br />
               <%= project_form.submit :value => "Lancer votre projet", class:"btn btn-outline-secondary"%>
             <% end %>
