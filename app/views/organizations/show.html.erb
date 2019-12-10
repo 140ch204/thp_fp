@@ -1,5 +1,4 @@
 <section>
-
   <% @organization = @current_organization%>
   <div class="container">
     <div class="row">
@@ -8,95 +7,97 @@
         <% if @organization.is_association %>
         <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Association "} %>
         <%end%>
-
         <% if @organization.is_company %>
         <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Entreprise "} %>
         <%end%>
         <br/>
 
-        <% if @current_organization.is_organization_admin(@user) %>
-        <p>Vous êtes administrateur de cette organisation.</p>
-        <% end %>
-
-        <br/>
         <div>
+          <% if @current_organization.is_organization_admin(@user) %>
+            <p>Vous êtes administrateur de cette organisation.</p>
+          <% end %>
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-8">
-        <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @organization.logo_url} %>
-        <br/>
-        <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
-        <% if @current_organization.is_organization_admin(@user) %>
-        <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
-        <% end %>
-        <br/>
-        <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @organization.name, description: @organization.description } %>
-        <br/>
-
-
-        <br/>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-8">
+            <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @organization.logo_url} %>
+            <br/>
+            <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
+            <% if @current_organization.is_organization_admin(@user) %>         
+            <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
+            <% end %>
+            <br/>
+            <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @organization.name, description: @organization.description } %>
+            <br/>
+            
+            
+            <br/>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <% if @current_organization.is_creating_project_permitted(@user) %>
+            <div class="card" >
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-justify">
+                  <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                  <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                </li>
+              </ul>
+            </div>
+            <br/>
+            <% elsif @current_organization.is_organization_admin(@user) %>
+            <div class="card" >
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-justify">
+                  <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                </li>
+              </ul>
+            </div>
+            <br/>
+            <% end %>
+            <div class="card" >
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-light">
+                  <p>Localisation </p>
+                </li>
+                <li class="list-group-item text-justify">
+                  <p> <%=@organization.city.department.zip_code %> <%=@organization.city.city_name %> </p>
+                  <p> <%=@organization.city.department.region %> </p>
+                  <p> <%=@organization.city.department.department_name %> </p>
+                  <p> <%=@organization.city.department.country.country_name %> </p>
+                </li>
+              </ul>
+            </div>
+            <br/>
+          </div>
+        </div>
       </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-4">
-
-        <% if @current_organization.is_creating_project_permitted(@user) %>
-        <div class="card" >
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item text-justify">
-              <%= link_to "Initier un nouveau projet", new_project_path(organization_id: @current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-
-              <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-
-              <% elsif @current_organization.is_organization_admin(@user) %>
-              <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
-            </li>
-          </ul>
-        </div><br/>
-        <% end %>
-
-
-      <div class="card" >
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-light">
-            <p>Localisation </p>
-          </li>
-          <li class="list-group-item text-justify">
-            <p> <%=@organization.city.department.zip_code %> <%=@organization.city.city_name %> </p>
-            <p> <%=@organization.city.department.region %> </p>
-            <p> <%=@organization.city.department.department_name %> </p>
-            <p> <%=@organization.city.department.country.country_name %> </p>
-          </li>
-        </ul>
+      <% if @organization.is_association %>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Projets en cours"} %>
+            <br>
+          </div>
+        </div>
       </div>
-      <br/>
+      
+      <div class="container">
+        <div class="row">
+          <% if !@projects.empty? %>
+            <% @projects.each do |project|%>
+            <% @project = project %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render partial:'layouts/orga/card_project', locals: {project: @project} %> <a> </a>
+            </div>
+            <% end %>
+          <% else %>
+            <p>Aucun projet n'a encore initié.</p>
+          <% end %>
+        </div>
+      </div>
+      <%end%>
     </div>
   </div>
-</div>
-
-
-<% if @organization.is_association %>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Projets en cours"} %>
-      <br>
-    </div>
-  </div>
-</div>
-<%end%>
-<div class="container">
-  <div class="row">
-    <% @projects.each do |project|%>
-    <% @project = project %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <%= render partial:'layouts/orga/card_project', locals: {project: @project} %> <a> </a>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-
-
-<br/>
 </section>
