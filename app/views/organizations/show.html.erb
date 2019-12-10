@@ -56,6 +56,17 @@
             </div>
             <br/>
             <% end %>
+            <% if @organization.company? && @organization.is_association_admin(current_user)%>
+              <div class="card" >
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-justify">
+                    <%= link_to "Trouver un projet", projects_path , class: "btn btn-primary btn-lg btn-block"%>
+                    <%= link_to "Editer la page", edit_organization_path(@current_organization.id) , class: "btn btn-primary btn-lg btn-block"%>
+                  </li>
+                </ul>
+              </div>
+              <br/>
+            <% end %>
             <div class="card" >
               <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-light">

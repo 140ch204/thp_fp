@@ -1,34 +1,3 @@
-<!-- C'est le <% if @is_association == "true" %> <% end %> qui permet de sélectionner le reste -->
-
-<!-- <section>
-  <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Association"} %>
-          <br>
-        </div>
-      </div>
-      <div class="row">
-        <% @associations.each do |organization|%>
-          <% @organization = organization %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= render partial:'layouts/orga/card_organization', locals: {organization: @organization} %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <div>
-</section>
--->
-
-
-
-
-
-
-
-
 
 <!-- Associations -->
 <% if @is_association == "true" %>
@@ -59,11 +28,11 @@
               <li class="list-group-item"><%= association.city.city_name %></li>
             </ul>
             <div class="card-body">
-              <!-- Links to : Association page, Association projects -->
-              <%= link_to "En savoir plus sur l'association", organization_path(association.id)%>
-              <% association.projects.each do |project|%>
-              <%= link_to project.name, project_path(project.id)%>
-              <% end %>
+                <!-- Links to : Association page, Association projects -->
+                <%= link_to "En savoir plus", organization_path(association.id), class:"btn btn-primary btn-block"%>
+                <%# association.projects.each do |project|%>
+                  <%#= link_to project.name, project_path(project.id)%>
+                <%# end %>
             </div>
           </div>
           <br/>
@@ -98,11 +67,11 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%= company.description %></li>
-              <li class="list-group-item">D<%= company.category %></li>
+              <li class="list-group-item"><%= company.category %></li>
               <li class="list-group-item"><%= company.city.city_name %></li>
             </ul>
             <div class="card-body">
-              <%= link_to "En savoir plus sur l'entreprise", organization_path(company.id)%>
+              <%= link_to "En savoir plus", organization_path(company.id), class:"btn btn-primary btn-block"%>
             </div>
           </div>
           <br/>
