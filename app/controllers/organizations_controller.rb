@@ -38,7 +38,7 @@ class OrganizationsController < ApplicationController
           redirect_to organization_path(@organization.id)
         else
           flash[:danger] = "#{@organization.errors.full_messages}"
-          redirect_to new_organization_path
+          redirect_to new_organization_path(:association => params[:organization][:is_association])
         end
   end
 

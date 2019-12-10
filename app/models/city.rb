@@ -5,5 +5,6 @@ class City < ApplicationRecord
 	has_many :organizations
   has_many :alerts
   validates :city_name, 
-    presence: true
+    presence: true,
+    format: { with: /\A[a-z]*|\D*\z/i }
 end
