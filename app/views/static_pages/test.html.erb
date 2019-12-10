@@ -1,17 +1,17 @@
 <div>
 
-<% p = Project.find_by(id: 30) %>
-<% o = Organization.find_by(id: 50) %>
+	<% p = Project.find_by(id: 30) %>
+	<% o = Organization.find_by(id: 50) %>
 
-<p>Test des likes sur les projets / id du projet test : <%= p.id %>.</p>
-<span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
-<% unless current_user.nil? %>
-<% if !is_liking?(p) %>
-<%= link_to "Like?", likes_path(project_id: p.id), method: :post %>
-<% else %>
-<%= link_to "Dislike?", like_path(p.id), method: :delete %>
-<% end %>                      
-<% end %>
+	<p>Test des likes sur les projets / id du projet test : <%= p.id %>.</p>
+	<span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
+	<% unless current_user.nil? %>
+	<% if !is_liking?(p) %>
+	<%= link_to "Like?", likes_path(project_id: p.id), method: :post %>
+	<% else %>
+	<%= link_to "Dislike?", like_path(p.id), method: :delete %>
+	<% end %>                      
+	<% end %>
 
 </br></br>
 
@@ -42,8 +42,8 @@
 
 <p>Ajouter un lien:</p>
 <%= form_tag organization_links_path(organization_id: o.id), method: :post  do %>
-  <input type="text" name="url_organization" />
-  <input type="submit" value="Ajouter le lien" />
+<input type="text" name="url_organization" />
+<input type="submit" value="Ajouter le lien" />
 <% end %>
 
 </br></br>
@@ -63,8 +63,8 @@
 
 <p>Ajouter un lien:</p>
 <%= form_tag project_links_path(project_id: p.id), method: :post  do %>
-  <input type="text" name="url_project" />
-  <input type="submit" value="Ajouter le lien" />
+<input type="text" name="url_project" />
+<input type="submit" value="Ajouter le lien" />
 <% end %>
 
 </br>
@@ -90,8 +90,8 @@
 <p>Ajout d'un tag:</p>
 
 <%= form_with(url: tag_lists_path(organization_id: o.id), method: :post) do |form|%>
-	<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
-	<%= form.submit "Ajouter ce mot-clé" %>
+<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
+<%= form.submit "Ajouter ce mot-clé" %>
 <% end %>
 
 
@@ -99,11 +99,13 @@
 
 <p>Créer un nouveau tag:</p>
 <%= form_tag tags_path, method: :post  do %>
-  <input type="text" name="tag_name" />
-  <input type="submit" value="Ajouter le tag" />
+<input type="text" name="tag_name" />
+<input type="submit" value="Ajouter le tag" />
 <% end %>
 
 </br></br>
 
+<%= render partial:'layouts/orga/mol/tag', locals: {taglist: o.tag_lists} %>
 
+</br></br>
 </div>

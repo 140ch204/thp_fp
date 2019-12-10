@@ -1,0 +1,7 @@
+<div>
+	<% n = 0 %>
+	<% taglist.each do |tag| %>
+	<span class="badge badge-pill badge-primary"><%= Tag.find_by(id: tag.tag_id).tag_name %> <%= link_to "X", tag_list_path(id: tag.id), method: :delete %></span>
+	<% n += 1 %>
+	<% end %>
+</div>
