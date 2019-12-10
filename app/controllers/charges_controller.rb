@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   after_action :generate_donation, only: [:create]
+  before_action :authenticate_user!, only: [:new, :create]
   
   def new
     @user = current_user
@@ -46,4 +47,5 @@ class ChargesController < ApplicationController
       flash[:danger] = "Erreur"
     end
   end
+  
 end
