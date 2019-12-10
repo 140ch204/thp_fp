@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :organizations
       resources :projects
 
+
       root to: "users#index"
     end
     
@@ -30,5 +31,4 @@ Rails.application.routes.draw do
   resources :project_links, only: [:create, :destroy]
   resources :tags, only: [:create]
   resources :tag_lists, only: [:create, :destroy]
-
 end
