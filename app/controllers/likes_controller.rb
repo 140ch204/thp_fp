@@ -5,10 +5,10 @@ class LikesController < ApplicationController
 		@like = Like.new(user_id: current_user.id, project_id: params[:project_id], is_liking: true )
 		if @like.save
 			flash[:success] = "Vous aimez ce projet!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 
 	end
@@ -17,10 +17,10 @@ class LikesController < ApplicationController
 		@like = Like.find_by(user_id: current_user.id, project_id: params[:id])
 		if @like.destroy
 			flash[:success] = "Vous n'aimez plus ce projet!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 	end
 
