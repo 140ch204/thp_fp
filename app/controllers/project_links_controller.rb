@@ -31,7 +31,7 @@ class ProjectLinksController < ApplicationController
 	end
 
 	def check_user
-		@organization = Organisation.find(Project.find(ProjectLink.find(params[:id]).project_id).organization_id)
+		@organization = Organization.find(Project.find(ProjectLink.find(params[:id]).project_id).organization_id)
 		unless @organization.is_organization_admin(current_user) == true
 			flash[:notice] = "Bien essayé petit malin."
 			redirect_to root_path
