@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :check_user, only: [:edit, :update]
+  #before_action :check_user, only: [:edit, :update]
 
   def index
     @associations = Organization.where(is_association: true)
