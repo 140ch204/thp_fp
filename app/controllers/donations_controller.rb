@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
   private
 
   def check_user
-    @organization = Organisation.find(Project.find(params[:project_id]).organization_id)
+    @organization = Organization.find(Project.find(params[:project_id]).organization_id)
     unless @organization.is_organization_admin(current_user) == true
       flash[:notice] = "Bien essayé petit malin."
       redirect_to root_path
