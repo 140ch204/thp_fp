@@ -1,7 +1,7 @@
 <div>
 
 	<% p = Project.find_by(id: 1) %>
-	<% o = Organization.find_by(id: 16) %>
+	<% o = Organization.find_by(id: 18) %>
 
 	<p>Test des likes sur les projets / id du projet test : <%= p.id %>.</p>
 	<span class="badge badge-pill badge-primary">Likes: <%= p.likes.count %></span>
@@ -33,7 +33,7 @@
 <ol>
 	<% o.organization_links.each do |link| %>
 	<li>
-		<%= link_to "Lien vers ", link.url_organization, :target => "_blank" %> <%= link.url_organization %>_ <%= link_to "Supprimer ce lien", organization_link_path(id: link.id), method: :delete %>
+		<%= link_to "#{link.url_name}", link.url_organization, :target => "_blank" %> <%= link.url_organization %>_ <%= link_to "Supprimer ce lien", organization_link_path(id: link.id), method: :delete %>
 	</li>
 	<% end %>
 </ol>
@@ -42,7 +42,8 @@
 
 <p>Ajouter un lien:</p>
 <%= form_tag organization_links_path(organization_id: o.id), method: :post  do %>
-<input type="text" name="url_organization" />
+<input type="text" name="url_organization" placeholder="URL à ajouter" />
+<input type="text" name="url_name" placeholder="Nom du lien à afficher" />
 <input type="submit" value="Ajouter le lien" />
 <% end %>
 
@@ -54,7 +55,7 @@
 <ol>
 	<% p.project_links.each do |link| %>
 	<li>
-		<%= link_to "Lien vers ", link.url_project, :target => "_blank" %> <%= link.url_project%>_ <%= link_to "Supprimer ce lien", project_link_path(id: link.id), method: :delete %>
+		<%= link_to "#{link.url_name}", link.url_project, :target => "_blank" %> <%= link.url_project%>_ <%= link_to "Supprimer ce lien", project_link_path(id: link.id), method: :delete %>
 	</li>
 	<% end %>
 </ol>
@@ -63,7 +64,8 @@
 
 <p>Ajouter un lien:</p>
 <%= form_tag project_links_path(project_id: p.id), method: :post  do %>
-<input type="text" name="url_project" />
+<input type="text" name="url_project" placeholder="URL à ajouter" />
+<input type="text" name="url_name" placeholder="Nom du lien à afficher" />
 <input type="submit" value="Ajouter le lien" />
 <% end %>
 

@@ -1,9 +1,9 @@
 
 <div class="container">
-  
-      <% if @current_organization.is_creating_project_permitted(@user) %>
-        <p>Vous êtes administrateur de ce projet.</p>
-      <% end %>
+
+  <% if @current_organization.is_creating_project_permitted(@user) %>
+  <p>Vous êtes administrateur de ce projet.</p>
+  <% end %>
 
   <div class="row">
 
@@ -25,7 +25,8 @@
       <%= render partial:'layouts/orga/mol/card_raising', layout: "layouts/orga/mol/card_mini_without_title_layout", locals: {  project: @project} %>
       <br/>
       <%= render partial:'layouts/orga/mol/card_organization', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Porteur", project: @project} %>
-      <br/>     
+      <br/>
+      <%= render partial:'layouts/orga/mol/card_project_links', locals: {project: @project} %>   
     </div>
   </div>
 </div>

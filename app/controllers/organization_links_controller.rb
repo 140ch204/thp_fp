@@ -8,7 +8,7 @@ class OrganizationLinksController < ApplicationController
 			flash[:success] = "Le lien a été ajouté!"
 			redirect_to test_path
 		else
-			flash[:danger] = "Un problème est survenu!"
+			flash[:danger] = "#{@link.errors.full_messages}"
 			redirect_to test_path
 		end
 	end
@@ -27,7 +27,7 @@ class OrganizationLinksController < ApplicationController
 	private
 
 	def link_params
-		params.permit(:url_organization, :organization_id)
+		params.permit(:url_organization, :url_name, :organization_id)
 	end
 
 	def check_user
