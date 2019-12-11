@@ -1,53 +1,54 @@
-<% if current_user.is_admin? == true %>
+<% if !current_user.nil? %>
   <% @admin_collection.each do |element| %>
-    <% if element.organization.is_association == true %>
-    <section>
-      <div class="card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="https://zupimages.net/up/19/49/5gkf.jpg" class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h2 class="card-title">Mon association</h2>
-              <h3>
-                <p class="card-text">Nom : <%= link_to element.organization.name, organization_path(element.organization.id)%></p>
-              </h3>
-              <h3>
-                <p class="card-text">Ville : <%= element.organization.city.city_name %></p>
-              </h3>
-              <h3>
-                <p class="card-text">Categorie : <%= element.organization.category %></p>
-              </h3>
-              <h3>
-                <p class="card-text">Description : <%= element.organization.description %></p>
-              </h3>
+    <% organization_administred = element.organization %>
+    <% if organization_administred.is_association == true %>
+      <section>
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="<%= organization_administred.logo_url %>" class="card-img" alt="...">
             </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <h4 class="card-title">Les projets actuels : <%= link_to "Initier un projet", new_project_path(:organization_id => element.organization.id), class:"btn btn-outline-secondary float-right"%></h4>
-        </div>
-        </section>
-        <section>
-        <div class="card-group">      
-          <% element.organization.projects.each do |project|%>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg" class="card-img-top" alt="...">
+            <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%= link_to project.name, project_path(project.id) %></h5>
-                <p class="card-text">project.description</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h2 class="card-title">Mon association</h2>
+                <h3>
+                  <p class="card-text">Nom : <%= link_to organization_administred.name, organization_path(organization_administred.id)%></p>
+                </h3>
+                <h3>
+                  <p class="card-text">Ville : <%= organization_administred.city.city_name %></p>
+                </h3>
+                <h3>
+                  <p class="card-text">Categorie : <%= organization_administred.category %></p>
+                </h3>
+                <h3>
+                  <p class="card-text">Description : <%= organization_administred.description %></p>
+                </h3>
               </div>
             </div>
           </div>
+          <div class="card-footer">
+            <h4 class="card-title">Les projets actuels : <%= link_to "Initier un projet", new_project_path(:organization_id => element.organization.id), class:"btn btn-outline-secondary float-right"%></h4>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="card-group">
+          <% projects_administred = element.organization.projects%>      
+          <% projects_administred.each do |project|%>
+            <div class="col-md-4">
+              <div class="card">
+                <img src="<%= project.logo_url%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= link_to project.name, project_path(project.id) %></h5>
+                </div>
+              </div>
+            </div>
           <% end %>
         </div>
         <br>
       </section>
-      <% end %>
     <% end %>
   <% end %>
-</div>
+<% end %>
+
 
