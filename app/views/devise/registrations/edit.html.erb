@@ -5,7 +5,7 @@
         <div class="fdb-box">
           <div class="row">
             <div class="col">
-              <h1>Modifier votre compte</h1>
+              <h3>Modifier ici votre email et/ou mot de passe</h3>
             </div>
           </div>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -20,7 +20,7 @@
             <% end %>
             <div class="row mt-4">
               <div class="col">
-                <i>(ne rien écrire si vous ne souhaitez pas)</i><br />
+                <i>Optionnel: si vous souhaitez modifier votre mot de passe</i><br />
                 <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
                 <% if @minimum_password_length %>
                   <em><%= @minimum_password_length %> caractères minimum</em>
@@ -34,7 +34,7 @@
             </div>
             <div class="row mt-4">
               <div class="col">
-                <i>(indiquer votre mot de passe actuel)</i><br />
+                <i>Mot de passe actuel</i><br />
                 <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
               </div>
             </div>
