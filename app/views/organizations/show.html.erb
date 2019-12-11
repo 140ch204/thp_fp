@@ -14,7 +14,7 @@
 
         <div>
           <% if @current_organization.is_organization_admin(@user) %>
-            <p>Vous êtes administrateur de cette organisation.</p>
+          <p>Vous êtes administrateur de cette organisation.</p>
           <% end %>
         </div>
       </div>
@@ -73,7 +73,13 @@
                 </li>
               </ul>
             </div>
+            <br/>            
+            <%= render partial:'layouts/orga/mol/card_organization_links', locals: {organization: @organization} %>
             <br/>
+            <% if @current_organization.is_organization_admin(@user) %>
+              <%= render partial:'layouts/orga/mol/card_organization_link_new', locals: {organization: @organization} %>
+              <br/>
+            <% end %>
           </div>
         </div>
       </div>
@@ -90,14 +96,14 @@
       <div class="container">
         <div class="row">
           <% if !@projects.empty? %>
-            <% @projects.each do |project|%>
-            <% @project = project %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <%= render partial:'layouts/orga/card_project', locals: {project: @project} %> <a> </a>
-            </div>
-            <% end %>
+          <% @projects.each do |project|%>
+          <% @project = project %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= render partial:'layouts/orga/card_project', locals: {project: @project} %> <a> </a>
+          </div>
+          <% end %>
           <% else %>
-            <p>Aucun projet n'a encore initié.</p>
+          <p>Aucun projet n'a encore initié.</p>
           <% end %>
         </div>
       </div>

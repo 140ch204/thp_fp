@@ -6,10 +6,10 @@ class OrganizationLinksController < ApplicationController
 		@link = OrganizationLink.new(link_params)    
 		if @link.save
 			flash[:success] = "Le lien a été ajouté!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
-			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			flash[:danger] = "#{@link.errors.full_messages}"
+			redirect_to request.referrer
 		end
 	end
 
@@ -17,17 +17,17 @@ class OrganizationLinksController < ApplicationController
 		@link = OrganizationLink.find_by(id: params[:id])
 		if @link.destroy
 			flash[:success] = "Le lien a été supprimé!"
-			redirect_to test_path
+			redirect_to request.referrer
 		else
 			flash[:danger] = "Un problème est survenu!"
-			redirect_to test_path
+			redirect_to request.referrer
 		end
 	end
 
 	private
 
 	def link_params
-		params.permit(:url_organization, :organization_id)
+		params.permit(:url_organization, :url_name, :organization_id)
 	end
 
 	def check_user
