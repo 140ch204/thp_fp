@@ -68,9 +68,9 @@ my_admin_firm = 0
 10.times do
   case user_count
   when 0 # Master 
-    master = true
+    local_master = true
   else
-    master = false
+    local_master = false
   end
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
@@ -80,7 +80,7 @@ my_admin_firm = 0
     last_name: last_name,
     email: (first_name + "." + last_name + "@yopmail.com"),
     password: "aaaaaa",
-    master: master)
+    master: local_master)
 
   (user_count == 0)? (my_master = my_user) : ""
   (user_count == 1)? (my_admin_asso = my_user) : ""

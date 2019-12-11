@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  #before_action :check_user, only: [:edit, :update]
+  before_action :check_user, only: [:edit, :update]
 
   def index
     @associations = Organization.where(is_association: true)
@@ -96,7 +96,7 @@ class OrganizationsController < ApplicationController
   def check_user
     @organization = Organization.find(params[:id])
     unless @organization.is_organization_admin(current_user) == true
-      flash[:notice] = "Bien essayé petit malin."
+      flash[:notice] = "Seul l'administrateur peut faire cela."
       redirect_to root_path
     end
   end

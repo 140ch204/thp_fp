@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:new, :edit]
+  before_action :check_user_update, only: [:update]
+  # Une méthode check_user spécifique à l'update est nécessaire ici car nous avons des wrap_parameters
 
   def index
     @projects = Project.all
@@ -90,6 +92,8 @@ class ProjectsController < ApplicationController
     @city = City.find_or_create_by(department: @department, city_name: params[:city][:city_name])
   end
 
+  # Extrait les donateurs d'un projet donné
+  # Possible de mettre en méthode d'instance
   def donator_id
     who_donated = []
     @project.donations.each do |donation|
@@ -99,10 +103,19 @@ class ProjectsController < ApplicationController
     return who_donated
   end
 
+  # Seuls les administrateurs d'une association peuvent agir sur l'objet projet
   def check_user
+    @organization = Organization.find(params[:organization_id])
+    unless @organization.is_creating_project_permitted(current_user) == true
+      flash[:notice] = "Seul l'administrateur de l'association peut faire cela."
+      redirect_to root_path
+    end
+  end
+
+  def check_user_update
     @organization = Organization.find(Project.find(params[:id]).organization_id)
-    unless @organization.is_organization_admin(current_user) == true
-      flash[:notice] = "Bien essayé petit malin."
+    unless @organization.is_creating_project_permitted(current_user) == true
+      flash[:notice] = "Seul l'administrateur de l'association peut faire cela."
       redirect_to root_path
     end
   end

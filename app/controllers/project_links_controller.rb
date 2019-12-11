@@ -1,6 +1,6 @@
 class ProjectLinksController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :destroy]
-	before_action :check_user, only: [:destroy]
+	before_action :check_user, only: [:create, :destroy]
 
 	def create
 		@link = ProjectLink.new(link_params)    
@@ -31,7 +31,7 @@ class ProjectLinksController < ApplicationController
 	end
 
 	def check_user
-		@organization = Organization.find(Project.find(ProjectLink.find(params[:id]).project_id).organization_id)
+		@organization = Organization.find(params[:organization_id])
 		unless @organization.is_organization_admin(current_user) == true
 			flash[:notice] = "Bien essayé petit malin."
 			redirect_to root_path
