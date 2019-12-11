@@ -65,7 +65,7 @@ user_count = 0
 my_master = 0
 my_admin_asso = 0
 my_admin_firm = 0
-8.times do
+3.times do
   case user_count
   when 0 # Master 
     local_master = true
