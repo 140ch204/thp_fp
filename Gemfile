@@ -82,3 +82,7 @@ gem 'devise'
 gem 'stripe'
 
 gem 'administrate'
+
+gem 'jquery-rails'
+
+gem 'best_in_place', '~> 3.0.1'
