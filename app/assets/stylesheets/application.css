@@ -14,3 +14,38 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /*Style du scrollback button*/
+
+ a#Scroller{
+ 	padding:10px;
+ 	text-align:center;
+ 	position:fixed;
+ 	right:20px;
+ 	opacity:1;
+ 	z-index:99999;
+ 	transition:all ease-in 0.2s;
+ 	backface-visibility: hidden;
+ 	-webkit-backface-visibility: hidden;
+ 	text-decoration: none;
+ }
+ a#Scroller:before{ 
+ 	font-family: "Font Awesome 5 Free";
+ 	font-weight: 900;
+ 	content: "\f0aa";
+ 	font-size: 3em;
+ }
+
+ a#Scroller.invisible{
+ 	bottom:-35px;
+ 	opacity:0;
+ 	transition:all ease-in 0.5s;
+ }
+
+ a#Scroller.visible{
+ 	bottom:90px;
+ 	opacity:1;
+ }
+
+/*Fin style du scrollback button*/
