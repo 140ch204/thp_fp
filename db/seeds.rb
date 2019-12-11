@@ -65,7 +65,7 @@ user_count = 0
 my_master = 0
 my_admin_asso = 0
 my_admin_firm = 0
-10.times do
+8.times do
   case user_count
   when 0 # Master 
     local_master = true
@@ -78,7 +78,7 @@ my_admin_firm = 0
     city_id: City.all.sample.id,
     first_name: first_name,
     last_name: last_name,
-    email: (first_name + "." + last_name + "@yopmail.com"),
+    email: Faker::Internet.username + "@yopmail.com",
     password: "aaaaaa",
     master: local_master)
 
