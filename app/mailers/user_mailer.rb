@@ -6,8 +6,6 @@ class UserMailer < ApplicationMailer
 
     @url  = 'https://assoangels.herokuapp.com//login' 
 
-    @url
-
     mail(to: @user.email, subject: 'Bienvenue chez AssoAngels!') 
 end
 end
