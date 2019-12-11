@@ -2,9 +2,9 @@
 	<span class="badge badge-pill badge-primary">Followers: <%= organization.follows.count %></span>
 	<% unless current_user.nil? %>
 	<% if !is_following?(organization) %>
-	<%= link_to "", follows_path(organization_id: organization.id), method: :post, class:"fas fa-user-plus text-muted  p-1 my-1 mr-3" %>
+	<%= link_to "", follows_path(organization_id: organization.id), method: :post, class:"fas fa-user-plus fa-2x text-muted  p-1 my-1 mr-3" %>
 	<% else %>
-	<%= link_to "", follow_path(organization.id), method: :delete, class:"fas fa-user-plus" %>
+	<%= link_to "", follow_path(organization.id), method: :delete, class:"fas fa-user-plus fa-2x" %>
 	<% end %>                      
 	<% end %>
 </div>
