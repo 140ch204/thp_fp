@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   
   def permitted_user_params
     if params[:user] != nil
-      params.require(:user).permit(:first_name, :last_name)
+      return params.require(:user).permit(:first_name, :last_name)
     end
     if params[:user] == nil
       params.require(:city).permit(:city_name)
