@@ -14,16 +14,16 @@ Department.destroy_all
 
 department_array= [{'department_name'=>'Seine-et-Marne','zip_code'=>'77','region'=>'Ile-de-France'},{'department_name'=>'Yvelines','zip_code'=>'78','region'=>'Ile-de-France'},{'department_name'=>'Essonne','zip_code'=>'91','region'=>'Ile-de-France'},{'department_name'=>'Hauts-de-Seine','zip_code'=>'92','region'=>'Ile-de-France'},{'department_name'=>'Seine-Saint-Denis','zip_code'=>'93','region'=>'Ile-de-France'},{'department_name'=>'Val-de-Marne','zip_code'=>'94','region'=>'Ile-de-France'},{'department_name'=>'Val-d Oise','zip_code'=>'95','region'=>'Ile-de-France'}]
 
-  department_count = 0
-  department_array.each do |department|
-    Department.create(
-      country_id: Country.all.sample.id,
-      department_name: department['department_name'],
-      zip_code: department['zip_code'],
-      region: department['region'])
-    department_count += 1
-  end
-  puts "#{department_count} departments created."
+department_count = 0
+department_array.each do |department|
+  Department.create(
+    country_id: Country.all.sample.id,
+    department_name: department['department_name'],
+    zip_code: department['zip_code'],
+    region: department['region'])
+  department_count += 1
+end
+puts "#{department_count} departments created."
 
 
 #department_count = 0
@@ -40,15 +40,15 @@ department_array= [{'department_name'=>'Seine-et-Marne','zip_code'=>'77','region
 
 city_array= [{'city_name'=>'Paris'},{'city_name'=>'Boulogne-Billancourt'},{'city_name'=>'Saint-Denis '},{'city_name'=>'Argenteuil '},{'city_name'=>'Montreuil '},{'city_name'=>'Nanterre '},{'city_name'=>'Vitry-sur-Seine'},{'city_name'=>'Créteil'},{'city_name'=>'Asnières-sur-Seine'},{'city_name'=>'Versailles'},{'city_name'=>'Colombes'},{'city_name'=>'Aubervilliers'},{'city_name'=>'Aulnay-sous-Bois '},{'city_name'=>'Courbevoie '},{'city_name'=>'Rueil-Malmaison '},{'city_name'=>'Champigny-sur-Marne '},{'city_name'=>'Saint-Maur-des-Fossés '},{'city_name'=>'Drancy '},{'city_name'=>'Issy-les-Moulineaux'},{'city_name'=>'Noisy-le-Grand'},{'city_name'=>'Levallois-Perret'},{'city_name'=>'Cergy '},{'city_name'=>'Antony '},{'city_name'=>'Neuilly-sur-Seine '},{'city_name'=>'Clichy '},{'city_name'=>'Ivry-sur-Seine '},{'city_name'=>'Sarcelles '},{'city_name'=>'Villejuif'},{'city_name'=>'Le Blanc-Mesnil'},{'city_name'=>'Pantin '},{'city_name'=>'Maisons-Alfort '},{'city_name'=>'Épinay-sur-Seine '},{'city_name'=>'Évry-Courcouronnes'},{'city_name'=>'Chelles '},{'city_name'=>'Meaux '},{'city_name'=>'Fontenay-sous-Bois '},{'city_name'=>'Bondy'},{'city_name'=>'Clamart '},{'city_name'=>'Sartrouville'},{'city_name'=>'Bobigny '}]
 
-  City.destroy_all
-  city_count = 0
-  city_array.each do |city|
-    City.create(
-      department_id: Department.all.sample.id,
-      city_name: city['city_name'])
-    city_count += 1
-  end
-  puts "#{city_count} cities created."
+City.destroy_all
+city_count = 0
+city_array.each do |city|
+  City.create(
+    department_id: Department.all.sample.id,
+    city_name: city['city_name'])
+  city_count += 1
+end
+puts "#{city_count} cities created."
 
 #City.destroy_all
 #city_count = 0
@@ -74,14 +74,14 @@ my_admin_firm = 0
   end
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-	my_user = User.create(
-		city_id: City.all.sample.id,
-		first_name: first_name,
-		last_name: last_name,
-		email: (first_name + "." + last_name + "@yopmail.com"),
+  my_user = User.create(
+    city_id: City.all.sample.id,
+    first_name: first_name,
+    last_name: last_name,
+    email: (first_name + "." + last_name + "@yopmail.com"),
     password: "aaaaaa",
     master: master)
-    
+
   (user_count == 0)? (my_master = my_user) : ""
   (user_count == 1)? (my_admin_asso = my_user) : ""
   (user_count == 2)? (my_admin_firm = my_user) : ""
@@ -171,10 +171,10 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
         is_company: false)
       association_count += 1
     end 
-end
+  end
 
-puts "#{company_count} companies created."
-puts "#{association_count} associations created."
+  puts "#{company_count} companies created."
+  puts "#{association_count} associations created."
 
 
 #Organization.destroy_all
@@ -229,17 +229,17 @@ project_count = 0
 25.times do
   organizor = Organization.where("is_association":true).sample
   description = "Nous vous présentons ce super projet N°#{project_count}! #{organizor.name} est une association très impliquée dans le monde de #{organizor.category} à #{organizor.city.city_name}"
-	Project.create(
-		city_id: City.all.sample.id,
-		organization_id: organizor.id,
-		name: "Projet N°#{project_count} de #{organizor.name }" ,
-		description: description ,
-		logo_url: organizor.logo_url,
-		starting_date: date = Faker::Date.forward(days: 50),
-		donation_targeted: rand(100..100000),
-		donation_start: date,
-		donation_end: date.advance(days: 30))
-	project_count += 1
+  Project.create(
+    city_id: City.all.sample.id,
+    organization_id: organizor.id,
+    name: "Projet N°#{project_count} de #{organizor.name }" ,
+    description: description ,
+    logo_url: organizor.logo_url,
+    starting_date: date = Faker::Date.forward(days: 20),
+    donation_targeted: rand(100..100000),
+    donation_start: date,
+    donation_end: date.advance(days: 30))
+  project_count += 1
 end
 puts "#{project_count} projects created."
 
@@ -247,7 +247,7 @@ Counterpart.destroy_all
 counterpart_count = 0
 projects = Project.all
 projects.each do |project|
-	10.times do
+	4.times do
 		Counterpart.create(
 			project_id: project.id,
 			name: Faker::Beer.name,
@@ -294,7 +294,7 @@ follow_count = 0
 end
 puts "#{follow_count} follows created."
 
-buzzword = ["environnement", "sociétal", "jeunesse", "troisième âge", "parc", "nature", "éducation"]
+buzzword = ["environnement", "sociétal", "jeunesse", "faune", "plante", "réchauffement climatique", "biodiversité", "préservation", "nature", "éducation"]
 Tag.destroy_all
 buzzword.length.times do |n|
 	Tag.create(tag_name: buzzword[n])
@@ -314,24 +314,48 @@ puts "#{tag_count} tag_lists created."
 
 ProjectLink.destroy_all
 project_link_count = 0
-40.times do
+Project.all.each do |project|
 	ProjectLink.create(
 		url_project: "https://assoangels.com/",
-		project_id: Project.all.sample.id
-		)
-	project_link_count += 1
+    url_name: "Facebook",
+    project_id: project.id
+    )
+  ProjectLink.create(
+    url_project: "https://assoangels.com/",
+    url_name: "Instagram",
+    project_id: project.id
+    )
+  ProjectLink.create(
+    url_project: "https://assoangels.com/",
+    url_name: "Site Web",
+    project_id: project.id
+    )
+  project_link_count += 3
 end
+
 puts "#{project_link_count} project_links created."
 
 OrganizationLink.destroy_all
 organization_link_count = 0
-40.times do
-	OrganizationLink.create(
-		url_organization: "https://assoangels.com/",
-		organization_id: Organization.all.sample.id
-		)
-	organization_link_count += 1
+Organization.all.each do |organization|
+  OrganizationLink.create(
+    url_organization: "https://assoangels.com/",
+    url_name: "Facebook",
+    organization_id: organization.id
+    )
+  OrganizationLink.create(
+    url_organization: "https://assoangels.com/",
+    url_name: "Instagram",
+    organization_id: organization.id
+    )
+  OrganizationLink.create(
+    url_organization: "https://assoangels.com/",
+    url_name: "Site Web",
+    organization_id: organization.id
+    )
+  organization_link_count += 3
 end
+
 puts "#{organization_link_count} organization_links created."
 
 Alert.destroy_all
