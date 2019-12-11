@@ -1,4 +1,4 @@
-<% if current_user.is_admin? == true %>
+<% if !current_user.nil? %>
   <% @admin_collection.each do |element| %>
     <% organization_administred = element.organization %>
     <% if organization_administred.is_company == true %>
