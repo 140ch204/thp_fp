@@ -1,0 +1,12 @@
+<div class="card">
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item text-justify">
+			<p>Ajouter un lien:</p>
+			<%= form_tag organization_links_path(organization_id: organization.id), method: :post  do %>
+			<input type="text" name="url_organization" placeholder="URL à ajouter" />
+			<input type="text" name="url_name" placeholder="Nom du lien à afficher" />
+			<input type="submit" value="Ajouter le lien" />
+			<% end %>
+		</li>
+	</ul>
+</div>
