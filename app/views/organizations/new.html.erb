@@ -33,7 +33,7 @@
                 <%= organization_form.label :logo %><br />
                 <%= organization_form.text_field :logo_url, class: "form-control", required: true, id: "logo_url" %><br />
                 <%= organization_form.label :RNA %><br />
-                <%= organization_form.text_field :RNA, class: "form-control", required: true, id: "rna", placeholder: "w-xxx-xxx-xxx" %><br />
+                <%= organization_form.text_field :RNA, class: "form-control", required: true, id: "rna", placeholder: "W000000000" %><br />
                 <%= organization_form.hidden_field :is_association, :value => true %><br />
                 <%= organization_form.submit :value => "Créer l'association", class:"btn btn-outline-secondary"%>
               <% end %>
@@ -72,7 +72,7 @@
                             <%= organization_form.label :logo %><br />
                             <%= organization_form.text_field :logo_url, class: "form-control", required: true, id: "logo_url" %><br />
                             <%= organization_form.label :siret %><br />
-                            <%= organization_form.text_field :siret, class: "form-control", required: true, id: "siret", placeholder: "xxx-xxx-xxx-xxxxx" %><br />
+                            <%= organization_form.text_field :siret, class: "form-control", required: true, id: "siret", placeholder: "00000000000000" %><br />
                             <%= organization_form.hidden_field :is_company, :value => true %><br />
                             <%= organization_form.submit :value => "Créer l'entreprise", class:"btn btn-outline-secondary"%>
                           <% end %>

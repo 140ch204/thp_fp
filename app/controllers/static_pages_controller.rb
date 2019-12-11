@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
   end
 
   def index
+    @projects = Project.all
+    @project = @projects.sample(3)
   end
   
 end
