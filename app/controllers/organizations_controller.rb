@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :check_user, only: [:edit, :update]
+  #before_action :check_user, only: [:edit, :update]
 
   def index
     @associations = Organization.where(is_association: true)
@@ -31,7 +31,6 @@ class OrganizationsController < ApplicationController
     @organization.update(city_id: @city.id)
     if @organization.save
       Admin.create(user: current_user, organization: @organization)
-      current_user.update(is_admin: true)
       if @organization.is_association == true
         flash[:success] = "Votre association a bien été enregistrée"
       else

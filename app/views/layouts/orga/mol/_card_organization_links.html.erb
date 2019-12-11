@@ -1,0 +1,14 @@
+<div class="card">
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item text-justify">
+			<% organization.organization_links.each do |link| %>
+
+				<p><%= link_to "#{link.url_name}", link.url_organization, :target => "_blank" %>
+					<% if organization.is_admin(current_user) %>
+					, <%= link_to "Supprimer ce lien", organization_link_path(id: link.id), method: :delete %>
+					<% end %>					
+				</p>
+			<% end %>
+		</li>
+	</ul>
+</div>

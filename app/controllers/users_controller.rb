@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
-	def show
+  def show
+    @city = City.new
     @user = current_user
     @admin_collection = Admin.where(user: current_user)
     @is_admin = Admin.find_by(user: current_user)
@@ -24,7 +25,31 @@ class UsersController < ApplicationController
 	def edit
 	end
 
-	def update
+  def update
+    @user = current_user
+    if params[:city] != nil
+      @city = City.find_or_create_by(city_name: params[:city][:city_name])
+      respond_to do |format|
+        if @user.update(city: City.find_or_create_by(city_name: params[:city][:city_name]))
+          format.html { redirect_to user_path(params[:id])}
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit'}
+          format.json { render json: @user.errors, status: :unprocessable_entity}
+        end
+      end
+    else
+      respond_to do |format|
+        if @user.update_attributes(permitted_user_params)
+          format.html { redirect_to user_path(params[:id]) }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
 	end
 
 	def destroy
@@ -38,5 +63,13 @@ class UsersController < ApplicationController
 			redirect_to root_path
 		end
 	end
-	
+  
+  def permitted_user_params
+    if params[:user] != nil
+      params.require(:user).permit(:first_name, :last_name)
+    end
+    if params[:user] == nil
+      params.require(:city).permit(:city_name)
+    end
+  end
 end

@@ -12,32 +12,32 @@
               <%= form_with model: @project do |project_form|%>
               <%= fields_for :city, @project.city do |city_form| %>
                 <%= city_form.label :ville%><br />
-                <%= city_form.text_field :city_name, class: "form-control" %><br />
+                <%= city_form.text_field :city_name, class: "form-control", required: true, id: "city_name" %><br />
               <% end %>
               <%= fields_for :department, @city.department do |department_form|%>
                 <%= department_form.label :département %><br />
-                <%= department_form.text_field :department_name, class: "form-control" %><br />
+                <%= department_form.text_field :department_name, class: "form-control", required: true, id: "department_name" %><br />
                 <%= department_form.label :région %><br />
-                <%= department_form.text_field :region, class: "form-control" %><br />
+                <%= department_form.text_field :region, class: "form-control", required: true, id: "region" %><br />
                 <%= department_form.label "Code postal" %><br />
-                <%= department_form.text_field :zip_code, class: "form-control" %><br />
+                <%= department_form.text_field :zip_code, class: "form-control", required: true, id: "zip_code" %><br />
               <% end %>
               <%= fields_for :country, @department.country do |country_form|%>
                 <%= country_form.label :pays %><br />
-                <%= country_form.text_field :country_name, class: "form-control"%><br />
+                <%= country_form.text_field :country_name, class: "form-control", required: true, id: "country_name" %><br />
               <% end %>
               <%= project_form.label :nom %><br />
-              <%= project_form.text_field :name, class: "form-control" %><br />
+              <%= project_form.text_field :name, class: "form-control", required: true, id: "project_name" %><br />
               <%= project_form.label :description %><br />
-              <%= project_form.text_area :description, class: "form-control" %><br />
+              <%= project_form.text_area :description, class: "form-control", required: true, id: "description" %><br />
               <%= project_form.label :Objectif %><br />
-              <%= project_form.number_field :donation_targeted, class: "form-control" %><br />
+              <%= project_form.number_field :donation_targeted, class: "form-control", required: true, id: "donation_targeted" %><br />
               <%= project_form.label :logo %><br />
-              <%= project_form.text_field :logo_url, class: "form-control"%><br />
+              <%= project_form.text_field :logo_url, class: "form-control" %><br />
               <%= project_form.label "Début de la campagne" %><br />
-              <%= project_form.date_field :donation_start, class: "form-control"%>
+              <%= project_form.date_field :donation_start, class: "form-control", required: true, id: "donation_start" %>
               <%= project_form.label "Fin de la campagne" %><br />
-              <%= project_form.date_field :donation_end, class: "form-control"%>
+              <%= project_form.date_field :donation_end, class: "form-control", required: true, id: "donation_end" %>
               <%= project_form.hidden_field :organization_id, :value => @organization.id %><br />
               <%= project_form.submit :value => "Lancer votre projet", class:"btn btn-outline-secondary"%>
             <% end %>
@@ -47,3 +47,48 @@
     </div>
   </div>
 </section>
+
+<script>
+hyperform(window);
+
+hyperform.setMessage(document.getElementById('city_name'),
+  'valueMissing',
+  'Indiquez votre ville');
+
+hyperform.setMessage(document.getElementById('department_name'),
+  'valueMissing',
+  'Indiquez votre département');
+  
+hyperform.setMessage(document.getElementById('region'),
+  'valueMissing',
+  'Indiquez votre région');
+  
+hyperform.setMessage(document.getElementById('zip_code'),
+  'valueMissing',
+  'Indiquez votre code postal');
+  
+hyperform.setMessage(document.getElementById('country_name'),
+  'valueMissing',
+  'Indiquez votre pays');
+  
+hyperform.setMessage(document.getElementById('project_name'),
+  'valueMissing',
+  'Indiquez le nom de votre projet');
+  
+hyperform.setMessage(document.getElementById('description'),
+  'valueMissing',
+  'Indiquez la description de votre projet');
+  
+hyperform.setMessage(document.getElementById('donation_targeted'),
+  'valueMissing',
+  'Indiquez votre objectif de don');
+
+hyperform.setMessage(document.getElementById('donation_start'),
+  'valueMissing',
+  'Indiquez la date de début de campagne');
+  
+hyperform.setMessage(document.getElementById('donation_end'),
+  'valueMissing',
+  'Indiquez la date de fin de campagne');
+  
+</script>

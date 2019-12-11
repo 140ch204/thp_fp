@@ -1,26 +1,29 @@
 <div class="card mb-3" >
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="https://zupimages.net/up/19/49/freb.jpg" class="card-img" alt="..." >
+      <img src="https://image.freepik.com/vecteurs-libre/vecteur-icone-homme-affaires_52756-255.jpg" class="card-img" alt="..." >
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h2 class="card-title">Informations utilisateurs</h2>
+        <p class="font-weight-light font-italic">Cliquez sur vos informations pour les éditer<p>
         <h3>
-          <p class="card-text">Nom : <%= @current_user.first_name %></p>
+          <p class="card-text">Nom : <%= best_in_place @current_user, :first_name, :as => :input, :place_holder => "Cliquez pour éditer" %></p>
         </h3>
         <h3>
-          <p class="card-text">Prénom : <%= @current_user.last_name %></p>
+          <p class="card-text">Prénom : <%= best_in_place @current_user, :last_name, :place_holder => "Cliquez pour éditer" %></p>
+        </h3>
+        <h3>
+          <% if @current_user.city != nil%>
+            <p class="card-text">Ville : <%= best_in_place @current_user.city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
+          <% else %>
+            <p class="card-text">Ville : <%= best_in_place @city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
+          <% end %>
         </h3>
         <br>
-        <h3>
-          <p class="card-text">Email : <%= @current_user.email %></p>
-        </h3>
-        <% if @current_user.city != nil%>
           <h3>
-            <p class="card-text">Ville : <%= @current_user.city.city_name %></p>
+            <p class="card-text">Email : <%= @current_user.email %></p>
           </h3>
-        <% end %>
       </div>
     </div>
   </div>

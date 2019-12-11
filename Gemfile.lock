@@ -61,6 +61,9 @@ GEM
     autoprefixer-rails (9.7.3)
       execjs
     bcrypt (3.1.13)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -259,6 +262,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate
+  best_in_place (~> 3.0.1)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -268,6 +272,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.7)
   faker (~> 2.7)
   jbuilder (~> 2.5)
+  jquery-rails
   letter_opener
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18)
