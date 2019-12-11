@@ -1,6 +1,6 @@
 class ProjectLinksController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :destroy]
-	#before_action :check_user, only: [:destroy]
+	before_action :check_user, only: [:destroy]
 
 	def create
 		@link = ProjectLink.new(link_params)    
