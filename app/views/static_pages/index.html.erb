@@ -2,7 +2,19 @@
 <br>
 <%= render partial:'layouts/orga/calltoaction' %>
 <br>
-<%= render partial:'layouts/orga/feature1' %>
+<section>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h1>Les Projets du moment</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<% @project.each do |project|%>
+  <% @project = project %>
+  <%= render partial:'layouts/orga/feature1' %>
+<% end %>
 <br>
 <br>
 <br>
