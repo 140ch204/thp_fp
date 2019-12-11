@@ -1,22 +1,49 @@
-<section>
-<%= form_tag charges_path(:amount => @donation_amount, :project_id => params[:project_id]) do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span> <%= "#{@donation_amount}" %> €</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+<section class="fdb-block" style="background-image: url(https://zupimages.net/up/19/50/6bww.png);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+        <div class="fdb-box2">
+          <div class="row">
+            <div class="col">
+              <h1>Paiement</h1>
+            </div>
+          </div>
+          <%= form_tag charges_path(:amount => @donation_amount, :project_id => params[:project_id]) do %>
+            <div class="row mt-4">
+              <div class="col">
+                <div class="card">
+                  <article>
+                    <% if flash[:error].present? %>
+                      <div id="error_explanation">
+                        <p><%= flash[:error] %></p>
+                      </div>
+                    <% end %>
+                    <label class="amount">
+                      <span> <%= "#{@donation_amount}" %> €</span>
+                    </label>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col">
+                <div class="actions">
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Don"
           data-amount="<%= @donation_amount.to_i * 100%>"
           data-currency='eur'
-          data-locale="auto"></script>
-<% end %>
+          data-locale="auto"></script>                </div>
+              <% end %>
+              <br>
+            </div>
+            <br>
+            <div class="card">
+              <img src="https://zupimages.net/up/19/50/owmb.jpg" class="card-img-top" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-

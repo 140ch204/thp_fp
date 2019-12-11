@@ -1333,3 +1333,15 @@ footer.footer-small{
   #donation_donation_amount{
     color: #444444;
   }
+
+  html body section div.container div.row div.container div.row div.col-xs-12.col-sm-6.col-md-4 div.card div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
+
+  html body section div.container div.row div.container div.row div.col-xs-12.col-sm-12.col-md-8 div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
+
+  html body section div.container-fluid div.container div.row div.col-xs-12.col-sm-6.col-md-4 div.card div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
