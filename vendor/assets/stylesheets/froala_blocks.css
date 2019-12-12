@@ -25,7 +25,10 @@ body {
   line-height: 1.5;
   color: #444444;
   text-align: left;
-  background-image: url("https://zupimages.net/up/19/50/qolh.jpg");}
+  background-image: url("https://zupimages.net/up/19/50/qolh.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }

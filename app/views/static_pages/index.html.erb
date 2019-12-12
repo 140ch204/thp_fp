@@ -11,12 +11,16 @@
 		</div>
 	</div>
 </section>
-<div class="d-flex justify-content-center">
+<section>
+<div class="container">
+  <div class="card-group">
 	<% @project.each do |project|%>
 	<% @project = project %>
 	<%= render partial:'layouts/orga/feature1' %>
 	<% end %>
-</div>
+	</div>
+  </div>
+</section>
 <br>
 <br>
 <br>
