@@ -9,7 +9,10 @@ module Master
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      unless current_user.master == true
+        redirect_to root_path
+        flash[:danger] = "Vous n'êtes pas administrateur du site."
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
