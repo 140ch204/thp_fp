@@ -23,11 +23,11 @@
               <p class="card-text"></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= association.description[0 .. 30] + "..." %></li>
+              <li class="list-group-item"><%= association.description[0 .. 70] + "..." %></li>
               <li class="list-group-item"><%= association.category %></li>
               <li class="list-group-item"><%= association.city.city_name %></li>
-              <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %></li>
-
+              <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %>
+              </li>
             </ul>
             <div class="card-body">
                 <!-- Links to : Association page, Association projects -->
@@ -68,7 +68,7 @@
               <p class="card-text"></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= company.description[0 .. 30] + "..." %></li>
+              <li class="list-group-item"><%= company.description[0 .. 70] + "..." %></li>
               <li class="list-group-item"><%= company.category %></li>
               <li class="list-group-item"><%= company.city.city_name %></li>
               <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: company.tag_lists} %></li>

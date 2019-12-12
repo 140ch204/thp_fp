@@ -6,22 +6,22 @@
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="<%= organization_administred.logo_url %>" class="card-img" alt="...">
+              <img src="<%= organization_administred.logo_url %>" class="card-img-top1" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h2 class="card-title">Mon entreprise</h2>
+                <h2 class="card-title">MON ENTREPRISE</h2>
                 <h3>
-                  <p class="card-text">Nom : <%= link_to organization_administred.name, organization_path(organization_administred.id)%></p>
+                  <p class="card-text">NOM - <%= link_to organization_administred.name, organization_path(organization_administred.id)%></p>
                 </h3>
                 <h3>
-                  <p class="card-text">Ville : <%= organization_administred.city.city_name %></p>
+                  <p class="card-text">VILLE - <%= organization_administred.city.city_name %></p>
                 </h3>
                 <h3>
-                  <p class="card-text">Categorie : <%= organization_administred.category %></p>
+                  <p class="card-text">CATEGORIE - <%= organization_administred.category %></p>
                 </h3>
                 <h3>
-                  <p class="card-text">Description : <%= organization_administred.description %></p>
+                  <p class="card-text">DESCRIPTION - <%= organization_administred.description %></p>
                 </h3>
               </div>
             </div>
@@ -40,16 +40,18 @@
                 <div class="card">
                   <img src="<%= admin_project.logo_url%>" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title"><%= link_to donation.project.name, project_path(donation.project.id) %></h5>
+                    <h5 class="card-title"><%= link_to donation.project.name[0 .. 22] + "...", project_path(donation.project.id) %></h5>
                     <p class="card-text">Don de <%= donation.donation_amount %> €</p>
                     <p class="card-text">Effectué le <%= donation.created_at.strftime("%F") %></p>
                   </div>
+             
                 </div>
+                <br>
               </div>
             <% end %>
           </div>
-        <br>
       </section>
+      <br>
     <% end %>
   <% end %>
 <% end %>

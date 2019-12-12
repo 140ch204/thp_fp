@@ -1,13 +1,11 @@
-<section>
-  <div class="container">
-    <div class="col-md-4 ml-auto mr-auto">
-      <div class="card">
-        <img src="<%= @project.logo_url%>" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center"><%= link_to @project.name, project_path(@project.id) %></h5>
-        </div>
-      </div>
+<div class="col-md-4">
+  <div class="card-deck">
+  <div class="card-block">
+    <img src="<%= @project.logo_url%>" class="card-img-top2" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center"><%= link_to @project.name[0 .. 25] + "...", project_path(@project.id) %></h5>
+    </div>
     </div>
   </div>
   <br>
-</section>
+</div>

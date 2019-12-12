@@ -11,5 +11,5 @@
 <% @project.donation_targeted %>
 
 <% if user_signed_in? && @companies.any?%>
-  <%= link_to "Contribuer", new_donation_path(project_id: params[:id]) , class: "btn btn-secondary", method: "get" %>
+  <%= link_to "Contribuer", new_donation_path(project_id: params[:id], organization_id: @project.organization_id) , class: "btn btn-secondary", method: "get" %>
 <% end %>

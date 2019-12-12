@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
 	before_action :authenticate_user!, only: [:create]
+	before_action :check_user, only: [:create]
 
 	def create
 		@tag = Tag.new(tag_params)
@@ -17,6 +18,14 @@ class TagsController < ApplicationController
 
 	def tag_params
 		params.permit(:tag_name)
+	end
+
+	def check_user
+		@organization = Organization.find(params[:organization_id])
+		unless @organization.is_organization_admin(current_user) == true
+			flash[:notice] = "Bien essayé petit malin."
+			redirect_to root_path
+		end
 	end
 
 end

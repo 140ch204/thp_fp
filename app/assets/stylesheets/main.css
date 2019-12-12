@@ -1,0 +1,143 @@
+footer.footer-small{
+    position: relative;
+    margin: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+.lead-2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: white; 
+    margin-left: 100px;
+    text-align: left;}
+
+.card-img-top {
+      height: 10vw;
+      object-fit: scale-down;
+  } 
+
+.fas.fa-heart{
+    color: red;
+  }
+
+.fas.fa-user-plus{
+    color: green;
+  }
+.list-group-item{
+  min-height: 4vw;
+  align-items: center;
+  border: hidden;
+}
+
+.fdb-block .fdb-box2 {
+  background: #FFFFFF;
+  opacity: 0.95;
+  padding: 3.75rem 2.5rem;
+  overflow: hidden;
+  color: #444444;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.3125rem 0.875rem 0 rgba(129, 129, 129, 0.2) !important; }
+
+  #donation_donation_amount{
+    color: #444444;
+  }
+
+  html body section div.container div.row div.container div.row div.col-xs-12.col-sm-6.col-md-4 div.card div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
+
+  html body section div.container div.row div.container div.row div.col-xs-12.col-sm-12.col-md-8 div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
+
+  html body section div.container-fluid div.container div.row div.col-xs-12.col-sm-6.col-md-4 div.card div span.badge.badge-pill.badge-primary{
+    margin-left: 10px;
+  }
+
+  #call{
+    margin-left: 100px;
+    text-align: left;
+  }
+
+  .card-img-top1 {
+    width: 15vw;
+    height: 10vw;
+    object-fit: scale-down;
+    margin-left: 20px ;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+  .card-img-top2 {
+    width: 15vw;
+    height: 10vw;
+    object-fit: scale-down;
+    margin-left: auto ;
+    margin-right: auto;
+}
+
+/*Style du scrollback button*/
+
+a#Scroller{
+    padding:10px;
+    text-align:center;
+    position:fixed;
+    right:20px;
+    opacity:1;
+    z-index:99999;
+    transition:all ease-in 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-decoration: none;
+}
+a#Scroller:before{ 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0aa";
+    font-size: 3em;
+}
+
+a#Scroller.invisible{
+    bottom:-35px;
+    opacity:0;
+    transition:all ease-in 0.5s;
+}
+
+a#Scroller.visible{
+    bottom:90px;
+    opacity:1;
+}
+
+/*Fin style du scrollback button*/
+
+/*Zoom effect*/
+.zoom {
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  width: 450px;
+  height: 350px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+/*Fin style zoom*/
+
+/*Zoom1 effect*/
+.zoom1 {
+  padding: 10px;
+  transition: transform .2s; /* Animation */
+  width: 80px;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.zoom1:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+/*Fin style zoom1*/
