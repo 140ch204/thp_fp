@@ -30,6 +30,6 @@ class Project < ApplicationRecord
 	end
 
 	def remaining_time
-		((60*60*24*30) - (Time.now - self.donation_end)).round(0) /60 /60 /24
+		((self.donation_end - self.donation_start) - (Time.now - self.donation_start)).round(0) /60 /60 /24
 	end
 end
