@@ -167,9 +167,9 @@ a#Scroller.visible{
   50% { border-color: #329ef7; }
 }
 
-#projet {
+#projet, #asso {
   transition: box-shadow .3s;
-  width: 300px;
+  width: 350px;
   height: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -178,6 +178,21 @@ a#Scroller.visible{
   background: #fff;
   
 }
-#projet:hover {
-  box-shadow: 10px 10px grey; 
+#projet:hover, #asso:hover {
+  box-shadow: 10px 10px 5px grey;
+}
+
+#asso, #firm {
+  transition: box-shadow .3s;
+  width: 350px;
+  height: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  
+}
+#asso:hover, #firm:hover {
+  box-shadow: 10px 10px 5px grey;
 }

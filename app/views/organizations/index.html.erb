@@ -1,87 +1,82 @@
-
 <!-- Associations -->
 <% if @is_association == "true" %>
-<section>
-  <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Associations"} %>
-          <br>
+  <section>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <center><%= render partial:'layouts/orga/mol/card_title', locals: {title: "ASSOCIATIONS"} %></center>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <% @associations.each_with_index do |association, i| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div id="asso" class="card" >
+                <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
+                <div class="card-body bg-ligth">
+                  <h4 class="card-title"><%= association.name %></h4>
+                  <%= render partial:'layouts/orga/mol/follow', locals: {organization: association} %>
+                  <p class="card-text"></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><%= association.description[0 .. 30] + "..." %></li>
+                  <li class="list-group-item"><%= association.category %></li>
+                  <li class="list-group-item"><%= association.city.city_name %></li>
+                  <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %>
+                  </li>
+                </ul>
+                <div class="card-body">
+                  <!-- Links to : Association page, Association projects -->
+                  <%= link_to "En savoir plus", organization_path(association.id), class:"btn btn-primary btn-block"%>
+                  <%# association.projects.each do |project|%>
+                    <%#= link_to project.name, project_path(project.id)%>
+                    <%# end %>
+                  </div>
+                </div>
+                <br/>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-
-      <div class="row">
-        <% @associations.each_with_index do |association, i| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="card" >
-            <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
-            <div class="card-body bg-ligth">
-              <h4 class="card-title"><%= association.name %></h4>
-              <%= render partial:'layouts/orga/mol/follow', locals: {organization: association} %>
-              <p class="card-text"></p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= association.description[0 .. 70] + "..." %></li>
-              <li class="list-group-item"><%= association.category %></li>
-              <li class="list-group-item"><%= association.city.city_name %></li>
-              <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %>
-              </li>
-            </ul>
-            <div class="card-body">
-                <!-- Links to : Association page, Association projects -->
-                <%= link_to "En savoir plus", organization_path(association.id), class:"btn btn-primary btn-block"%>
-                <%# association.projects.each do |project|%>
-                  <%#= link_to project.name, project_path(project.id)%>
-                <%# end %>
+    </section>
+  <% else %>
+    <!-- Companies -->
+    <section>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <center><%= render partial:'layouts/orga/mol/card_title', locals: {title: "ENTREPRISES"} %><center>
+              <br>
             </div>
           </div>
-          <br/>
-
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
-<% else %>
-<!-- Companies -->
-<section>
-  <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Entreprises"} %>
-          <br>
-        </div>
-      </div>
-      <div class="row">
-        <% @companies.each_with_index do |company, i| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-
-          <div class="card" >
-            <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
-            <div class="card-body bg-ligth">
-              <h4 class="card-title"><%= company.name %></h4>
-              <%= render partial:'layouts/orga/mol/follow', locals: {organization: company} %>
-              <p class="card-text"></p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= company.description[0 .. 70] + "..." %></li>
-              <li class="list-group-item"><%= company.category %></li>
-              <li class="list-group-item"><%= company.city.city_name %></li>
-              <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: company.tag_lists} %></li>
-            </ul>
-            <div class="card-body">
-              <%= link_to "En savoir plus", organization_path(company.id), class:"btn btn-primary btn-block"%>
-            </div>
+          <div class="row">
+            <% @companies.each_with_index do |company, i| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div id= "firm" class="card" >
+                  <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
+                  <div class="card-body bg-ligth">
+                    <h4 class="card-title"><%= company.name %></h4>
+                    <%= render partial:'layouts/orga/mol/follow', locals: {organization: company} %>
+                    <p class="card-text"></p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><%= company.description[0 .. 70] + "..." %></li>
+                    <li class="list-group-item"><%= company.category %></li>
+                    <li class="list-group-item"><%= company.city.city_name %></li>
+                    <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: company.tag_lists} %></li>
+                  </ul>
+                  <div class="card-body">
+                    <%= link_to "En savoir plus", organization_path(company.id), class:"btn btn-primary btn-block"%>
+                  </div>
+                </div>
+                <br/>
+              </div>
+            <% end %>
           </div>
-          <br/>
         </div>
-        <% end %>
       </div>
-    </div>
-  </div>
-</section>
-<% end %>
+    </section>
+  <% end %>

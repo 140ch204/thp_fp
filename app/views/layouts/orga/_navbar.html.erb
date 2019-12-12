@@ -54,7 +54,7 @@
             </li>
             <% if current_user.master == true %>
               <li class="nav-item" >
-                <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Administration", path: master_root_path() , color: "danger", } %>
+                <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Administration", path: master_root_path() , color: "secondary", } %>
               </li>
             <% end %>
           <% end %>
