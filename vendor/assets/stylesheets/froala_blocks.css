@@ -25,7 +25,7 @@ body {
   line-height: 1.5;
   color: #444444;
   text-align: left;
-  background-image: url("https://zupimages.net/up/19/50/qolh.jpg");
+  background-image: url("https://zupimages.net/up/19/50/kua9.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;}
@@ -1265,7 +1265,8 @@ footer {
     color: #444444; }
 
 header {
-  background-color: #FFFFFF; }
+  background-color: #FFFFFF;
+  box-shadow: 10px 5px 5px #329ef7; }
   header .navbar-nav a.nav-link {
     color: #329ef7; }
     header .navbar-nav a.nav-link:hover {

@@ -3,5 +3,5 @@ class Department < ApplicationRecord
   has_many :cities
   validates :department_name,
     presence: true,
-    format: { with: /\A[a-z]*|\D*\z/i }
+    format: { with: /\A[a-z]*\D*\z/i }
 end
