@@ -148,7 +148,7 @@ a#Scroller.visible{
   border-right: .15em solid #329ef7; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  font-family: inherit;
   animation: 
     typing 3.5s steps(40, end),
     blink-caret .75s step-end 8;
@@ -167,3 +167,17 @@ a#Scroller.visible{
   50% { border-color: #329ef7; }
 }
 
+#projet {
+  transition: box-shadow .3s;
+  width: 300px;
+  height: 500px;
+  margin: 50px;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  
+}
+#projet:hover {
+  box-shadow: 0 0 100px rgba(33,33,33,.2); 
+}
