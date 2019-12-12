@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  #before_action :check_user, only: [:new, :create]
+  before_action :check_user, only: [:new]
 
   def new
     @donation = Donation.new
@@ -23,9 +23,10 @@ class DonationsController < ApplicationController
   private
 
   def check_user
-    @organization = Organization.find(Project.find(params[:project_id]).organization_id)
-    unless @organization.is_organization_admin(current_user) == true
-      flash[:notice] = "Bien essayé petit malin."
+    @is_admin = Admin.find_by(user: current_user)
+    @organization = @is_admin.organization rescue nil
+    unless @organization.company? == true
+      flash[:notice] = "Seul une entreprise peut financer un projet."
       redirect_to root_path
     end
   end

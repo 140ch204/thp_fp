@@ -3,7 +3,7 @@
 
   <% if @current_organization.is_creating_project_permitted(@user) %>
   <p>Vous êtes administrateur de ce projet.</p>
-  <p><%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(@project.id) , color: "primary"} %></p>
+  <p><%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Editer la page", path: edit_project_path(project_id: @project.id, organization_id: @project.organization_id) , color: "primary"} %></p>
   <% end %>
 
   <div class="row">
@@ -16,9 +16,7 @@
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
       <br/>
-      <% if user_signed_in? %>
-      <% end %>
-
+      
       <%= render partial:'layouts/orga/mol/card_logo', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Ils soutiennent le projet", organizations: @donators} %>
       <br/>  
     </div>

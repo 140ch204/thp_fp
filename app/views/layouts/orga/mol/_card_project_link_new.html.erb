@@ -2,7 +2,7 @@
 	<ul class="list-group list-group-flush">
 		<li class="list-group-item text-justify">
 			<p>Ajouter un lien:</p>
-			<%= form_tag project_links_path(project_id: project.id), method: :post  do %>
+			<%= form_tag project_links_path(project_id: project.id, organization_id: project.organization_id), method: :post  do %>
 			<input type="text" name="url_project" placeholder="URL à ajouter" />
 			<input type="text" name="url_name" placeholder="Nom du lien à afficher" />
 			<input type="submit" value="Ajouter le lien" />
