@@ -10,6 +10,7 @@ class DonationDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     counterpart: Field::BelongsTo,
     organization: Field::BelongsTo,
+    project: Field::BelongsTo,
     id: Field::Number,
     donation_amount: Field::Number,
     created_at: Field::DateTime,
@@ -24,8 +25,8 @@ class DonationDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   counterpart
   organization
+  project
   id
-  donation_amount
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,6 +34,7 @@ class DonationDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   counterpart
   organization
+  project
   id
   donation_amount
   created_at
@@ -45,6 +47,7 @@ class DonationDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   counterpart
   organization
+  project
   donation_amount
   ].freeze
 

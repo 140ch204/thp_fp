@@ -6,7 +6,7 @@ class Project < ApplicationRecord
 	has_many :likes
 	has_many :project_links
 	has_many :alerts
-	has_many :admins, through: :organizations
+	has_many :admins, through: :organization
 
 	def in_progress_statut?
 		if self.donation_targeted > 0
