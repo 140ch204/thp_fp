@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
+  
   namespace :master do
       resources :users
       resources :admins
+      resources :alerts
       resources :cities
       resources :counterparts
       resources :countries
       resources :departments
       resources :donations
+      resources :follows
+      resources :likes
       resources :organizations
+      resources :organization_links
       resources :projects
-
+      resources :project_links
+      resources :tags
+      resources :tag_lists
 
       root to: "users#index"
     end
