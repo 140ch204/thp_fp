@@ -16,11 +16,11 @@ class Organization < ApplicationRecord
 	presence: true,
 	uniqueness: true
 	validates :siret, 
-	presence: {message: "doit être fourni"}, if: :company?,
+	presence: true, if: :company?,
 	uniqueness: true,
-	format: { with: /\A\d{14}\z/}
+	format: { with: /\A\d{14}\z/i}
 	validates :RNA,
-	presence: {message: "doit être fourni"}, if: :association?,
+	presence: true, if: :association?,
 	uniqueness: true,
 	format: { with: /\A[w]\d{9}\z/i}
 

@@ -11,6 +11,11 @@ class OrganizationDashboard < Administrate::BaseDashboard
     admins: Field::HasMany,
     projects: Field::HasMany,
     donations: Field::HasMany,
+    follows: Field::HasMany,
+    tag_lists: Field::HasMany,
+    alerts: Field::HasMany,
+    organization_links: Field::HasMany,
+    tags: Field::HasMany,
     users: Field::HasMany,
     counterparts: Field::HasMany,
     city: Field::BelongsTo,
@@ -36,7 +41,7 @@ class OrganizationDashboard < Administrate::BaseDashboard
   admins
   projects
   donations
-  users
+  follows
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,6 +50,11 @@ class OrganizationDashboard < Administrate::BaseDashboard
   admins
   projects
   donations
+  follows
+  tag_lists
+  alerts
+  organization_links
+  tags
   users
   counterparts
   city
@@ -68,6 +78,11 @@ class OrganizationDashboard < Administrate::BaseDashboard
   admins
   projects
   donations
+  follows
+  tag_lists
+  alerts
+  organization_links
+  tags
   users
   counterparts
   city

@@ -12,6 +12,7 @@ class CityDashboard < Administrate::BaseDashboard
     users: Field::HasMany,
     projects: Field::HasMany,
     organizations: Field::HasMany,
+    alerts: Field::HasMany,
     id: Field::Number,
     city_name: Field::String,
     created_at: Field::DateTime,
@@ -37,6 +38,7 @@ class CityDashboard < Administrate::BaseDashboard
   users
   projects
   organizations
+  alerts
   id
   city_name
   created_at
@@ -51,6 +53,7 @@ class CityDashboard < Administrate::BaseDashboard
   users
   projects
   organizations
+  alerts
   city_name
   ].freeze
 
