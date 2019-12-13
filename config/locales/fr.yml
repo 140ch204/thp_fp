@@ -214,7 +214,7 @@ fr:
         department: "département"
       organization:
         city: "nom de la ville"
-        description: "champs description"
+        description: "Description"
         category: "champs catégorie"
         name: "nom"
     errors:
