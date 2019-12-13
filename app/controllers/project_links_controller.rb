@@ -5,8 +5,10 @@ class ProjectLinksController < ApplicationController
 	def create
 		@link = ProjectLink.new(link_params)    
 		if @link.save
-			flash[:success] = "Le lien a été ajouté!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Le lien a été ajouté!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "#{@link.errors.full_messages}"
 			redirect_to request.referrer
@@ -16,8 +18,10 @@ class ProjectLinksController < ApplicationController
 	def destroy
 		@link = ProjectLink.find_by(id: params[:id])
 		if @link.destroy
-			flash[:success] = "Le lien a été supprimé!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Le lien a été supprimé!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "Un problème est survenu!"
 			redirect_to request.referrer

@@ -1,0 +1,3 @@
+<p id="link_<%= link.id %>"><%= link_to "#{link.url_name}", link.url_project, :target => "_blank" %>,
+	<%= link_to "Supprimer ce lien", project_link_path(id: link.id, organization_id: link.project.organization_id), method: :delete, remote: true %>			
+</p>
