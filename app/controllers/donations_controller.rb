@@ -15,10 +15,9 @@ class DonationsController < ApplicationController
       redirect_to new_donation_path(:project_id => @project_id) 
     else
       redirect_to new_charge_path(:donation_amount => @donation_amount, 
-                                  :project_id => @project_id)
+        :project_id => @project_id)
     end
   end
-
 
   private
 
@@ -26,7 +25,7 @@ class DonationsController < ApplicationController
     @is_admin = Admin.find_by(user: current_user)
     @organization = @is_admin.organization rescue nil
     unless @organization.company? == true
-      flash[:notice] = "Seul une entreprise peut financer un projet."
+      flash[:notice] = "Seule une entreprise peut financer un projet."
       redirect_to root_path
     end
   end

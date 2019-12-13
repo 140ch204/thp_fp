@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :check_user, only: [:new, :edit]
   before_action :check_user_update, only: [:update]
-  # Une méthode check_user spécifique à l'update est nécessaire ici car nous avons des wrap_parameters
+  # Une méthode check_user spécifique à l'update est nécessaire ici car nous avons ici une notion de "wrap_parameters"
+  # Seul un admin d'asso peut créer / éditer un projet
 
   def index
     @projects = Project.all
@@ -93,7 +94,6 @@ class ProjectsController < ApplicationController
   end
 
   # Extrait les donateurs d'un projet donné
-  # Possible de mettre en méthode d'instance
   def donator_id
     who_donated = []
     @project.donations.each do |donation|

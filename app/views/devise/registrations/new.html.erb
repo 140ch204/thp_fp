@@ -10,31 +10,31 @@
             </div>
           </div>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
-              </div>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
             </div>
-            <div class="row mt-4">
-              <div class="col">
-                <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> caractères minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
-              </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> caractères minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
             </div>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Confirmer mot de passe", type:"password" %>
-              </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Confirmer mot de passe", type:"password" %>
             </div>
-            <%= render "devise/shared/links" %>
-            <div class="row mt-4">
-              <div class="col">
-                <div class="actions">
-                  <%= f.submit "S'inscrire", class:"btn btn-secondary"%>
-                </div>
+          </div>
+          <%= render "devise/shared/links" %>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="actions">
+                <%= f.submit "S'inscrire", class:"btn btn-secondary"%>
+              </div>
               <% end %>
             </div>
           </div>

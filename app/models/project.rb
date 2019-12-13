@@ -17,6 +17,8 @@ class Project < ApplicationRecord
     presence: true,
     format: { with: /\A#{URI::regexp(['http', 'https'])}\z/ }
 
+    # Méthode de suivi des financements des projets avant la fin de campagne de participations
+
 	def in_progress_statut?
 		if self.donation_targeted > 0
 			"En cours de financement"

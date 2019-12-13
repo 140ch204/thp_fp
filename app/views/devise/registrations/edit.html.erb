@@ -9,42 +9,42 @@
             </div>
           </div>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Email", type:"text" %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Email", type:"text" %>
+            </div>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div class="row mt-4">
+            <div class="col">
+              <i>Optionnel: si vous souhaitez modifier votre mot de passe</i><br />
+              <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
+              <% if @minimum_password_length %>
+              <em><%= @minimum_password_length %> caractères minimum</em>
+              <% end %>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Confirmer mot de passe", type:"password" %>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <i>Obligatoire: mot de passe actuel</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="actions">
+                <%= f.submit "Modifier", class:"btn btn-secondary"%>
               </div>
             </div>
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-            <div class="row mt-4">
-              <div class="col">
-                <i>Optionnel: si vous souhaitez modifier votre mot de passe</i><br />
-                <%= f.password_field :password, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
-                <% if @minimum_password_length %>
-                  <em><%= @minimum_password_length %> caractères minimum</em>
-                <% end %>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control mb-1", placeholder:"Confirmer mot de passe", type:"password" %>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-                <i>Mot de passe actuel</i><br />
-                <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-                <div class="actions">
-                  <%= f.submit "Modifier", class:"btn btn-secondary"%>
-                </div>
-              </div>
-            </div>
+          </div>
           <% end %>
         </div>
         <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sûre ?" }, method: :delete, class:"btn btn-light" %></p>

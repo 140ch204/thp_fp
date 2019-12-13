@@ -24,9 +24,6 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static_pages#index'
-  # Supprimer ces pages vendredi
-  get '/design', to: 'static_pages#show'
-  get '/test', to: 'static_pages#test'
 
   resources :charges, only: [:new, :create]
   resources :users, only: [:show, :update] do

@@ -22,30 +22,30 @@ class CounterpartDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  project
-  id
-  name
-  price
+    project
+    id
+    name
+    price
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  project
-  id
-  name
-  price
-  created_at
-  updated_at
+    project
+    id
+    name
+    price
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  project
-  name
-  price
+    project
+    name
+    price
   ].freeze
 
   # COLLECTION_FILTERS

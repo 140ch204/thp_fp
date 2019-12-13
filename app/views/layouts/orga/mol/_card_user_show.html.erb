@@ -2,15 +2,15 @@
   <div class="row no-gutters">
     <div class="col-md-4">
       <% if @current_user.avatar.attached? %>
-        <%= image_tag @user.avatar, alt: 'Photo de profil de #{@current_user}', class: "card-img-top1",alt:""  %>
+      <%= image_tag @user.avatar, alt: 'Photo de profil de #{@current_user}', class: "card-img-top1",alt:""  %>
       <% else %>
-        <img src="https://image.freepik.com/vecteurs-libre/vecteur-icone-homme-affaires_52756-255.jpg" class="card-img-top1" alt="Pas de photo de profil à afficher" >
-        <center><p>Chargez votre propre avatar</p></center>
-          <%= form_tag user_avatars_path(@user), multipart: true do %>
-          <%= file_field_tag :avatar %>
-          <div id="avatar" ><%= submit_tag "Mettre à jour", class:"btn btn-outline-secondary"%></div>
-        <% end %>
-        <br>
+      <img src="https://image.freepik.com/vecteurs-libre/vecteur-icone-homme-affaires_52756-255.jpg" class="card-img-top1" alt="Pas de photo de profil à afficher" >
+      <center><p>Chargez votre propre avatar</p></center>
+      <%= form_tag user_avatars_path(@user), multipart: true do %>
+      <%= file_field_tag :avatar %>
+      <div id="avatar" ><%= submit_tag "Mettre à jour", class:"btn btn-outline-secondary"%></div>
+      <% end %>
+      <br>
       <% end %>
     </div>
     <div class="col-md-8">

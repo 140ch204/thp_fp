@@ -9,17 +9,17 @@
             </div>
           </div>
           <%= form_with model: @donation do |donation_form|%>
-            <div class="row mt-4">
-              <div class="col">
-                <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY, class: "form-control", placeholder: "Montant" %><br />
-                <%= donation_form.hidden_field :project_id, :value => params[:project_id] %>
-              </div>
+          <div class="row mt-4">
+            <div class="col">
+              <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY, class: "form-control", placeholder: "Montant" %><br />
+              <%= donation_form.hidden_field :project_id, :value => params[:project_id] %>
             </div>
-            <div class="row mt-4">
-              <div class="col">
-                <div class="actions">
-                  <%= donation_form.submit :value => "Faire un don", class:"btn btn-primary" %>
-                </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="actions">
+                <%= donation_form.submit :value => "Faire un don", class:"btn btn-primary" %>
+              </div>
               <% end %>
             </div>
           </div>

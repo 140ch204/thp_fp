@@ -9,22 +9,22 @@
             </div>
           </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Email", type:"text" %>
-              </div>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", placeholder:"Email", type:"text" %>
             </div>
-            <div class="row mt-4">
-              <div class="col">
-                <%= f.password_field :password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
-                <%= render "devise/shared/links" %>
-              </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <%= f.password_field :password, autocomplete: "current-password", class:"form-control mb-1", placeholder:"Mot de passe", type:"password" %>
+              <%= render "devise/shared/links" %>
             </div>
-            <div class="row mt-4">
-              <div class="col">
-                <div class="actions">
-                  <%= f.submit "Se connecter", class:"btn btn-secondary"%>
-                </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <div class="actions">
+                <%= f.submit "Se connecter", class:"btn btn-secondary"%>
+              </div>
               <% end %>
             </div>
           </div>

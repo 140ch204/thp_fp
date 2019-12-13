@@ -1,15 +1,10 @@
-
-
 <h3> Projet financé à : </h3>
 <h2> <%= @project.in_progress_percentages? %> % </h2> 
 <p> sur un objectif de <%= @project.donation_targeted %> € </p>
-
 <h2> <%="J- " + "#{@project.remaining_time}" %></h2>
-
 <% @project.in_progress_statut? %>
 <% @project.in_progress_amount? %>
 <% @project.donation_targeted %>
-
 <% if user_signed_in? && @companies.any?%>
-  <%= link_to "Contribuer", new_donation_path(project_id: params[:id], organization_id: @project.organization_id) , class: "btn btn-secondary", method: "get" %>
+	<%= link_to "Contribuer", new_donation_path(project_id: params[:id], organization_id: @project.organization_id) , class: "btn btn-secondary", method: "get" %>
 <% end %>

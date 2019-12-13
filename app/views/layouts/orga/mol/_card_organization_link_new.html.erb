@@ -4,9 +4,9 @@
 			<p>Ajouter un lien:</p>
 			<%= form_tag organization_links_path(organization_id: organization.id), method: :post, remote: true  do %>
 			<input type="text" name="url_organization" placeholder="URL à ajouter" />
-      <br/><br/>
+			<br/><br/>
 			<input type="text" name="url_name" placeholder="Nom du lien à afficher" />
-      <br/><br/>
+			<br/><br/>
 			<input type="submit" value="Ajouter le lien" class="btn btn-primary btn-sm" />
 			<% end %>
 		</li>

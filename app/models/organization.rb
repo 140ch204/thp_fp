@@ -31,7 +31,8 @@ class Organization < ApplicationRecord
 
 
 # Il faut être administrateur d'une page pour pouvoir créer un projet.
-# Ainsi, func(is_creating_project_permitted) est notre test administrateur pour une association.
+# Ainsi, la méthode (is_creating_project_permitted) est notre test administrateur pour une association.
+# La méthode (is_organization_admin) est le test d'administration de l'user pour une entreprise ou une association.
 
 	def association?
 		return true if self.is_association == true
