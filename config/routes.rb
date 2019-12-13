@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
   
   namespace :master do
-      resources :users
-      resources :admins
-      resources :alerts
-      resources :cities
-      resources :counterparts
-      resources :countries
-      resources :departments
-      resources :donations
-      resources :follows
-      resources :likes
-      resources :organizations
-      resources :organization_links
-      resources :projects
-      resources :project_links
-      resources :tags
-      resources :tag_lists
+    resources :users
+    resources :admins
+    resources :organizations
+    resources :projects
+    resources :donations
+    resources :counterparts
+    resources :alerts
+    resources :follows
+    resources :likes
+    resources :organization_links      
+    resources :project_links
+    resources :tags
+    resources :tag_lists     
+    resources :cities      
+    resources :countries
+    resources :departments
 
-      root to: "users#index"
-    end
-    
+    root to: "users#index"
+  end
+  
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static_pages#index'
@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   get '/test', to: 'static_pages#test'
 
   resources :charges, only: [:new, :create]
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update] do
+    resources :avatars, only: [:create]
+  end
   resources :organizations, except: :destroy
   resources :projects, except: :destroy
   resources :donations, only: [:new, :create]

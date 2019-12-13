@@ -18,7 +18,7 @@
   ### En local : 
 
   > 
-  > git clone https://github.com/140ch204/40_ecomm
+  > git clone https://github.com/140ch204/thp_fp
   > 
   > git db:drop 
   >

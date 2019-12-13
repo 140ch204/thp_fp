@@ -14,10 +14,12 @@ class UserDashboard < Administrate::BaseDashboard
     alerts: Field::HasMany,
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
+    password: Field::String,
+    password_confirmation: Field::String,
+    # encrypted_password: Field::String,
+    # reset_password_token: Field::String,
+    # reset_password_sent_at: Field::DateTime,
+    # remember_created_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     first_name: Field::String,
@@ -31,48 +33,40 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  city
-  likes
-  follows
-  alerts
+    id
+    email
+    likes
+    follows
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  city
-  likes
-  follows
-  alerts
-  id
-  email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
-  created_at
-  updated_at
-  first_name
-  last_name
-  master
+    id
+    first_name
+    last_name
+    email
+    likes
+    follows
+    alerts
+    created_at
+    updated_at
+    city
+    master
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  city
-  likes
-  follows
-  alerts
-  email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
-  first_name
-  last_name
-  master
+    city
+    alerts
+    email
+    password
+    password_confirmation
+    first_name
+    last_name
+    master
   ].freeze
 
   # COLLECTION_FILTERS

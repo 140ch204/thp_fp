@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :likes
   has_many :follows
   has_many :alerts
+  has_one_attached :avatar
 
   after_create :welcome_send
 
