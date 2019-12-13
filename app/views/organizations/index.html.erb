@@ -9,11 +9,11 @@
             <br>
           </div>
         </div>
-        <div class="row">
+        <div id="asso-row" class="row">
           <% @associations.each_with_index do |association, i| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
               <div id="asso" class="card" >
-                <img src="<%= association.logo_url %>" class="card-img-top" alt="...">
+                <img src="<%= association.logo_url %>" class="card-img-top2" alt="...">
                 <div class="card-body bg-ligth">
                   <h4 class="card-title"><%= association.name %></h4>
                   <%= render partial:'layouts/orga/mol/follow', locals: {organization: association} %>
@@ -57,7 +57,7 @@
             <% @companies.each_with_index do |company, i| %>
               <div class="col-xs-12 col-sm-6 col-md-4">
                 <div id= "firm" class="card" >
-                  <img src="<%= company.logo_url %>" class="card-img-top" alt="...">
+                  <img src="<%= company.logo_url %>" class="card-img-top2" alt="...">
                   <div class="card-body bg-ligth">
                     <h4 class="card-title"><%= company.name %></h4>
                     <%= render partial:'layouts/orga/mol/follow', locals: {organization: company} %>

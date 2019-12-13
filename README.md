@@ -1,79 +1,70 @@
-# E-Commerce Vente d'images de Chats ! 
+# AssoAngels
+
+ ![Screenshot](https://zupimages.net/up/19/49/aj39.png)
+
+La plateforme du mécénat participatif des entreprises.
 
 
-## L'Equipe : 
+## L'Equipe de choc et de charme : 
 
-
-  - Mack
-
-  - Olivier
-
-  - Matthias
-
-  - Julien
+  - MAKNATT Mustapha (Front)
+  - GUINEL Olivier (Back)
+  - MAILLARD Matthias (Back)
+  - DESOMBES Julien (Front)
 
 
 ## Tester l'application 
 
-  ### En local : 
-
-  > 
+  **En local :**
+ 
   > git clone https://github.com/140ch204/thp_fp
-  > 
-  > git db:drop 
-  >
+
+  > bundle install
+
+  > git db:drop
+
   > git db:create 
-  >
+
   > git db:migrate
-  >
+
   > git db:seed
-  >
+
   > rails s
-  >
+
 
   Puis aller dans le navigateur à
 
-    - http://localhost:3000/
+  [http://localhost:3000/](http://localhost:3000/)
 
 
-  ### sur Heroku : 
+ **Sur Heroku :** 
 
-  https://assoangels.herokuapp.com/
+Via le lien
 
-# The_Gossip_Project !
-
-## The Hacking Project - Version Rails
+  [https://assoangels.herokuapp.com/](https://assoangels.herokuapp.com/)
 
 
 
-L'app ne fait rien pour l'instant. 
-Elle contient une database avec seed, des views, des controllers et des models.
+## Organisation AGILE :
 
-## Les Gossips comme on les aimes
+ Lien travail de groupe : 
 
- ![Screenshot](screenshot.jpg)
-
-***
-
-## Fonctionnalités présentes
-
-* Contient les models et tables demandés (cf les fichiers de migration pour le détail des attributs)
-* Contient le seed permettant de remplir la BDD pour effectuer les tests
-* Controller avec liens
-* Views avec présentations
+[https://trello.com/b/FaFMG5Xk/thpassoangels](https://trello.com/b/FaFMG5Xk/thpassoangels)
+ 
 
 
-***
+## Présentation du projet :
 
-## Installation
-Cloner le repository : 
-~~~bash
-$ git clone https://github.com/......
-~~~
-Ou télécharger sa version compressée puis l'extraire.
+**PITCH**
+
+ Lien vidéo :
+
+[http://jcbssy.fr/telechargement/assoangels.mp4](http://jcbssy.fr/telechargement/assoangels.mp4)
+ 
+
+
 
 ***
-
 
 
 ## Configuration requise
@@ -95,14 +86,19 @@ $ bundle -v
 Bundler version 2.0.2
 ~~~
 
-Gemmes utilisées (source : *Gemfile*) :\
+Gemmes utilisées (source : *Gemfile*) :
+
 Gemmes ajoutées au **Gemfile** de Rails :
 ~~~ruby
 
 ***
 
-## Credits
-Les ressources de [The Hacking Project](https://www.thehackingproject.org/)\
+## Crédits :
+
+Les ressources de [The Hacking Project](https://www.thehackingproject.org/)
+
 Les [guides de Rails](https://guides.rubyonrails.org/index.html)
+
+Les ressources et documentations [FRONT] (https://getbootstrap.com/docs/4.4/getting-started/introduction/)
 
 
