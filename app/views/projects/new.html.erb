@@ -33,7 +33,7 @@
               <%= project_form.label :Objectif %><br />
               <%= project_form.number_field :donation_targeted, class: "form-control", required: true, id: "donation_targeted" %><br />
               <%= project_form.label :logo %><br />
-              <%= project_form.text_field :logo_url, class: "form-control" %><br />
+              <%= project_form.text_field :logo_url, class: "form-control", required: true, id: "logo_url" %><br />
               <%= project_form.label "Début de la campagne" %><br />
               <%= project_form.date_field :donation_start, class: "form-control", required: true, id: "donation_start" %>
               <%= project_form.label "Fin de la campagne" %><br />
@@ -90,5 +90,9 @@ hyperform.setMessage(document.getElementById('donation_start'),
 hyperform.setMessage(document.getElementById('donation_end'),
   'valueMissing',
   'Indiquez la date de fin de campagne');
+
+  hyperform.setMessage(document.getElementById('logo_url'),
+  'valueMissing',
+  "Indiquez l'url de votre logo ");
   
 </script>
