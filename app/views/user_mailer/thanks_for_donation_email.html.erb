@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel="stylesheet">
     <!-- <![endif]-->
 
-    <title>Welcome</title>
+    <title>Remerciement</title>
 
     <style type="text/css">
         body {
@@ -243,7 +243,7 @@
 
                             <div style="line-height: 35px">
 
-                                    Bonjour <span style="color: #5caad2;"><%= @organization.name %>!</span>
+                                    Bonjour <span style="color: #5caad2;"><%= @company.name %>!</span>
 
                             </div>
                         </td>
@@ -280,18 +280,18 @@
                                         <div style="line-height: 24px">
 
                                                 <p>
-                                                    Vous venez de prendre part à la campagne de don pour l'association  <%= @organization.name %> et son projet <%= @project.name %>.
+                                                    Vous venez de prendre part à la campagne de don pour l'association  <%=@project.organization.name %> et son <%= @project.name %>.
                                                     </p>
                                                     <br>
                                                     <p>
-                                                    Nous vous remercions chaleureusement pour votre don de <%= donation.amount %>.
+                                                    Nous vous remercions chaleureusement pour votre don de <%= @donation_amount%> €.
                                                     </p>
                                                     <br>
                                                     <p>
-                                                    Nous espérons vous revoir très bientôt sur notre site : <%= @url %>.
+                                                    Nous espérons vous revoir très bientôt sur notre site : <%= link_to nil, @url %>.
                                                     </p>
                                                     <br>
-                                                    <p> À très vite sur <%= @url %>!
+                                                    <p>À très vite !
                                         </div>
                                     </td>
                                 </tr>

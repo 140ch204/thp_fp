@@ -1175,6 +1175,7 @@ p {
   text-rendering: optimizelegibility;
   padding: 7.5rem 0;
   position: relative;
+  margin-top: -19px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

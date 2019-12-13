@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel="stylesheet">
     <!-- <![endif]-->
 
-    <title>Donation Received</title>
+    <title>Vous avez reçu un nouveau don.</title>
 
     <style type="text/css">
         body {
@@ -243,7 +243,7 @@
 
                             <div style="line-height: 35px">
 
-                                    Bonjour <span style="color: #5caad2;"><%= @user.first_name %>!</span>
+                                    Bonjour <span style="color: #5caad2;">très chère association !</span>
 
                             </div>
                         </td>
@@ -280,18 +280,21 @@
                                         <div style="line-height: 24px">
 
                                                 <p>
-                                                        Tu t'es inscrit sur AssoAngels.fr en utilisant l'e-mail suivant : <%= @user.email %>.
-                                                      </p>
-                                                      <br>
-                                                      <p>
-                                                      Nous sommes très heureux de t'accueillir parmi notre communauté.
-                                                      </p>
-                                                      <br>
-                                                      <p>
-                                                        Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-                                                      </p>
-                                                      <br>
-                                                      <p> À très vite sur <%= @url %>!
+                                                Nous vous informons que vous venez de recevoir un don de <%= @donation_amount %> € de la part de la société <%= @company.name %>.
+                                                </p>
+                                                <br>
+                                                <p>
+                                                Nous sommes très heureux que vos projets soient si bien soutenus.
+                                                </p>
+                                                <br>
+                                                <p>
+                                                N'oubliez pas de remercier vos généreux donateurs.
+                                                </p>
+                                                <br>
+                                                 Nous espérons vous revoir très bientôt sur notre site : <%= link_to nil, @url %>.
+                                                    </p>
+                                                    <br>
+                                                <p>À très vite !
                                         </div>
                                     </td>
                                 </tr>
