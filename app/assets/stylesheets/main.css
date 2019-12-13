@@ -25,7 +25,7 @@ footer.footer-small{
     color: green;
   }
 .list-group-item{
-  min-height: 4vw;
+  min-height: 3vw;
   align-items: center;
   border: hidden;
 }
@@ -185,7 +185,7 @@ a#Scroller.visible{
 #asso, #firm {
   transition: box-shadow .3s;
   width: 350px;
-  height: 650px;
+  height: 580px;
   margin-left: auto;
   margin-right: auto;
   border-radius:10px;
