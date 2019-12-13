@@ -17,12 +17,13 @@
                 <div class="card-body bg-ligth">
                   <h4 class="card-title"><%= association.name %></h4>
                   <%= render partial:'layouts/orga/mol/follow', locals: {organization: association} %>
-                  <p class="card-text"></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><%= association.description[0 .. 30] + "..." %></li>
-                  <li class="list-group-item"><%= association.category %></li>
-                  <li class="list-group-item"><%= association.city.city_name %></li>
+                  <li class="list-group-item bg-light">
+                  <p><%= association.description[0 .. 30] + "..." %></p>
+                  <p><%= association.category %></p>
+                  <p><%= association.city.city_name %></p>
+                  </li>
                   <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: association.tag_lists} %>
                   </li>
                 </ul>
@@ -63,9 +64,11 @@
                     <p class="card-text"></p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= company.description[0 .. 70] + "..." %></li>
-                    <li class="list-group-item"><%= company.category %></li>
-                    <li class="list-group-item"><%= company.city.city_name %></li>
+                    <li class="list-group-item bg-light">
+                    <p><%= company.description[0 .. 70] + "..." %></p>
+                    <p><%= company.category %></p>
+                    <p><%= company.city.city_name %></p>
+                    </li>
                     <li class="list-group-item"><%= render partial:'layouts/orga/mol/tag', locals: {taglist: company.tag_lists} %></li>
                   </ul>
                   <div class="card-body">

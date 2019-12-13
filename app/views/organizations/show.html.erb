@@ -2,15 +2,7 @@
   <% @organization = @current_organization%>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <% if @organization.is_association %>
-          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Association "} %>
-        <%end%>
-        <% if @organization.is_company %>
-          <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Entreprise "} %>
-        <%end%>
-        <br/>
-        <div>
+
           <% if @current_organization.is_organization_admin(@user) %>
             <p>Vous êtes administrateur de cette organisation.</p>
           <% end %>
@@ -99,23 +91,16 @@
       <%end%>
     </div>
   </div>
-
-
-<% if @organization.is_association %>
-  <% if @current_organization.is_organization_admin(@user) %>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <%= render partial:'layouts/orga/rib', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Mes coordonnes bancaires", association: @organization} %>
-          <br/>
+  <% if @organization.is_association %>
+    <% if @current_organization.is_organization_admin(@user) %>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <%= render partial:'layouts/orga/rib', layout: "layouts/orga/mol/card_mini_layout", locals: {title:"Mes coordonnes bancaires", association: @organization} %>
+            <br/>
+          </div>
         </div>
       </div>
-    </div>
+    <%end%>
   <%end%>
-<%end%>
-
-
-
-
-  
 </section>

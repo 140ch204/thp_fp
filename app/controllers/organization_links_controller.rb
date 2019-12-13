@@ -16,8 +16,10 @@ class OrganizationLinksController < ApplicationController
 	def destroy
 		@link = OrganizationLink.find_by(id: params[:id])
 		if @link.destroy
-			flash[:success] = "Le lien a été supprimé!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Le lien a été supprimé!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "Un problème est survenu!"
 			redirect_to request.referrer

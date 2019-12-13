@@ -243,7 +243,7 @@
 
                             <div style="line-height: 35px">
 
-                                    Bonjour <span style="color: #5caad2;"><%= @user.first_name %>!</span>
+                                    Bonjour <span style="color: #5caad2;"><%= @organization.name %>!</span>
 
                             </div>
                         </td>
@@ -280,18 +280,18 @@
                                         <div style="line-height: 24px">
 
                                                 <p>
-                                                        Tu t'es inscrit sur AssoAngels.fr en utilisant l'e-mail suivant : <%= @user.email %>.
-                                                      </p>
-                                                      <br>
-                                                      <p>
-                                                      Nous sommes très heureux de t'accueillir parmi notre communauté.
-                                                      </p>
-                                                      <br>
-                                                      <p>
-                                                        Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-                                                      </p>
-                                                      <br>
-                                                      <p> À très vite sur <%= @url %>!
+                                                    Vous venez de prendre part à la campagne de don pour l'association  <%= @organization.name %> et son projet <%= @project.name %>.
+                                                    </p>
+                                                    <br>
+                                                    <p>
+                                                    Nous vous remercions chaleureusement pour votre don de <%= donation.amount %>.
+                                                    </p>
+                                                    <br>
+                                                    <p>
+                                                    Nous espérons vous revoir très bientôt sur notre site : <%= @url %>.
+                                                    </p>
+                                                    <br>
+                                                    <p> À très vite sur <%= @url %>!
                                         </div>
                                     </td>
                                 </tr>
@@ -318,7 +318,7 @@
 
 
                                         <div style="line-height: 26px;">
-                                            <a href="https://assoangels.herokuapp.com/projects" style="color: #ffffff; text-decoration: none;">Voir nos projets</a>
+                                            <a href="https://assoangels.herokuapp.com/projects" style="color: #ffffff; text-decoration: none;">Soutenir un autre projet ?</a>
                                         </div>
                                     </td>
                                 </tr>

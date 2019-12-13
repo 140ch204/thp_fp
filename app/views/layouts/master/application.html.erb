@@ -27,7 +27,8 @@ By default, it renders:
 <body>
 
   <%= link_to image_tag('https://zupimages.net/up/19/49/aj39.png'), root_path, class: "navbar-brand" %>
-  <%= link_to "Retour à l'application", root_path, class: "button bg-primary"%>
+  <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "Retour à l'application", path: root_path() , color: "secondary", } %>
+
 
   <%= render "icons" %>
 
