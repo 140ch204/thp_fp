@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @city = City.new
+    @city = @organization.city
     @department = Department.new
     @project = Project.new
     @organization = Organization.find_by(id: params[:organization_id])
