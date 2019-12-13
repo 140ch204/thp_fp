@@ -1,0 +1,6 @@
+<span id="tag_<%= tagged.id %>" class="badge badge-pill badge-primary">
+	<%= tagged.tag.tag_name %>
+	<% if Organization.find(tagged.organization_id).is_admin(current_user) %>
+		<%= link_to "X", tag_list_path(id: tagged.id, organization_id: tagged.organization_id), method: :delete, remote: true %>
+	<% end %>
+</span>

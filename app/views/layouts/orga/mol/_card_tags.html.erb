@@ -1,14 +1,12 @@
-
-  <div class="card" >
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item text-justify">        
-        <%= render partial:'layouts/orga/mol/follow', locals: {organization: @organization} %>
-        <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
-        <% if @current_organization.is_organization_admin(@user) %>
-          Ajouter un tag:
-          <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-
+<div class="card" >
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item text-justify">        
+      <%= render partial:'layouts/orga/mol/follow', locals: {organization: @organization} %>
+      <%= render partial:'layouts/orga/mol/tag', locals: {taglist: @organization.tag_lists} %>
+      <% if @current_organization.is_organization_admin(@user) %>
+      Ajouter un tag:
+      <%= render partial:'layouts/orga/mol/new_tag', locals: {organization: @organization} %>
+      <% end %>
+    </li>
+  </ul>
+</div>

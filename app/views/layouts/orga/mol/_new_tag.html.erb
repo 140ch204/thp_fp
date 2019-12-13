@@ -1,5 +1,5 @@
 <div class="border-ligth">
-	<%= form_with(url: tag_lists_path(organization_id: organization.id), method: :post) do |form|%>
+	<%= form_with(url: tag_lists_path(organization_id: organization.id), method: :post, remote: true) do |form|%>
 		<%= form.collection_select :tag_id, Tag.all, :id, :tag_name, prompt: true %>
 		<%= form.submit "Ajouter", class:"btn btn-primary btn-sm" %>
 	<% end %>

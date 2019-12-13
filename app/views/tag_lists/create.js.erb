@@ -1,0 +1,7 @@
+function newTagFunction() {
+	let tagList = document.getElementById("tag-list");
+	tagList.insertAdjacentHTML("beforeend", "<%= j render 'tag', tagged: @tagged %>");	
+};
+
+newTagFunction();
+

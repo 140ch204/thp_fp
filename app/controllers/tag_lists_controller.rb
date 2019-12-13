@@ -5,8 +5,10 @@ class TagListsController < ApplicationController
 	def create
 		@tagged = TagList.new(tagged_params)
 		if @tagged.save
-			flash[:success] = "Vous avez ajouté un tag!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Vous avez ajouté un tag!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "Un problème est survenu!"
 			redirect_to request.referrer
