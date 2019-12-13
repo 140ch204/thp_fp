@@ -5,8 +5,10 @@ class OrganizationLinksController < ApplicationController
 	def create
 		@link = OrganizationLink.new(link_params)    
 		if @link.save
-			flash[:success] = "Le lien a été ajouté!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Le lien a été ajouté!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "#{@link.errors.full_messages}"
 			redirect_to request.referrer
