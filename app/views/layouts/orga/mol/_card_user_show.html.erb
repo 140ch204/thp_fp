@@ -4,36 +4,36 @@
       <% if @current_user.avatar.attached? %>
       <%= image_tag @user.avatar, alt: 'Photo de profil de #{@current_user}', class: "card-img-top1",alt:""  %>
       <% else %>
-      <img src="https://image.freepik.com/vecteurs-libre/vecteur-icone-homme-affaires_52756-255.jpg" class="card-img-top1" alt="Pas de photo de profil à afficher" >
-      <center><p>Chargez votre propre avatar</p></center>
-      <%= form_tag user_avatars_path(@user), multipart: true do %>
-      <%= file_field_tag :avatar %>
-      <div id="avatar" ><%= submit_tag "Mettre à jour", class:"btn btn-outline-secondary"%></div>
-      <% end %>
-      <br>
-      <% end %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h2 class="card-title">INFORMATIONS UTILISATEURS</h2>
-        <p class="font-weight-light font-italic">Cliquez sur vos informations pour les éditer<p>
-          <h3>
-            <p class="card-text">NOM - <%= best_in_place @current_user, :first_name, :as => :input, :place_holder => "Cliquez pour éditer" %></p>
-          </h3>
-          <h3>
-            <p class="card-text">PRENOM - <%= best_in_place @current_user, :last_name, :place_holder => "Cliquez pour éditer" %></p>
-          </h3>
-          <h3>
-            <% if @current_user.city != nil%>
-            <p class="card-text">VILLE - <%= best_in_place @current_user.city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
-            <% else %>
-            <p class="card-text">VILLE - <%= best_in_place @city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
-            <% end %>
-          </h3>
-          <br>
-          <h3>
-            <p class="card-text">EMAIL - <%= @current_user.email %></p>
-          </h3>
+        <img src="https://image.freepik.com/vecteurs-libre/vecteur-icone-homme-affaires_52756-255.jpg" class="card-img-top1" alt="Pas de photo de profil à afficher" >
+        <center><p>Chargez votre propre avatar</p></center>
+          <%= form_tag user_avatars_path(@user), multipart: true do %>
+          <%= file_field_tag :avatar %>
+          <div id="avatar" ><%= submit_tag "Mettre à jour", class:"btn btn-outline-secondary"%></div>
+        <% end %>
+      <% end %>        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">INFORMATIONS UTILISATEURS</h2>
+          <p class="font-weight-light font-italic">Cliquez sur vos informations pour les éditer<p>
+            <h3>
+              <p class="card-text">NOM - <%= best_in_place @current_user, :first_name, :as => :input, :place_holder => "Cliquez pour éditer" %></p>
+            </h3>
+            <h3>
+              <p class="card-text">PRENOM - <%= best_in_place @current_user, :last_name, :place_holder => "Cliquez pour éditer" %></p>
+            </h3>
+            <h3>
+              <% if @current_user.city != nil%>
+              <p class="card-text">VILLE - <%= best_in_place @current_user.city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
+              <% else %>
+              <p class="card-text">VILLE - <%= best_in_place @city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
+              <% end %>
+            </h3>
+            <br>
+            <h3>
+              <p class="card-text">EMAIL - <%= @current_user.email %></p>
+            </h3>
+          </div>
         </div>
       </div>
       <%= render partial:'layouts/orga/mol/user_footer_buttons'%>
