@@ -38,62 +38,60 @@ class OrganizationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  admins
-  projects
-  donations
-  follows
+    id
+    name
+    is_company
+    is_association
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  admins
-  projects
-  donations
-  follows
-  tag_lists
-  alerts
-  organization_links
-  tags
-  users
-  counterparts
-  city
-  id
-  name
-  description
-  category
-  logo_url
-  siret
-  is_association
-  is_company
-  created_at
-  updated_at
-  RNA
+    id
+    name
+    logo_url
+    city
+    category
+    is_company
+    is_association
+    siret
+    RNA
+    is_association
+    is_company
+    created_at
+    updated_at
+    organization_links
+    tag_lists
+    donations
+    follows
+    admins
+    projects
+    alerts
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  admins
-  projects
-  donations
-  follows
-  tag_lists
-  alerts
-  organization_links
-  tags
-  users
-  counterparts
-  city
-  name
-  description
-  category
-  logo_url
-  siret
-  is_association
-  is_company
-  RNA
+    admins
+    projects
+    donations
+    follows
+    tag_lists
+    alerts
+    organization_links
+    tags
+    users
+    counterparts
+    city
+    name
+    description
+    category
+    logo_url
+    siret
+    is_association
+    is_company
+    RNA
   ].freeze
 
   # COLLECTION_FILTERS

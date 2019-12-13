@@ -11,7 +11,7 @@
 <% organization_id = @project.organization.id %>
 <% remaining_time = @project.remaining_time %>
   
-<div class="card" >
+<div id="projet" class="card" >
   <img  src=" <%= @project.logo_url %> " class="card-img-top" alt="...">
   <%= render partial:'layouts/orga/mol/like', locals: {project: @project} %>
   <ul class="list-group list-group-flush">

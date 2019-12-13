@@ -9,20 +9,24 @@ class Organization < ApplicationRecord
 	has_many :tags, through: :tag_lists
 	has_many :users, through: :admins
 	has_many :counterparts, through: :donations
-	belongs_to :city
+  belongs_to :city
+  
 	validates :description, :category,
-	presence: true
+	  presence: true
 	validates :name,
-	presence: true,
-	uniqueness: true
+	  presence: true,
+	  uniqueness: true
 	validates :siret, 
-	presence: true, if: :company?,
-	uniqueness: true,
-	format: { with: /\A\d{14}\z/i}
+	  presence: true, if: :company?,
+	  uniqueness: true,
+	  format: { with: /\A\d{14}\z/i}
 	validates :RNA,
-	presence: true, if: :association?,
-	uniqueness: true,
-	format: { with: /\A[w]\d{9}\z/i}
+	  presence: true, if: :association?,
+	  uniqueness: true,
+    format: { with: /\A[w]\d{9}\z/i}
+  validates :logo_url,
+    presence: true,
+    format: { with: /\A#{URI::regexp(['http', 'https'])}\z/ }
 
 
 

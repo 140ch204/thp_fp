@@ -6,7 +6,16 @@ class Project < ApplicationRecord
 	has_many :likes
 	has_many :project_links
 	has_many :alerts
-	has_many :admins, through: :organization
+  has_many :admins, through: :organization
+  
+  validates :description, :starting_date, :donation_start, :donation_end,
+	  presence: true
+	validates :name,
+	  presence: true,
+	  uniqueness: true
+  validates :logo_url,
+    presence: true,
+    format: { with: /\A#{URI::regexp(['http', 'https'])}\z/ }
 
 	def in_progress_statut?
 		if self.donation_targeted > 0

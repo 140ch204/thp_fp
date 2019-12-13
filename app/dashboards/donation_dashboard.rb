@@ -12,7 +12,9 @@ class DonationDashboard < Administrate::BaseDashboard
     organization: Field::BelongsTo,
     project: Field::BelongsTo,
     id: Field::Number,
-    donation_amount: Field::Number,
+    donation_amount: Field::Number.with_options(
+      suffix: "€",
+      ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,32 +25,32 @@ class DonationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  counterpart
-  organization
-  project
-  id
+    id
+    donation_amount
+    organization
+    project
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  counterpart
-  organization
-  project
-  id
-  donation_amount
-  created_at
-  updated_at
+    id
+    counterpart
+    organization
+    project
+    donation_amount
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  counterpart
-  organization
-  project
-  donation_amount
+    counterpart
+    organization
+    project
+    donation_amount
   ].freeze
 
   # COLLECTION_FILTERS
