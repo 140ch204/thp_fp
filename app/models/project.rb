@@ -8,7 +8,7 @@ class Project < ApplicationRecord
 	has_many :alerts
   has_many :admins, through: :organization
   
-  validates :description, :starting_date, :donation_start, :donation_end,
+  validates :description, :donation_start, :donation_end,
 	  presence: true
 	validates :name,
 	  presence: true,
