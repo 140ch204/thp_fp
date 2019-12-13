@@ -1,0 +1,5 @@
+<p id="link_<%= link.id %>"><%= link_to "#{link.url_name}", link.url_organization, :target => "_blank" %>
+	<% if @organization.is_admin(current_user) %>
+	, <%= link_to "Supprimer ce lien", organization_link_path(id: link.id, organization_id: @organization.id), method: :delete, remote: true %>
+	<% end %>					
+</p>

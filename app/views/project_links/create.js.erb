@@ -1,0 +1,6 @@
+function newLinkProjectFunction() {
+	let linkList = document.getElementById("link-list");
+	linkList.insertAdjacentHTML("beforeend", "<%= j render 'link', link: @link %>");	
+};
+
+newLinkProjectFunction();

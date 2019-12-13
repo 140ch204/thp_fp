@@ -1,7 +1,12 @@
 class AvatarsController < ApplicationController
-		def create
+	def create
 		@user = User.find(params[:user_id])
-		@user.avatar.attach(params[:avatar])
-		redirect_to user_path(@user)
+		if @user.avatar.attach(params[:avatar])
+			flash[:success] = "votre photo de profil est enregistrée"
+			redirect_to request.referrer
+		else
+			flash[:danger] = "Choisissez une nouvelle photo de profil"
+			redirect_to request.referrer
+		end
 	end
 end
