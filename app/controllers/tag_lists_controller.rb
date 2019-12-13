@@ -17,8 +17,10 @@ class TagListsController < ApplicationController
 	def destroy
 		@tagged = TagList.find(params[:id])
 		if @tagged.destroy
-			flash[:success] = "Ce tag a été retiré!"
-			redirect_to request.referrer
+			respond_to do |format|
+				format.html { redirect_to request.referrer, :flash => { :success => "Ce tag a été retiré!" } }
+				format.js { }
+			end
 		else
 			flash[:danger] = "Un problème est survenu!"
 			redirect_to request.referrer
