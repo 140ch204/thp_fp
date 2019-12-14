@@ -87,7 +87,7 @@ footer.footer-small{
 }
 /*Style du scrollback button*/
 
-a#Scroller{
+#Scroller{
     padding:10px;
     text-align:center;
     position:fixed;
@@ -99,20 +99,20 @@ a#Scroller{
     -webkit-backface-visibility: hidden;
     text-decoration: none;
 }
-a#Scroller:before{ 
+#Scroller:before{ 
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f0aa";
     font-size: 3em;
 }
 
-a#Scroller.invisible{
+#Scroller.invisible{
     bottom:-35px;
     opacity:0;
     transition:all ease-in 0.5s;
 }
 
-a#Scroller.visible{
+#Scroller.visible{
     bottom:90px;
     opacity:1;
 }

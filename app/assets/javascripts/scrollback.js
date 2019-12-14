@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
-	// scroller.addEventListener("click", scrollerClick);
 	// ce n'est pas DRY mais problème de chargement en définissant la variable let scroller = document.getElementById("Scroller")
 
 });
