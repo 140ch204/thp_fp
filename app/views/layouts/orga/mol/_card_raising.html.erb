@@ -1,6 +1,6 @@
 <h3> Projet financé à : </h3>
-<h2> <%= @project.in_progress_percentages? %> % </h2> 
-<p> sur un objectif de <%= @project.donation_targeted %> € </p>
+<h2> <%= @project.in_progress_percentages? %> % </h2>
+<p> Déjà <%= @project.in_progress_amount? %> € de récoltés sur un objectif de <%= @project.donation_targeted %> €.</p>
 <h2> <%="J- " + "#{@project.remaining_time}" %></h2>
 <% @project.in_progress_statut? %>
 <% @project.in_progress_amount? %>
