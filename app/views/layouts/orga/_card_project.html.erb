@@ -1,42 +1,29 @@
-<%# project card %>
-<% project_name = @project.name %>
-<% organization_name = @project.organization.name%>
-<% city_name = @project.city.city_name %>
-<% description = @project.description%>
-<% raise_objective = @project.donation_targeted %>
-<% raise_current = @project.in_progress_amount? %>
-<% in_progress_percentages = @project.in_progress_percentages? %>
-<% project_id = @project.id %>
-<% organization_id = @project.organization.id %>
-<% remaining_time = @project.remaining_time %>
-  
 <div id="projet" class="card" >
   <%= image_tag @project.logo_url, class: "card-img-top", alt: "illustration" %>
   <%= render partial:'layouts/orga/mol/like', locals: {project: @project} %>
   <ul class="list-group list-group-flush">
 
     <li class="list-group-item bg-light">
-      <h4 class="card-title"><%= link_to project_name[0 .. 25] + "...", project_path(project_id)%></h4>
-      <p><small><%= link_to organization_name, organization_path(organization_id)%></small></p>
-      <p><small><%= city_name %></small></p>
+      <h4 class="card-title"><%= link_to @project.name[0 .. 25] + "...", project_path(@project.id)%></h4>
+      <p><small><%= link_to @project.organization.name, organization_path(@project.organization.id)%></small></p>
+      <p><small><%= @project.city.city_name %></small></p>
     </li>
 
     <li class="list-group-item">
-      <p> <%= raise_current %> € / <%= raise_objective %> €</p>
+      <p> <%= @project.in_progress_amount? %> € / <%= @project.donation_targeted %> €</p>
       <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="<%= in_progress_percentages%>"  aria-valuemin="0" aria-valuemax="100" style="width:<%= in_progress_percentages%>%">
-          <%= in_progress_percentages%>%
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="<%= @project.in_progress_percentages? %>"  aria-valuemin="0" aria-valuemax="100" style="width:<%= @project.in_progress_percentages? %>%">
+          <%= @project.in_progress_percentages? %>%
         </div>
       </div>
     </li>
 
     <li class="list-group-item bg-light">
-      <%= link_to "En savoir plus", project_path(project_id), class:"btn btn-primary"%>
-      <% days_left_str = "J-" + remaining_time.to_s  %>
-      <%= link_to days_left_str, project_path(project_id), class:"btn btn-outline-primary"%>
+      <%= link_to "En savoir plus", project_path(@project.id), class:"btn btn-primary"%>
+      <% days_left_str = "J-" + @project.remaining_time.to_s  %>
+      <%= link_to days_left_str, project_path(@project.id), class:"btn btn-outline-primary"%>
     </li>
 
   </ul>
   
 </div> <br/>
-
