@@ -22,7 +22,7 @@
             <%= link_to "Projets", projects_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-wow-delay="0.4s" href="mailto:contact@assoangels.com">Contact</a>
+            <%= link_to "Contact", "mailto:contact@assoangels.com", class: "nav-link" %>
           </li>
         </ul>
       </div>
@@ -30,14 +30,8 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href=""></a>
-          </li>
         </ul>
         <ul class="navbar-nav justify-content-end ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href=""></a>
-          </li>
           <% if user_signed_in? == false %>
             <li class="nav-item">
               <%= render partial:'layouts/orga/mol/atom/button', locals: {name: "S'inscrire", path: new_user_registration_path() , color: "primary"} %>
