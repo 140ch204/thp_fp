@@ -6,7 +6,7 @@
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="<%= organization_administred.logo_url %>" class="card-img-top1" alt="illustration">
+              <%= image_tag organization_administred.logo_url, class: "card-img-top1", alt: "illustration" %>
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -37,7 +37,7 @@
           <% projects_administred.each do |project|%>
             <div class="col-md-4">
               <div class="card">
-                <img src="<%= project.logo_url%>" class="card-img-top" alt="illustration">
+                <%= image_tag project.logo_url, class: "card-img-top", alt: "illustration" %>
                 <div class="card-body">
                   <h5 class="card-title"><%= link_to project.name, project_path(project.id) %></h5>
                 </div>

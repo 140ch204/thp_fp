@@ -7,7 +7,7 @@
           <div class="card">
             <ul class="list-group list-group-flush">
               <li class="list-group-item bg-light">
-                <img  src= <%= organization.logo_url %> <% link_to "voir" , organization_path(organization.id) %> class="card-img-top" alt="illustration">
+                <%= image_tag organization.logo_url, class: "card-img-top", alt: "illustration" %> <% link_to "voir" , organization_path(organization.id) %>
               </li>
               <li class="list-group-item">
                 <%= link_to "Détails" , organization_path(organization.id), class:"btn btn-primary btn-block" %>

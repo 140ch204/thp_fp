@@ -11,7 +11,9 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-8">
-            <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @organization.logo_url} %>
+            <div class="card" >
+              <%= image_tag @organization.logo_url, class: "card-img-top", alt: "illustration" %>
+            </div>
             <br/>
             <%= render partial:'layouts/orga/mol/card_tags' %>
             <br/>

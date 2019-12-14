@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="card-deck justify-content-center">
   <div class="card-block">
-    <img src="<%= @project.logo_url%>" class="card-img-top2" alt="illustration">
+    <%= image_tag @project.logo_url, class: "card-img-top2", alt: "illustration" %>
     <div class="card-body">
       <h5 class="card-title text-center"><%= link_to @project.name[0 .. 25] + "...", project_path(@project.id) %></h5>
     </div>

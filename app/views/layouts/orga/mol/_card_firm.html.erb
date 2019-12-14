@@ -1,56 +1,55 @@
 <% if !current_user.nil? %>
   <% @admin_collection.each do |element| %>
-    <% organization_administred = element.organization %>
-    <% if organization_administred.is_company == true %>
-      <section>
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="<%= organization_administred.logo_url %>" class="card-img-top1" alt="illustration">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h2 class="card-title">MON ENTREPRISE</h2>
-                <h3>
-                  <p class="card-text">NOM - <%= link_to organization_administred.name, organization_path(organization_administred.id)%></p>
-                </h3>
-                <h3>
-                  <p class="card-text">VILLE - <%= organization_administred.city.city_name %></p>
-                </h3>
-                <h3>
-                  <p class="card-text">CATEGORIE - <%= organization_administred.category %></p>
-                </h3>
-                <h3>
-                  <p class="card-text">DESCRIPTION - <%= organization_administred.description %></p>
-                </h3>
+    <% organization_administred = element.organization %>/h3>
+      <% if organization_administred.is_company == true %>
+        <section>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <%= image_tag organization_administred.logo_url, class: "card-img-top1", alt: "illustration"%>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">MON ENTREPRISE</h2>
+                  <h3>
+                    <p class="card-text">NOM - <%= link_to organization_administred.name, organization_path(organization_administred.id)%></p>
+                  </h3>
+                  <h3>
+                    <p class="card-text">VILLE - <%= organization_administred.city.city_name %></p>
+                  </h3>
+                  <h3>
+                    <p class="card-text">CATEGORIE - <%= organization_administred.category %></p>
+                  </h3>
+                  <h3>
+                    <p class="card-text">DESCRIPTION - <%= organization_administred.description %></p>
+                  </h3>
+                </div>
               </div>
             </div>
+            <div class="card-footer">
+              <h4 class="card-title">Mes dons : <%= link_to "Trouver un projet", projects_path, class:"btn btn-outline-secondary float-right"%></h4>
+            </div>
           </div>
-          <div class="card-footer">
-            <h4 class="card-title">Mes dons : <%= link_to "Trouver un projet", projects_path, class:"btn btn-outline-secondary float-right"%></h4>
-          </div>
-        </div>
-      </section>
-      <section>
+        </section>
+        <section>
           <div class="card-group">
             <% my_donations = element.organization.donations %>
             <% my_donations.each do |donation|%>
-            <% admin_project = donation.project%>
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="<%= admin_project.logo_url%>" class="card-img-top" alt="illustration">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= link_to donation.project.name[0 .. 22] + "...", project_path(donation.project.id) %></h5>
-                    <p class="card-text">Don de <%= donation.donation_amount %> €</p>
-                    <p class="card-text">Effectué le <%= donation.created_at.strftime("%F") %></p>
+              <% admin_project = donation.project%>
+                <div class="col-md-4">
+                  <div class="card">
+                    <%= image_tag admin_project.logo_url, class: "card-img-top1", alt: "illustration"%>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= link_to donation.project.name[0 .. 22] + "...", project_path(donation.project.id) %></h5>
+                      <p class="card-text">Don de <%= donation.donation_amount %> €</p>
+                      <p class="card-text">Effectué le <%= donation.created_at.strftime("%F") %></p>
+                    </div>
                   </div>
-             
+                  <br>
                 </div>
-                <br>
-              </div>
-            <% end %>
+              <% end %>
           </div>
-      </section>
+        </section>
       <br>
     <% end %>
   <% end %>
