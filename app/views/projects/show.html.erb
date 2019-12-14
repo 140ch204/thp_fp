@@ -10,9 +10,9 @@
 
 
     <div class="col-md-8">
-
-
-      <%= render partial:'layouts/orga/mol/atom/card_pict', locals: {pic_url: @project.logo_url} %>
+      <div class="card" >
+        <%= image_tag @project.logo_url, class: "card-img-top", alt: "illustrration"%>
+      </div> 
       <br/>
       <%= render partial:'layouts/orga/mol/card_title_description', locals: {title: @project.name, description: @project.description } %>
       <br/>
