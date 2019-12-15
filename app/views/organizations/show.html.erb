@@ -71,7 +71,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-              <%= render partial:'layouts/orga/mol/card_title', locals: {title: "Projets en cours"} %>
+              <center><%= render partial:'layouts/orga/mol/card_title', locals: {title: "PROJETS EN COURS"} %></center>
               <br>
             </div>
           </div>
@@ -93,6 +93,7 @@
       <%end%>
     </div>
   </div>
+  <br/>
   <% if @organization.is_association %>
     <% if @current_organization.is_organization_admin(@user) %>
       <div class="container">

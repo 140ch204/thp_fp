@@ -26,18 +26,6 @@ end
 puts "#{department_count} departments created."
 
 
-#department_count = 0
-#20.times do
-#	Department.create(
-#		country_id: Country.all.sample.id,
-#		department_name: Faker::Address.community,
-#		zip_code: Faker::Address.zip_code,
-#		region: Faker::Address.state)
-#	department_count += 1
-#end
-#puts "#{department_count} departments created."
-
-
 city_array= [{'city_name'=>'Paris'},{'city_name'=>'Boulogne-Billancourt'},{'city_name'=>'Saint-Denis '},{'city_name'=>'Argenteuil '},{'city_name'=>'Montreuil '},{'city_name'=>'Nanterre '},{'city_name'=>'Vitry-sur-Seine'},{'city_name'=>'Créteil'},{'city_name'=>'Asnières-sur-Seine'},{'city_name'=>'Versailles'},{'city_name'=>'Colombes'},{'city_name'=>'Aubervilliers'},{'city_name'=>'Aulnay-sous-Bois '},{'city_name'=>'Courbevoie '},{'city_name'=>'Rueil-Malmaison '},{'city_name'=>'Champigny-sur-Marne '},{'city_name'=>'Saint-Maur-des-Fossés '},{'city_name'=>'Drancy '},{'city_name'=>'Issy-les-Moulineaux'},{'city_name'=>'Noisy-le-Grand'},{'city_name'=>'Levallois-Perret'},{'city_name'=>'Cergy '},{'city_name'=>'Antony '},{'city_name'=>'Neuilly-sur-Seine '},{'city_name'=>'Clichy '},{'city_name'=>'Ivry-sur-Seine '},{'city_name'=>'Sarcelles '},{'city_name'=>'Villejuif'},{'city_name'=>'Le Blanc-Mesnil'},{'city_name'=>'Pantin '},{'city_name'=>'Maisons-Alfort '},{'city_name'=>'Épinay-sur-Seine '},{'city_name'=>'Évry-Courcouronnes'},{'city_name'=>'Chelles '},{'city_name'=>'Meaux '},{'city_name'=>'Fontenay-sous-Bois '},{'city_name'=>'Bondy'},{'city_name'=>'Clamart '},{'city_name'=>'Sartrouville'},{'city_name'=>'Bobigny '}]
 
 City.destroy_all
@@ -50,15 +38,6 @@ city_array.each do |city|
 end
 puts "#{city_count} cities created."
 
-#City.destroy_all
-#city_count = 0
-#30.times do
-#	City.create(
-#		department_id: Department.all.sample.id,
-#		city_name: Faker::Address.city)
-#	city_count += 1
-#end
-#puts "#{city_count} cities created."
 
 User.destroy_all
 user_count = 0
@@ -99,8 +78,7 @@ company_count = 0
 association_count = 0
 
 
-
-company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnostic et en mise en application
+company_array= [{'name'=>'ABC CONSEIL','description'=>'Accessibilité en diagnostic et en mise en application
   maîtrise d oeuvre d exécution ( travail en partenariat avec un architecte)','category'=>'BTP','logo_url'=>'https://r2v.eu/wp-content/uploads/cache/images/logoabcconseil/logoabcconseil-210385576.png','is_company'=>'ent'},{'name'=>'AGIR','description'=>'Administratif, Audit   Gestion, Ressources Humaines
   Assistanat - Gestion','category'=>'Administratif','logo_url'=>'http://www.mairie-athis-mons.fr/annuaire/logo_association_175.jpg','is_company'=>'ent'},{'name'=>'DPG Solutions','description'=>'DPG Solutions accompagne et forme les dirigeants de TPE et PME à taille humaine dans le pilotage quotidien de leur entreprise.
   Nous intervenons dans les domaines suivants :
@@ -146,7 +124,8 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
   Les bénéfices ainsi dégagés permettent de financer les goûters et sorties de l’École de Rugby ainsi que les collations d’avant ou d’après match pour toutes les catégories.','category'=>'Sport','logo_url'=>'http://bretignyrugby.fr/rcsb/wp-content/uploads/2014/08/Logo_RCSB_245x156.png','is_company'=>'asso'},{'name'=>'Resto du cœur','description'=>'S’engager aux côtés des Restos c’est permettre à l’association de continuer à bénéficier de soutien tout au long de l’année pour assurer ses missions sociales d’aide à la personne.
   
   Aujourd’hui plus que jamais, la recherche de ressources complémentaires est devenue une priorité.','category'=>'Solidarité','logo_url'=>'https://www.restosducoeur.org/wp-content/uploads/2016/04/logo.svg','is_company'=>'asso'},{'name'=>'Necker enfant malades','description'=>'Apprendre, rire, jouer, lire : les associations rendent la vie plus facile aux enfants hospitalisés','category'=>'Solidarité','logo_url'=>'http://hopital-necker.aphp.fr/wp-content/blogs.dir/13/files/2017/11/Logo-Necker.png','is_company'=>'asso'}]
-  
+
+
   company_array.each do |company|
     if company['is_company'] == "ent"
       one_company = Organization.create(
@@ -176,36 +155,6 @@ company_array= [{'name'=>'ABC CONSEIL','description'=>'accessibilité en diagnos
   puts "#{company_count} companies created."
   puts "#{association_count} associations created."
 
-
-#Organization.destroy_all
-#company_count = 0
-#association_count = 0
-#10.times do
-#	one_company = Organization.create(
-#		city_id: City.all.sample.id,
-#		name: Faker::Company.name,
-#		description: Faker::Company.catch_phrase,
-#		category: Faker::Company.type,
-#		logo_url: Faker::Company.logo,
-#		siret: Faker::Company.french_siret_number,
-#		is_association: false,
-#		is_company: true)
-#	company_count += 1
-#end
-#10.times do
-#	one_asso = Organization.create(
-#		city_id: City.all.sample.id,		
-#		name: Faker::Company.name,
-#		description: Faker::Company.catch_phrase,
-#		category: Faker::Company.type,
-#		logo_url: Faker::Company.logo,
-#		RNA: Faker::Company.french_siret_number,
-#		is_association: true,
-#		is_company: false)
-#	association_count += 1
-#end
-# puts "#{company_count} companies created."
-# puts "#{association_count} associations created."
 
 Admin.destroy_all
 organizations = Organization.all
