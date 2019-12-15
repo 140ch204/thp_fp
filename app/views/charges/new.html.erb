@@ -28,7 +28,7 @@
           <div class="row mt-4">
             <div class="col">
               <div class="actions">
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" >
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="Don"
                   data-amount="<%= @donation_amount.to_i * 100%>"
