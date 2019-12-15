@@ -3,22 +3,31 @@
 <%= render partial:'layouts/orga/calltoaction' %>
 <br>
 <section>
-	<div class="container">
-		<div class="row text-center">
-			<div class="col-12">
-				<h1>Les Projets du moment</h1>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1>Notre mission</h1>
+	  <%= image_tag 'https://zupimages.net/up/19/50/458z.png',class:"img-fluid mt-5",alt:"" %>
+    </div>
+  </div>
 </section>
 <section>
-<div class="container">
-  <div class="card-group">
-	<% @project.each do |project|%>
-	<% @project = project %>
-	<%= render partial:'layouts/orga/feature1' %>
-	<% end %>
-	</div>
+  <br>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h1>Les Projets du moment</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="card-group">
+      <% @project.each do |project|%>
+        <% @project = project %>
+        <%= render partial:'layouts/orga/feature1' %>
+      <% end %>
+    </div>
   </div>
 </section>
 <br>
