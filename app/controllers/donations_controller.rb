@@ -14,8 +14,13 @@ class DonationsController < ApplicationController
       flash[:danger] = "Choisissez un montant"
       redirect_to new_donation_path(:project_id => @project_id) 
     else
-      redirect_to new_charge_path(:donation_amount => @donation_amount, 
-        :project_id => @project_id)
+      if @donation_amount.to_i < 1 || @donation_amount.to_i > 999_999.99
+        flash[:danger] = 'Le montant minimum est de 1€, le montant maximum est de 999,999,99€'
+        redirect_to new_donation_path
+      else
+        redirect_to new_charge_path(:donation_amount => @donation_amount, 
+                                    :project_id => @project_id)
+      end
     end
   end
 
