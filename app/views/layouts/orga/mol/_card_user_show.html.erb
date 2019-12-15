@@ -22,13 +22,6 @@
             <h3>
               <p class="card-text">PRENOM - <%= best_in_place @current_user, :last_name, :place_holder => "Cliquez pour éditer" %></p>
             </h3>
-            <h3>
-              <% if @current_user.city != nil%>
-                <p class="card-text">VILLE - <%= best_in_place @current_user.city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
-              <% else %>
-                <p class="card-text">VILLE - <%= best_in_place @city, :city_name, :url => "/users/#{current_user.id}", :place_holder => "Cliquez pour éditer" %></p>
-              <% end %>
-            </h3>
             <br>
             <h3>
               <p class="card-text">EMAIL - <%= @current_user.email %></p>

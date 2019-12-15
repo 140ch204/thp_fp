@@ -1,6 +1,6 @@
 <% if !current_user.nil? %>
   <% @admin_collection.each do |element| %>
-    <% organization_administred = element.organization %>/h3>
+    <% organization_administred = element.organization %></h3>
       <% if organization_administred.is_company == true %>
         <section>
           <div class="card mb-3">
