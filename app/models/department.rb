@@ -6,5 +6,5 @@ class Department < ApplicationRecord
     format: { with: /\A[a-z]*\D*\z/i }
   validates :zip_code,
     presence: true,
-    format: { with: /\A\d{2}\z/i }
+    length: { maximum: 5 }
 end
