@@ -27,18 +27,6 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if params[:city] != nil
-      @city = City.find_or_create_by(city_name: params[:city][:city_name])
-      respond_to do |format|
-        if @user.update(city: City.find_or_create_by(city_name: params[:city][:city_name]))
-          format.html { redirect_to user_path(params[:id])}
-          format.json { head :no_content }
-        else
-          format.html { render action: 'edit'}
-          format.json { render json: @user.errors, status: :unprocessable_entity}
-        end
-      end
-    else
       respond_to do |format|
         if @user.update_attributes(permitted_user_params)
           format.html { redirect_to user_path(params[:id]) }
@@ -48,8 +36,6 @@ class UsersController < ApplicationController
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-    end
-
 	end
 
 	def destroy
@@ -65,11 +51,6 @@ class UsersController < ApplicationController
 	end
   
   def permitted_user_params
-    if params[:user] != nil
-      return params.require(:user).permit(:first_name, :last_name)
-    end
-    if params[:user] == nil
-      params.require(:city).permit(:city_name)
-    end
+    params.require(:user).permit(:first_name, :last_name)
   end
 end
