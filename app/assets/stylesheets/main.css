@@ -25,7 +25,7 @@ footer.footer-small{
     color: green;
   }
 .list-group-item{
-  min-height: 3vw;
+  min-height: 5vw;
   align-items: center;
   border: hidden;
 }
@@ -71,20 +71,21 @@ footer.footer-small{
 }
 
   .card-img-top2 {
-    width: 15vw;
-    height: 10vw;
+    width: 10vw;
+    height: 6vw;
     object-fit: scale-down;
     margin-left: auto ;
     margin-right: auto;
 }
 
-.card-img-top2 {
-  width: 15vw;
+.card-img-top3 {
+  width: 20vw;
   height: 10vw;
   object-fit: scale-down;
   margin-left: auto ;
   margin-right: auto;
 }
+
 /*Style du scrollback button*/
 
 #Scroller{
@@ -174,30 +175,32 @@ footer.footer-small{
   50% { border-color: #329ef7; }
 }
 
-#projet, #asso {
+#projet{
   transition: box-shadow .3s;
-  width: 350px;
-  height: 500px;
+  width:100%;
   margin-left: auto;
   margin-right: auto;
   border-radius:10px;
   border: 1px solid #ccc;
   background: #fff;
-  
+  height: 100%;
+  display: flex;  
 }
+
 #projet:hover, #asso:hover {
   box-shadow: 10px 10px 5px grey;
 }
 
 #asso, #firm {
   transition: box-shadow .3s;
-  width: 350px;
-  height: 580px;
+  width:100%;
   margin-left: auto;
   margin-right: auto;
   border-radius:10px;
   border: 1px solid #ccc;
   background: #fff;
+  height: 100%;
+  display: flex;
   
 }
 #asso:hover, #firm:hover {
@@ -207,3 +210,11 @@ footer.footer-small{
 #avatar{
   margin-left: 20px
 }
+
+#jumbo{
+  width: 500px;
+  height: 300px;
+  justify-content: center;
+}
+
+

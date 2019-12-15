@@ -11,7 +11,7 @@
         </div>
         <div id="asso-row" class="row">
           <% @associations.each_with_index do |association, i| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
               <div id="asso" class="card" >
                 <%= image_tag association.logo_url, class: "card-img-top2", alt: "illustration" %>
                 <div class="card-body bg-ligth">
@@ -52,7 +52,7 @@
           </div>
           <div class="row">
             <% @companies.each_with_index do |company, i| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
                 <div id= "firm" class="card" >
                   <%= image_tag company.logo_url, class: "card-img-top2", alt: "illustration" %>
                   <div class="card-body bg-ligth">
