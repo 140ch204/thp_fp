@@ -11,7 +11,7 @@
           <%= form_with model: @donation do |donation_form|%>
           <div class="row mt-4">
             <div class="col">
-              <%= donation_form.number_field :donation_amount, in: 1.0..Float::INFINITY, class: "form-control", placeholder: "Montant" %><br />
+              <%= donation_form.number_field :donation_amount, in: 1.0..999_999.99, class: "form-control", placeholder: "Montant", id: 'donation_amount' %><br />
               <%= donation_form.hidden_field :project_id, :value => params[:project_id] %>
             </div>
           </div>
@@ -32,4 +32,20 @@
       </div>
     </div>
   </div>
-</section>  
+</section>
+
+<script>
+hyperform.setMessage(document.getElementById('donation_amount'),
+  'valueMissing',
+  'Entrez un montant');
+hyperform.setMessage(document.getElementById('donation_amount'),
+  'badInput',
+  'Entrez un nombre');
+hyperform.setMessage(document.getElementById('donation_amount'),
+  'rangeUnderflow',
+  'Le montant minimum est de 1€');
+hyperform.setMessage(document.getElementById('donation_amount'),
+  'rangeOverflow',
+  'Le montant maximum est de 999,999,99€');
+  hyperform(window);
+</script>
