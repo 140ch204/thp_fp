@@ -42,6 +42,9 @@ La plateforme du mécénat participatif des entreprises.
 Via le lien
 
   [https://assoangels.herokuapp.com/](https://assoangels.herokuapp.com/)
+  
+Email user admin : izetta.mcdermott@yopmail.com
+Mdp user admin : aaaaaa
 
 
 
